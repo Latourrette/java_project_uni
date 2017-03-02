@@ -15,16 +15,6 @@ public class Flights {
         this.windVelocity = windVelocity;
     }
 
-    @Override
-    public String toString() {
-        return "Flights{" +
-                "flightCode='" + flightCode + '\'' +
-                ", localOfDeparture='" + localOfDeparture + '\'' +
-                ", localOfArrival='" + localOfArrival + '\'' +
-                ", windVelocity=" + windVelocity +
-                '}';
-    }
-
 
     public static void makeAFlight(airport.RedBlackBST<String, Airport> airportST) {
         Scanner scan = new Scanner(System.in);
@@ -77,5 +67,14 @@ public class Flights {
         this.windVelocity = windVelocity;
     }
 
+    @Override
+    public String toString() {
+        return "Flights{" +
+                "flightCode='" + flightCode + '\'' +
+                ", localOfDeparture='" + localOfDeparture + '\'' +
+                ", localOfArrival='" + localOfArrival + '\'' +
+                ", windVelocity=" + windVelocity +
+                '}';
+    }
 
 }

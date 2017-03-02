@@ -4,19 +4,19 @@ public class Main {
 
     public static void main(String[] args) {
 
-        airport.RedBlackBST<String, Airport> airportST = new airport.RedBlackBST<>();
-        airport.RedBlackBST<String, Airplane> airplaneST = new airport.RedBlackBST<>();
-        airport.RedBlackBST<String, Airline> airlineST = new airport.RedBlackBST<>();
+        RedBlackBST<String, Airport> airportST = new RedBlackBST<>();
+        RedBlackBST<String, Airline> airlineST = new RedBlackBST<>();
+        SeparateChainingHashST<String, Airplane> airplaneST = new SeparateChainingHashST<>();
 
-        Airplane.loadFromFileAirplanes(airplaneST, ".//data//airplanes.txt");
-        Airport.loadFromFileAirports(airportST, ".//data//airports.txt");
-        Airline.loadFromFileAirlines(airlineST, ".//data//airlines.txt");
-        Airport.loadFromFileAirportFlights(airportST, ".//data//flights.txt");
+        Airplane.loadFromFileAirplane(airplaneST, ".//data//airplanes.txt");
+        Airport.loadFromFileAirport(airportST, ".//data//airports.txt");
+        Airline.loadFromFileAirline(airlineST, ".//data//airlines.txt");
+        Airport.loadFromFileAirportFlight(airportST, ".//data//flights.txt");
 
 
-        System.out.println(Airport.removeAirport(airportST));
+        //System.out.println(Airport.removeAirport(airportST));
 
-        Airport.saveFileAirports(airportST, ".//data//airports.txt");
+        //Airport.saveToFileAirport(airportST, ".//data//airports.txt");
     }
 
 

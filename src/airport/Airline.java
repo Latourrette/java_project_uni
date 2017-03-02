@@ -1,20 +1,16 @@
 package airport;
 
 import edu.princeton.cs.algs4.In;
+import edu.princeton.cs.algs4.Out;
+
+import java.util.Scanner;
 
 public class Airline {
     private String name;
-    private airport.RedBlackBST<String, Airplane> airLinePlanesST = new airport.RedBlackBST<>();
+    private RedBlackBST<String, Airplane> airlinePlanesST = new RedBlackBST<>();
 
-    @Override
-    public String toString() {
-        return "Airline{" +
-                "name='" + name + '\'' +
-                ", airLinePlanesST=" + airLinePlanesST +
-                '}';
-    }
 
-    public static void loadFromFileAirlines(airport.RedBlackBST<String, Airline> airlinesST, String path) {
+    public static void loadFromFileAirline(RedBlackBST<String, Airline> airlinesST, String path) {
         In in = new In(path);
         try {
             while (!in.isEmpty()) {
@@ -37,17 +33,25 @@ public class Airline {
         this.name = name;
     }
 
-    public airport.RedBlackBST<String, Airplane> getAirLinePlanesST() {
-        return airLinePlanesST;
+    public RedBlackBST<String, Airplane> getairlinePlanesST() {
+        return airlinePlanesST;
     }
 
-    public void setAirLinePlanesST(airport.RedBlackBST<String, Airplane> airLinePlanesST) {
-        this.airLinePlanesST = airLinePlanesST;
+    public void setairlinePlanesST(RedBlackBST<String, Airplane> airlinePlanesST) {
+        this.airlinePlanesST = airlinePlanesST;
     }
 
     public Airline(String name) {
 
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Airline{" +
+                "name='" + name + '\'' +
+                ", airlinePlanesST=" + airlinePlanesST +
+                '}';
     }
 
 }

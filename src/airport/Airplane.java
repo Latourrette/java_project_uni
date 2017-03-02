@@ -17,20 +17,7 @@ public class Airplane {
         this.consumption = consumption;
     }
 
-    @Override
-    public String toString() {
-        return "Airplane{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", cruiseSpeed=" + cruiseSpeed +
-                ", cruiseAltitude=" + cruiseAltitude +
-                ", consumption=" + consumption +
-                '}';
-    }
-
-
-
-    public static void loadFromFileAirplanes(airport.RedBlackBST<String, Airplane> airplaneST, String path) {
+    public static void loadFromFileAirplane(SeparateChainingHashST<String, Airplane> airplaneST, String path) {
         In in = new In(path);
         try {
             while (!in.isEmpty()) {
@@ -86,6 +73,17 @@ public class Airplane {
 
     public void setConsumption(int consumption) {
         this.consumption = consumption;
+    }
+
+    @Override
+    public String toString() {
+        return "Airplane{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", cruiseSpeed=" + cruiseSpeed +
+                ", cruiseAltitude=" + cruiseAltitude +
+                ", consumption=" + consumption +
+                '}';
     }
 
 

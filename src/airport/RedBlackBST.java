@@ -197,6 +197,7 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
         // assert check();
     }
 
+
     // insert the key-value pair in the subtree rooted at h
     private Node put(Node h, Key key, Value val) {
         if (h == null) return new Node(key, val, RED, 1);

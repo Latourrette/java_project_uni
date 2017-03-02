@@ -9,19 +9,9 @@ public class Airport {
     private String name; //key
     private String lat;
     private String lon;
-    private airport.RedBlackBST<String, Flights> airportFlightsST = new airport.RedBlackBST<>();
+    private RedBlackBST<String, Flights> airportFlightsST = new RedBlackBST<>();
 
-    @Override
-    public String toString() {
-        return "Airport{" +
-                "name='" + name + '\'' +
-                ", lat='" + lat + '\'' +
-                ", lon='" + lon + '\'' +
-                ", airportFlightsST=" + airportFlightsST +
-                '}';
-    }
-
-    public static void loadFromFileAirports(airport.RedBlackBST<String, Airport> airportST, String path) {
+    public static void loadFromFileAirport(RedBlackBST<String, Airport> airportST, String path) {
         In in = new In(path);
         try {
             while (!in.isEmpty()) {
@@ -37,7 +27,7 @@ public class Airport {
         }
     }
 
-    public static void loadFromFileAirportFlights(airport.RedBlackBST<String, Airport> airportST, String path) {
+    public static void loadFromFileAirportFlight(RedBlackBST<String, Airport> airportST, String path) {
         In in = new In(path);
         try {
             while (!in.isEmpty()) {
@@ -55,7 +45,7 @@ public class Airport {
         }
     }
 
-    public static boolean removeAirport(airport.RedBlackBST<String, Airport> airportRedBlackBST) {
+    public static boolean removeAirport(RedBlackBST<String, Airport> airportRedBlackBST) {
         Scanner scan = new Scanner(System.in);
         System.out.println("Choose airport to delete: ");
         String aux = scan.nextLine();
@@ -75,7 +65,7 @@ public class Airport {
         return true;
     }
 
-    public static void saveFileAirports(airport.RedBlackBST<String, Airport> airportRedBlackBST, String path) {
+    public static void saveToFileAirport(RedBlackBST<String, Airport> airportRedBlackBST, String path) {
         Out o = new Out(path);
         for (String aux : airportRedBlackBST.keys()) {
             Airport air = airportRedBlackBST.get(aux);
@@ -83,7 +73,7 @@ public class Airport {
         }
     }
 
-    public static void createAirport(airport.RedBlackBST<String, Airport> airportST) {
+    public static void addAirport(RedBlackBST<String, Airport> airportST) {
         Scanner scan = new Scanner(System.in);
         try {
             System.out.println("Airport name: ");
@@ -123,11 +113,11 @@ public class Airport {
         this.lon = lon;
     }
 
-    public airport.RedBlackBST<String, Flights> getAirportFlightsST() {
+    public RedBlackBST<String, Flights> getAirportFlightsST() {
         return airportFlightsST;
     }
 
-    public void setAirportFlightsST(airport.RedBlackBST<String, Flights> airportFlightsST) {
+    public void setAirportFlightsST(RedBlackBST<String, Flights> airportFlightsST) {
         this.airportFlightsST = airportFlightsST;
     }
 
@@ -137,5 +127,14 @@ public class Airport {
         this.lon = lon;
     }
 
+    @Override
+    public String toString() {
+        return "Airport{" +
+                "name='" + name + '\'' +
+                ", lat='" + lat + '\'' +
+                ", lon='" + lon + '\'' +
+                ", airportFlightsST=" + airportFlightsST +
+                '}';
+    }
 
 }
