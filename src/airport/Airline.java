@@ -4,6 +4,7 @@ import edu.princeton.cs.algs4.In;
 
 public class Airline {
     private String name;
+    private airport.RedBlackBST<String, Airplane> airLinePlanesST = new airport.RedBlackBST<>();
 
     @Override
     public String toString() {
@@ -27,9 +28,6 @@ public class Airline {
         }
     }
 
-
-
-    private airport.RedBlackBST<String, Airplane> airLinePlanesST = new airport.RedBlackBST<>();
 
     public String getName() {
         return name;
