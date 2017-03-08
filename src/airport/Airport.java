@@ -1,49 +1,26 @@
 package airport;
 
-import edu.princeton.cs.algs4.In;
-import edu.princeton.cs.algs4.Out;
-
-import java.util.Scanner;
 
 public class Airport {
-    private String name; //key
-    private String lat;
-    private String lon;
-    private RedBlackBST<String, Flights> airportFlightsST = new RedBlackBST<>();
+    private String name;
+    private String code;
+    private String city;
+    private String country;
+    private String continent;
+    private Float rating;
+    private RedBlackBST<String, Airplane> airplaneST = new RedBlackBST<>();
 
-    public static void loadFromFileAirport(RedBlackBST<String, Airport> airportST, String path) {
-        In in = new In(path);
-        try {
-            while (!in.isEmpty()) {
-                String[] text = in.readLine().split(";");
-                String name = text[0];
-                String lat = text[1];
-                String lon = text[2];
-                Airport aux = new Airport(name, lat, lon);
-                airportST.put(name, aux);
-            }
-        } catch (Exception e) {
-            System.out.println(e);
-        }
+    public Airport(String name, String code, String city, String country, String continent, Float rating) {
+        this.name = name;
+        this.code = code;
+        this.city = city;
+        this.country = country;
+        this.continent = continent;
+        this.rating = rating;
     }
 
-    public static void loadFromFileAirportFlight(RedBlackBST<String, Airport> airportST, String path) {
-        In in = new In(path);
-        try {
-            while (!in.isEmpty()) {
-                String[] text = in.readLine().split(";");
-                String aux1 = text[0];
-                String aux2 = text[1];
-                String aux3 = text[2];
-                String aux4 = text[3];
-                String aux5 = text[4];
-                Flights auxObj = new Flights(aux2, aux3, aux4, Integer.parseInt(aux5));
-                airportST.get(aux1).getAirportFlightsST().put(aux2, auxObj);
-            }
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-    }
+    /*
+
 
     public static boolean removeAirport(RedBlackBST<String, Airport> airportRedBlackBST) {
         Scanner scan = new Scanner(System.in);
@@ -87,7 +64,7 @@ public class Airport {
         } catch (Exception e) {
             System.out.println(e);
         }
-    }
+    }*/
 
     public String getName() {
         return name;
@@ -97,44 +74,51 @@ public class Airport {
         this.name = name;
     }
 
-    public String getLat() {
-        return lat;
+    public String getCode() {
+        return code;
     }
 
-    public void setLat(String lat) {
-        this.lat = lat;
+    public void setCode(String code) {
+        this.code = code;
     }
 
-    public String getLon() {
-        return lon;
+    public String getCity() {
+        return city;
     }
 
-    public void setLon(String lon) {
-        this.lon = lon;
+    public void setCity(String city) {
+        this.city = city;
     }
 
-    public RedBlackBST<String, Flights> getAirportFlightsST() {
-        return airportFlightsST;
+    public String getCountry() {
+        return country;
     }
 
-    public void setAirportFlightsST(RedBlackBST<String, Flights> airportFlightsST) {
-        this.airportFlightsST = airportFlightsST;
+    public void setCountry(String country) {
+        this.country = country;
     }
 
-    public Airport(String name, String lat, String lon) {
-        this.name = name;
-        this.lat = lat;
-        this.lon = lon;
+    public String getContinent() {
+        return continent;
     }
 
-    @Override
-    public String toString() {
-        return "Airport{" +
-                "name='" + name + '\'' +
-                ", lat='" + lat + '\'' +
-                ", lon='" + lon + '\'' +
-                ", airportFlightsST=" + airportFlightsST +
-                '}';
+    public void setContinent(String continent) {
+        this.continent = continent;
     }
 
+    public Float getRating() {
+        return rating;
+    }
+
+    public void setRating(Float rating) {
+        this.rating = rating;
+    }
+
+    public RedBlackBST<String, Airplane> getAirplaneST() {
+        return airplaneST;
+    }
+
+    public void setAirplaneST(RedBlackBST<String, Airplane> airplaneST) {
+        this.airplaneST = airplaneST;
+    }
 }

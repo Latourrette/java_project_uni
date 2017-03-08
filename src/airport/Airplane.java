@@ -1,38 +1,28 @@
 package airport;
 
-import edu.princeton.cs.algs4.In;
-
 public class Airplane {
     private String id; //key
+    private String model;
     private String name;
-    private int cruiseSpeed;
-    private int cruiseAltitude;
-    private int consumption;
+    private String airline;
+    private Integer cruiseSpeed;
+    private Integer cruiseAltitude;
+    private Integer maxDistance;
+    private String currentAirport;
+    private Integer maxCapacity;
+    private Integer fuelCapacity;
 
-    public Airplane(String id, String name, int cruiseSpeed, int cruiseAltitude, int consumption) {
+    public Airplane(String id, String model, String name, String airline, int cruiseSpeed, int cruiseAltitude, int maxDistance, String currentAirport, int maxCapacity, int fuelCapacity) {
         this.id = id;
+        this.model = model;
         this.name = name;
+        this.airline = airline;
         this.cruiseSpeed = cruiseSpeed;
         this.cruiseAltitude = cruiseAltitude;
-        this.consumption = consumption;
-    }
-
-    public static void loadFromFileAirplane(SeparateChainingHashST<String, Airplane> airplaneST, String path) {
-        In in = new In(path);
-        try {
-            while (!in.isEmpty()) {
-                String[] text = in.readLine().split(";");
-                String aux1 = text[0];
-                String aux2 = text[1];
-                String aux3 = text[2];
-                String aux4 = text[3];
-                String aux5 = text[4];
-                Airplane aux = new Airplane(aux1, aux2, Integer.parseInt(aux3), Integer.parseInt(aux4), Integer.parseInt(aux5));
-                airplaneST.put(aux1, aux);
-            }
-        } catch (Exception e) {
-            System.out.println(e);
-        }
+        this.maxDistance = maxDistance;
+        this.currentAirport = currentAirport;
+        this.maxCapacity = maxCapacity;
+        this.fuelCapacity = fuelCapacity;
     }
 
     public String getId() {
@@ -43,12 +33,28 @@ public class Airplane {
         this.id = id;
     }
 
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getAirline() {
+        return airline;
+    }
+
+    public void setAirline(String airline) {
+        this.airline = airline;
     }
 
     public int getCruiseSpeed() {
@@ -67,24 +73,52 @@ public class Airplane {
         this.cruiseAltitude = cruiseAltitude;
     }
 
-    public int getConsumption() {
-        return consumption;
+    public int getMaxDistance() {
+        return maxDistance;
     }
 
-    public void setConsumption(int consumption) {
-        this.consumption = consumption;
+    public void setMaxDistance(int maxDistance) {
+        this.maxDistance = maxDistance;
     }
+
+    public String getCurrentAirport() {
+        return currentAirport;
+    }
+
+    public void setCurrentAirport(String currentAirport) {
+        this.currentAirport = currentAirport;
+    }
+
+    public int getMaxCapacity() {
+        return maxCapacity;
+    }
+
+    public void setMaxCapacity(int maxCapacity) {
+        this.maxCapacity = maxCapacity;
+    }
+
+    public int getFuelCapacity() {
+        return fuelCapacity;
+    }
+
+    public void setFuelCapacity(int fuelCapacity) {
+        this.fuelCapacity = fuelCapacity;
+    }
+
 
     @Override
     public String toString() {
         return "Airplane{" +
                 "id='" + id + '\'' +
+                ", model='" + model + '\'' +
                 ", name='" + name + '\'' +
+                ", airline='" + airline + '\'' +
                 ", cruiseSpeed=" + cruiseSpeed +
                 ", cruiseAltitude=" + cruiseAltitude +
-                ", consumption=" + consumption +
+                ", maxDistance=" + maxDistance +
+                ", currentAirport='" + currentAirport + '\'' +
+                ", maxCapacity=" + maxCapacity +
+                ", fuelCapacity=" + fuelCapacity +
                 '}';
     }
-
-
 }
