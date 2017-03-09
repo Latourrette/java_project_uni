@@ -9,9 +9,11 @@ public class Main {
 
     public static void main(String[] args) {
         RedBlackBST<String, Airport> airportST = new RedBlackBST<>();
+        RedBlackBST<String, Flight> flightST = new RedBlackBST<>();
 
         loadFromFileAirport(airportST, ".//data//airports.txt");
         loadFromFileAirplane(airportST, ".//data//airplanes.txt");
+        loadFromFileFlight(flightST, ".//data//flights.txt");
 
         //printAllAirports(airportST);
         //printAirplanesByAirport(airportST);
@@ -61,6 +63,26 @@ public class Main {
                         currentAirport, maxCapacity, fuelCapacity);
                 airportST.get(currentAirport).getAirplaneST().put(id, a);
 
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    public static void loadFromFileFlight(RedBlackBST<String, Flight> flightST, String path) {
+
+        In in = new In(path);
+        try {
+
+            while (!in.isEmpty()) {
+                String[] text = in.readLine().split(";");
+                String code = text[0];
+                String airplaneID = text[1];
+                String origin = text[2];
+                String destination = text[3];
+
+                Flight f = new Flight(code, airplaneID, origin, destination);
+                flightST.put(code, f);
             }
         } catch (Exception e) {
             System.out.println(e);
@@ -164,6 +186,37 @@ public class Main {
         }
     }
 
+    public static void printFlightToAirport(RedBlackBST<String, Flight> flightST,
+                                            RedBlackBST<String, Airport> airportST) {
+
+
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Choose the airport code to get the flights: ");
+        String code = scan.nextLine();
+
+        System.out.println("Origin flights of " + airportST.get(code).getName());
+
+        for (String i : flightST.keys()) {
+            if (flightST.get(i).getOrigin().equals(airportST.get(code).getCode())) {
+                System.out.println("\tCode: " + flightST.get(i).getCode());
+                System.out.println("\tCode: " + flightST.get(i).getAirplaneID());
+                System.out.println("\tCode: " + flightST.get(i).getOrigin());
+                System.out.println("\tCode: " + flightST.get(i).getDestination());
+            }
+        }
+
+        System.out.println("Destination flights of " + airportST.get(code).getName());
+        for (String i : flightST.keys()) {
+            if (flightST.get(i).getDestination().equals(airportST.get(code).getCode())) {
+                System.out.println("\tCode: " + flightST.get(i).getCode());
+                System.out.println("\tCode: " + flightST.get(i).getAirplaneID());
+                System.out.println("\tCode: " + flightST.get(i).getOrigin());
+                System.out.println("\tCode: " + flightST.get(i).getDestination());
+            }
+        }
+
+    }
+
     public static void saveToFileAirport(RedBlackBST<String, Airport> airportST, String path) {
         Out o = new Out(path);
         for (String i : airportST.keys()) {
@@ -172,7 +225,7 @@ public class Main {
                     airportST.get(i).getCity() + ";" +
                     airportST.get(i).getCountry() + ";" +
                     airportST.get(i).getContinent() + ";" +
-                    airportST.get(i).getRating());
+                    airportST.get(i).getRating() + ";");
         }
     }
 
@@ -189,8 +242,18 @@ public class Main {
                         airportST.get(i).getAirplaneST().get(j).getMaxDistance() + ";" +
                         airportST.get(i).getAirplaneST().get(j).getCurrentAirport() + ";" +
                         airportST.get(i).getAirplaneST().get(j).getMaxDistance() + ";" +
-                        airportST.get(i).getAirplaneST().get(j).getFuelCapacity());
+                        airportST.get(i).getAirplaneST().get(j).getFuelCapacity() + ";");
             }
+        }
+    }
+
+    public static void saveToFileFLight(RedBlackBST<String, Flight> flightST, String path) {
+        Out o = new Out(path);
+        for (String i : flightST.keys()) {
+            o.println(flightST.get(i).getCode() + ";" +
+                    flightST.get(i).getAirplaneID() + ";" +
+                    flightST.get(i).getOrigin() + ";" +
+                    flightST.get(i).getDestination() + ";");
         }
     }
 }
