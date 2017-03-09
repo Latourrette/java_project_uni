@@ -163,4 +163,34 @@ public class Main {
             }
         }
     }
+
+    public static void saveToFileAirport(RedBlackBST<String, Airport> airportST, String path) {
+        Out o = new Out(path);
+        for (String i : airportST.keys()) {
+            o.println(airportST.get(i).getName() + ";" +
+                    airportST.get(i).getCode() + ";" +
+                    airportST.get(i).getCity() + ";" +
+                    airportST.get(i).getCountry() + ";" +
+                    airportST.get(i).getContinent() + ";" +
+                    airportST.get(i).getRating());
+        }
+    }
+
+    public static void saveToFileAirplane(RedBlackBST<String, Airport> airportST, String path) {
+        Out o = new Out(path);
+        for (String i : airportST.keys()) {
+            for (String j : airportST.get(i).getAirplaneST().keys()) {
+                o.println(airportST.get(i).getAirplaneST().get(j).getId() + ";" +
+                        airportST.get(i).getAirplaneST().get(j).getModel() + ";" +
+                        airportST.get(i).getAirplaneST().get(j).getName() + ";" +
+                        airportST.get(i).getAirplaneST().get(j).getAirline() + ";" +
+                        airportST.get(i).getAirplaneST().get(j).getCruiseSpeed() + ";" +
+                        airportST.get(i).getAirplaneST().get(j).getCruiseAltitude() + ";" +
+                        airportST.get(i).getAirplaneST().get(j).getMaxDistance() + ";" +
+                        airportST.get(i).getAirplaneST().get(j).getCurrentAirport() + ";" +
+                        airportST.get(i).getAirplaneST().get(j).getMaxDistance() + ";" +
+                        airportST.get(i).getAirplaneST().get(j).getFuelCapacity());
+            }
+        }
+    }
 }

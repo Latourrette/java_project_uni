@@ -22,7 +22,7 @@ aeroporto;
 - Determinar	qual	o	voo	que	transportou	mais	passageiros;
 - Determinar	 qual	 o	 aeroporto	 que	 transportou	 o	 maior	 número	 de	
 passageiros.	
-- Inserir,	 remover,	 editar	 toda	 a	informaçã o,	 para	 cada	 uma	 das	 vá rias	 STs	
+- Inserir,	 remover,	 editar	 toda	 a	informaçã o,	 para	 cada	 uma	 das	 várias	 STs	
 consideradas	na	base	de	dados;
 - Calcular	 o	 custo	 de	 uma	 viagem	 com	 determinada	 distância	 e	 numa	
 determinada	 altitude	 tendo	 em	 conta	 a	 velocidade	 do	 vento	 para	 um	
