@@ -16,7 +16,8 @@ public class Main {
         //printAllAirports(airportST);
         //printAirplanesByAirport(airportST);
         //printAirport(airportST);
-        printAirplane(airportST);
+        //printAirplane(airportST);
+        //printCountryAirports(airportST);
     }
 
     public static void loadFromFileAirport(RedBlackBST<String, Airport> airportST, String path) {
@@ -99,8 +100,6 @@ public class Main {
         System.out.println("");
     }
 
-    public static void printAirportByCountry(RedBlackBST<String, Airport> airportST){}
-
     public static void printAirplanesByAirport(RedBlackBST<String, Airport> airportST) {
 
         for (String i : airportST.keys()) {
@@ -142,6 +141,26 @@ public class Main {
                     System.out.println("\tFuel Capacity: " + airportST.get(i).getAirplaneST().get(j).getFuelCapacity());
                     System.out.println("");
                 }
+        }
+    }
+
+    public static void printCountryAirports(RedBlackBST<String, Airport> airportST) {
+
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Choose the country name to get airports information: ");
+        String c = scan.nextLine();
+
+        for (String i : airportST.keys()) {
+            //System.out.println(c + " airports :");
+            if (airportST.get(i).getCountry().equals(c)) {
+                System.out.println("\tName: " + airportST.get(i).getName());
+                System.out.println("\tCode: " + airportST.get(i).getCode());
+                System.out.println("\tCity: " + airportST.get(i).getCity());
+                System.out.println("\tCountry: " + airportST.get(i).getCountry());
+                System.out.println("\tContinent: " + airportST.get(i).getContinent());
+                System.out.println("\tRating: " + airportST.get(i).getRating());
+                System.out.println("");
+            }
         }
     }
 }
