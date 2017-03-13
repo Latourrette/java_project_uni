@@ -15,6 +15,7 @@
 aeroporto;
     *  ✔️
 - Imprimir	todas	as	viagens	realizadas	por	um	determinado	avião;
+    *  ✔️
 - Imprimir	 todas	 as	 viagens	 realizadas	 entre	 um	 determinado	 período	 de	
 tempo;
 - Determinar	os	voos	que	tiveram	como	origem	ou destino	um	determinado
@@ -23,7 +24,7 @@ aeroporto;
 - Determinar	qual	o	voo	que	transportou	mais	passageiros;
 - Determinar	 qual	 o	 aeroporto	 que	 transportou	 o	 maior	 número	 de	
 passageiros.	
-- Inserir,	 remover,	 editar	 toda	 a	informaçã o,	 para	 cada	 uma	 das	 várias	 STs	
+- Inserir,	 remover,	 editar	 toda	 a	informaçã o,	 para	 cada	 uma	 das	 várias	 STs	
 consideradas	na	base	de	dados;
 - Calcular	 o	 custo	 de	 uma	 viagem	 com	 determinada	 distância	 e	 numa	
 determinada	 altitude	 tendo	 em	 conta	 a	 velocidade	 do	 vento	 para	 um	
