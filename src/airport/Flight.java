@@ -6,12 +6,14 @@ public class Flight {
     private String airplaneID;
     private String origin;
     private String destination;
+    private String airplaneName;
 
-    public Flight(String code, String airplaneID, String origin, String destination) {
+    public Flight(String code, String airplaneID, String origin, String destination, String airplaneName) {
         this.code = code;
         this.airplaneID = airplaneID;
         this.origin = origin;
         this.destination = destination;
+        this.airplaneName = airplaneName;
     }
 
     public String getCode() {
@@ -47,4 +49,11 @@ public class Flight {
     }
 
 
+    public String getAirplaneName() {
+        return airplaneName;
+    }
+
+    public void setAirplaneName(String airplaneName) {
+        this.airplaneName = airplaneName;
+    }
 }
