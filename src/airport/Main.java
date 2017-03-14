@@ -11,6 +11,7 @@ public class Main {
         RedBlackBST<String, Airport> airportST = new RedBlackBST<>();
         RedBlackBST<String, Flight> flightST = new RedBlackBST<>();
 
+
         loadFromFileAirport(airportST, ".//data//airports.txt");
         loadFromFileAirplane(airportST, ".//data//airplanes.txt");
         loadFromFileFlight(flightST, ".//data//flights.txt");
@@ -20,6 +21,8 @@ public class Main {
         //printAirport(airportST);
         //printAirplane(airportST);
         //printCountryAirports(airportST);
+        //printFlightToAirport(flightST, airportST);
+        printFlightByAirplane(flightST);
     }
 
     public static void loadFromFileAirport(RedBlackBST<String, Airport> airportST, String path) {
@@ -80,8 +83,9 @@ public class Main {
                 String airplaneID = text[1];
                 String origin = text[2];
                 String destination = text[3];
+                String airplaneName = text[4];
 
-                Flight f = new Flight(code, airplaneID, origin, destination);
+                Flight f = new Flight(code, airplaneID, origin, destination, airplaneName);
                 flightST.put(code, f);
             }
         } catch (Exception e) {
@@ -194,28 +198,38 @@ public class Main {
         System.out.println("Choose the airport code to get the flights: ");
         String code = scan.nextLine();
 
-        System.out.println("Origin flights of " + airportST.get(code).getName());
+        System.out.println("Flights of " + airportST.get(code).getName());
 
         for (String i : flightST.keys()) {
             if (flightST.get(i).getOrigin().equals(airportST.get(code).getCode())) {
                 System.out.println("\tCode: " + flightST.get(i).getCode());
-                System.out.println("\tCode: " + flightST.get(i).getAirplaneID());
-                System.out.println("\tCode: " + flightST.get(i).getOrigin());
-                System.out.println("\tCode: " + flightST.get(i).getDestination());
-            }
-        }
-
-        System.out.println("Destination flights of " + airportST.get(code).getName());
-        for (String i : flightST.keys()) {
-            if (flightST.get(i).getDestination().equals(airportST.get(code).getCode())) {
-                System.out.println("\tCode: " + flightST.get(i).getCode());
-                System.out.println("\tCode: " + flightST.get(i).getAirplaneID());
-                System.out.println("\tCode: " + flightST.get(i).getOrigin());
-                System.out.println("\tCode: " + flightST.get(i).getDestination());
+                System.out.println("\tAirplane ID: " + flightST.get(i).getAirplaneID());
+                System.out.println("\tAiprlane name: " + flightST.get(i).getAirplaneName());
+                System.out.println("\tOrigin: " + flightST.get(i).getOrigin());
+                System.out.println("\tDestination: " + flightST.get(i).getDestination());
             }
         }
 
     }
+
+    public static void printFlightByAirplane(RedBlackBST<String, Flight> flightST) {
+
+        Scanner scan = new Scanner(System.in);
+
+        System.out.println("Choose the airplane id: ");
+
+        String code = scan.nextLine();
+        for (String i : flightST.keys()){
+            if (flightST.get(i).getAirplaneID().equals(code)){
+                System.out.println("\tCode: " + flightST.get(i).getCode());
+                System.out.println("\tAirplane ID: " + flightST.get(i).getAirplaneID());
+                System.out.println("\tAiprlane name: " + flightST.get(i).getAirplaneName());
+                System.out.println("\tOrigin: " + flightST.get(i).getOrigin());
+                System.out.println("\tDestination: " + flightST.get(i).getDestination());
+            }
+        }
+    }
+
 
     public static void saveToFileAirport(RedBlackBST<String, Airport> airportST, String path) {
         Out o = new Out(path);
@@ -256,4 +270,5 @@ public class Main {
                     flightST.get(i).getDestination() + ";");
         }
     }
+
 }
