@@ -1,2 +1,2 @@
 1;1;OPO;JFK;Fernão Mendes Pinto;
-2;2;FFF;LIM;D. João de Castro;
+2;1;FFF;LIM;Fernão Mendes Pinto;
