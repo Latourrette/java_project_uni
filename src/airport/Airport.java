@@ -9,9 +9,12 @@ public class Airport {
     private String continent;
     private Float rating;
     private RedBlackBST<String, Airplane> airplaneST = new RedBlackBST<>();
+    private RedBlackBST<String, Flight> flightST = new RedBlackBST<>();
+
 
     public Airport(String name, String code, String city, String country, String continent, Float rating) {
         this.name = name;
+
         this.code = code;
         this.city = city;
         this.country = country;
@@ -120,5 +123,13 @@ public class Airport {
 
     public void setAirplaneST(RedBlackBST<String, Airplane> airplaneST) {
         this.airplaneST = airplaneST;
+    }
+
+    public RedBlackBST<String, Flight> getFlightST() {
+        return flightST;
+    }
+
+    public void setFlightST(RedBlackBST<String, Flight> flightST) {
+        this.flightST = flightST;
     }
 }

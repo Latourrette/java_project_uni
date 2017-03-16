@@ -1,19 +1,28 @@
 package airport;
 
 
+import edu.princeton.cs.algs4.Date;
+import sun.util.calendar.LocalGregorianCalendar;
+
 public class Flight {
     private String code;
     private String airplaneID;
+    private String airplaneName;
     private String origin;
     private String destination;
-    private String airplaneName;
+    private Integer passengers;
+    private Integer distance;
 
-    public Flight(String code, String airplaneID, String origin, String destination, String airplaneName) {
+
+    public Flight(String code, String airplaneID, String airplaneName, String origin, String destination,
+                  Integer passengers, Integer distance) {
         this.code = code;
         this.airplaneID = airplaneID;
+        this.airplaneName = airplaneName;
         this.origin = origin;
         this.destination = destination;
-        this.airplaneName = airplaneName;
+        this.passengers = passengers;
+        this.distance = distance;
     }
 
     public String getCode() {
@@ -48,12 +57,27 @@ public class Flight {
         this.destination = destination;
     }
 
-
     public String getAirplaneName() {
         return airplaneName;
     }
 
     public void setAirplaneName(String airplaneName) {
         this.airplaneName = airplaneName;
+    }
+
+    public Integer getPassengers() {
+        return passengers;
+    }
+
+    public void setPassengers(Integer passengers) {
+        this.passengers = passengers;
+    }
+
+    public Integer getDistance() {
+        return distance;
+    }
+
+    public void setDistance(Integer distance) {
+        this.distance = distance;
     }
 }

@@ -18,8 +18,6 @@ aeroporto;
     *  ✔️
 - Imprimir	 todas	 as	 viagens	 realizadas	 entre	 um	 determinado	 período	 de	
 tempo;
-- Determinar	os	voos	que	tiveram	como	origem	ou destino	um	determinado
-aeroporto;
 - Determinar	qual	o	aeroporto	com	mais	tráfego;
 - Determinar	qual	o	voo	que	transportou	mais	passageiros;
 - Determinar	 qual	 o	 aeroporto	 que	 transportou	 o	 maior	 número	 de	
