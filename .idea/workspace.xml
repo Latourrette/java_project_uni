@@ -9,11 +9,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/projetoLPIIAED/edu/princeton/cs/algs4/RectHV.class" afterPath="$PROJECT_DIR$/out/production/projetoLPIIAED/edu/princeton/cs/algs4/RectHV.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/projetoLPIIAED/edu/princeton/cs/algs4/Transaction.class" afterPath="$PROJECT_DIR$/out/production/projetoLPIIAED/edu/princeton/cs/algs4/Transaction.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/airplanes.txt" afterPath="$PROJECT_DIR$/data/airplanes.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/airports.txt" afterPath="$PROJECT_DIR$/data/airports.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/flights.txt" afterPath="$PROJECT_DIR$/data/flights.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/airport/Airport.java" afterPath="$PROJECT_DIR$/src/airport/Airport.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/airport/Flight.java" afterPath="$PROJECT_DIR$/src/airport/Flight.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/airport/Main.java" afterPath="$PROJECT_DIR$/src/airport/Main.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -44,8 +40,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/airport/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="293">
-              <caret line="181" column="0" lean-forward="false" selection-start-line="181" selection-start-column="0" selection-end-line="181" selection-end-column="0" />
+            <state relative-caret-position="272">
+              <caret line="279" column="43" lean-forward="true" selection-start-line="279" selection-start-column="43" selection-end-line="279" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#loadFromFileAirport#0;class#Main#0" expanded="false" />
@@ -60,9 +56,8 @@
                 <element signature="method#printCountryAirports#0;class#Main#0" expanded="false" />
                 <element signature="method#printFlightToAirport#0;class#Main#0" expanded="false" />
                 <element signature="method#printFlightByAirplane#0;class#Main#0" expanded="false" />
-                <element signature="method#mostTraficAirport#0;class#Main#0" expanded="false" />
                 <element signature="method#flightsByTimePeriod#0;class#Main#0" expanded="false" />
-                <marker date="1490725269212" expanded="true" signature="14314:15352" ph="{...}" />
+                <marker date="1490730328892" expanded="true" signature="14312:15353" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -84,8 +79,8 @@
       <file leaf-file-name="flights.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/flights.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="12" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="12" />
+            <state relative-caret-position="17">
+              <caret line="1" column="40" lean-forward="false" selection-start-line="1" selection-start-column="40" selection-end-line="1" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -114,7 +109,7 @@
       <file leaf-file-name="airplanes.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/airplanes.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
+            <state relative-caret-position="431">
               <caret line="27" column="31" lean-forward="false" selection-start-line="27" selection-start-column="14" selection-end-line="27" selection-end-column="31" />
               <folding />
             </state>
@@ -124,8 +119,8 @@
       <file leaf-file-name="airports.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/airports.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="68">
+              <caret line="4" column="20" lean-forward="false" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -163,8 +158,8 @@
       <list>
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/airport/Airport.java" />
-        <option value="$PROJECT_DIR$/data/flights.txt" />
         <option value="$PROJECT_DIR$/src/airport/Flight.java" />
+        <option value="$PROJECT_DIR$/data/flights.txt" />
         <option value="$PROJECT_DIR$/src/airport/Main.java" />
       </list>
     </option>
@@ -727,7 +722,7 @@
       <workItem from="1490721318851" duration="1021000" />
       <workItem from="1490722622476" duration="13000" />
       <workItem from="1490722662473" duration="3316000" />
-      <workItem from="1490728315129" duration="784000" />
+      <workItem from="1490728315129" duration="1769000" />
     </task>
     <task id="LOCAL-00001" summary="Flight ST fix">
       <created>1489690520814</created>
@@ -743,11 +738,18 @@
       <option name="project" value="LOCAL" />
       <updated>1490718589880</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="O verdadeiro date">
+      <created>1490729538349</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1490729538349</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22468000" />
+    <option name="totallyTimeSpent" value="23453000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -760,18 +762,18 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-32" width="1366" height="800" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286119" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.08344924" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29461756" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29461756" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -788,7 +790,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286119" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -886,9 +887,8 @@
             <element signature="method#printCountryAirports#0;class#Main#0" expanded="false" />
             <element signature="method#printFlightToAirport#0;class#Main#0" expanded="false" />
             <element signature="method#printFlightByAirplane#0;class#Main#0" expanded="false" />
-            <element signature="method#mostTraficAirport#0;class#Main#0" expanded="false" />
             <element signature="method#flightsByTimePeriod#0;class#Main#0" expanded="false" />
-            <marker date="1490725269212" expanded="true" signature="14314:15352" ph="{...}" />
+            <marker date="1490730328892" expanded="true" signature="14312:15353" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -971,9 +971,8 @@
             <element signature="method#printCountryAirports#0;class#Main#0" expanded="false" />
             <element signature="method#printFlightToAirport#0;class#Main#0" expanded="false" />
             <element signature="method#printFlightByAirplane#0;class#Main#0" expanded="false" />
-            <element signature="method#mostTraficAirport#0;class#Main#0" expanded="false" />
             <element signature="method#flightsByTimePeriod#0;class#Main#0" expanded="false" />
-            <marker date="1490725269212" expanded="true" signature="14314:15352" ph="{...}" />
+            <marker date="1490730328892" expanded="true" signature="14312:15353" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1056,9 +1055,8 @@
             <element signature="method#printCountryAirports#0;class#Main#0" expanded="false" />
             <element signature="method#printFlightToAirport#0;class#Main#0" expanded="false" />
             <element signature="method#printFlightByAirplane#0;class#Main#0" expanded="false" />
-            <element signature="method#mostTraficAirport#0;class#Main#0" expanded="false" />
             <element signature="method#flightsByTimePeriod#0;class#Main#0" expanded="false" />
-            <marker date="1490725269212" expanded="true" signature="14314:15352" ph="{...}" />
+            <marker date="1490730328892" expanded="true" signature="14312:15353" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1097,9 +1095,8 @@
             <element signature="method#printCountryAirports#0;class#Main#0" expanded="false" />
             <element signature="method#printFlightToAirport#0;class#Main#0" expanded="false" />
             <element signature="method#printFlightByAirplane#0;class#Main#0" expanded="false" />
-            <element signature="method#mostTraficAirport#0;class#Main#0" expanded="false" />
             <element signature="method#flightsByTimePeriod#0;class#Main#0" expanded="false" />
-            <marker date="1490725269212" expanded="true" signature="14314:15352" ph="{...}" />
+            <marker date="1490730328892" expanded="true" signature="14312:15353" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1138,9 +1135,8 @@
             <element signature="method#printCountryAirports#0;class#Main#0" expanded="false" />
             <element signature="method#printFlightToAirport#0;class#Main#0" expanded="false" />
             <element signature="method#printFlightByAirplane#0;class#Main#0" expanded="false" />
-            <element signature="method#mostTraficAirport#0;class#Main#0" expanded="false" />
             <element signature="method#flightsByTimePeriod#0;class#Main#0" expanded="false" />
-            <marker date="1490725269212" expanded="true" signature="14314:15352" ph="{...}" />
+            <marker date="1490730328892" expanded="true" signature="14312:15353" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1179,9 +1175,8 @@
             <element signature="method#printCountryAirports#0;class#Main#0" expanded="false" />
             <element signature="method#printFlightToAirport#0;class#Main#0" expanded="false" />
             <element signature="method#printFlightByAirplane#0;class#Main#0" expanded="false" />
-            <element signature="method#mostTraficAirport#0;class#Main#0" expanded="false" />
             <element signature="method#flightsByTimePeriod#0;class#Main#0" expanded="false" />
-            <marker date="1490725269212" expanded="true" signature="14314:15352" ph="{...}" />
+            <marker date="1490730328892" expanded="true" signature="14312:15353" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1220,9 +1215,8 @@
             <element signature="method#printCountryAirports#0;class#Main#0" expanded="false" />
             <element signature="method#printFlightToAirport#0;class#Main#0" expanded="false" />
             <element signature="method#printFlightByAirplane#0;class#Main#0" expanded="false" />
-            <element signature="method#mostTraficAirport#0;class#Main#0" expanded="false" />
             <element signature="method#flightsByTimePeriod#0;class#Main#0" expanded="false" />
-            <marker date="1490725269212" expanded="true" signature="14314:15352" ph="{...}" />
+            <marker date="1490730328892" expanded="true" signature="14312:15353" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1261,9 +1255,8 @@
             <element signature="method#printCountryAirports#0;class#Main#0" expanded="false" />
             <element signature="method#printFlightToAirport#0;class#Main#0" expanded="false" />
             <element signature="method#printFlightByAirplane#0;class#Main#0" expanded="false" />
-            <element signature="method#mostTraficAirport#0;class#Main#0" expanded="false" />
             <element signature="method#flightsByTimePeriod#0;class#Main#0" expanded="false" />
-            <marker date="1490725269212" expanded="true" signature="14314:15352" ph="{...}" />
+            <marker date="1490730328892" expanded="true" signature="14312:15353" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1315,14 +1308,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/flights.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="12" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/airport/Airplane.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
@@ -1331,26 +1316,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/airplanes.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" column="31" lean-forward="false" selection-start-line="27" selection-start-column="14" selection-end-line="27" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/airport/Airport.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="18" column="25" lean-forward="false" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/airports.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1366,10 +1335,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/data/airplanes.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="431">
+          <caret line="27" column="31" lean-forward="false" selection-start-line="27" selection-start-column="14" selection-end-line="27" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/airports.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="20" lean-forward="false" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/flights.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="40" lean-forward="false" selection-start-line="1" selection-start-column="40" selection-end-line="1" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/airport/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="181" column="0" lean-forward="false" selection-start-line="181" selection-start-column="0" selection-end-line="181" selection-end-column="0" />
+        <state relative-caret-position="272">
+          <caret line="279" column="43" lean-forward="true" selection-start-line="279" selection-start-column="43" selection-end-line="279" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#loadFromFileAirport#0;class#Main#0" expanded="false" />
@@ -1384,9 +1377,8 @@
             <element signature="method#printCountryAirports#0;class#Main#0" expanded="false" />
             <element signature="method#printFlightToAirport#0;class#Main#0" expanded="false" />
             <element signature="method#printFlightByAirplane#0;class#Main#0" expanded="false" />
-            <element signature="method#mostTraficAirport#0;class#Main#0" expanded="false" />
             <element signature="method#flightsByTimePeriod#0;class#Main#0" expanded="false" />
-            <marker date="1490725269212" expanded="true" signature="14314:15352" ph="{...}" />
+            <marker date="1490730328892" expanded="true" signature="14312:15353" ph="{...}" />
           </folding>
         </state>
       </provider>

@@ -24,7 +24,7 @@ public class Main {
         //printCountryAirports(airportST);
         //printFlightToAirport(airportST, "OPO");
         //printFlightByAirplane(flightST);
-        //mostTraficAirport(airportST);
+        mostTraficAirport(airportST);
         //flightsByTimePeriod(airportST);
 
         //saveToFileAirport(airportST, ".//data//airports.txt");
@@ -273,12 +273,12 @@ public class Main {
         ArrayList<String> AirportsName = new ArrayList<>();
 
         for (String i : airportST.keys()) {
-            if (maxValue < (airportST.get(i).getFlightOriST().size() + airportST.get(i).getFlightOriST().size())) {
-                maxValue = (airportST.get(i).getFlightOriST().size() + airportST.get(i).getFlightOriST().size());
+            if (maxValue < (airportST.get(i).getFlightOriST().size() + airportST.get(i).getFlightDestST().size())) {
+                maxValue = (airportST.get(i).getFlightOriST().size() + airportST.get(i).getFlightDestST().size());
             }
         }
         for (String i : airportST.keys()) {
-            if (maxValue == (airportST.get(i).getFlightOriST().size() + airportST.get(i).getFlightOriST().size())) {
+            if (maxValue == (airportST.get(i).getFlightOriST().size() + airportST.get(i).getFlightDestST().size())) {
                 if (!AirportsName.contains(i)) {
                     AirportsName.add(i);
                 }
