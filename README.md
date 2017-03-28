@@ -6,9 +6,9 @@
 - Imprimir toda	a	informação	relativa	a	um	determinado	aeroporto;
     *  ✔️
 - Imprimir	toda	a	informação	relativa	a	um	determinado	avião;
-     *  ✔️
+    *  ✔️
 - Imprimir	todos	os	aviões	que	estão	num	determinado	aeroporto;
-     *  ✔️
+    *  ✔️
 - Imprimir	todos	os	aeroportos de	um	determinado	país	ou	continente;
     *  ✔️
 - Imprimir	 todas	 as	 viagens	 com	 origem/destino	 num	 determinado	
@@ -18,6 +18,7 @@ aeroporto;
     *  ✔️
 - Imprimir	 todas	 as	 viagens	 realizadas	 entre	 um	 determinado	 período	 de	
 tempo;
+    *  ✔️
 - Determinar	qual	o	aeroporto	com	mais	tráfego;
 - Determinar	qual	o	voo	que	transportou	mais	passageiros;
 - Determinar	 qual	 o	 aeroporto	 que	 transportou	 o	 maior	 número	 de	
