@@ -1,8 +1,7 @@
 package airport;
 
 
-import edu.princeton.cs.algs4.Date;
-import sun.util.calendar.LocalGregorianCalendar;
+import java.util.Date;
 
 public class Flight {
     private String code;
@@ -12,10 +11,11 @@ public class Flight {
     private String destination;
     private Integer passengers;
     private Integer distance;
+    private Date date;
 
 
     public Flight(String code, String airplaneID, String airplaneName, String origin, String destination,
-                  Integer passengers, Integer distance) {
+                  Integer passengers, Integer distance, Date date) {
         this.code = code;
         this.airplaneID = airplaneID;
         this.airplaneName = airplaneName;
@@ -23,6 +23,7 @@ public class Flight {
         this.destination = destination;
         this.passengers = passengers;
         this.distance = distance;
+        this.date = date;
     }
 
     public String getCode() {
@@ -79,5 +80,13 @@ public class Flight {
 
     public void setDistance(Integer distance) {
         this.distance = distance;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 }

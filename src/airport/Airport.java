@@ -1,6 +1,8 @@
 package airport;
 
 
+import java.util.Date;
+
 public class Airport {
     private String name;
     private String code;
@@ -9,7 +11,7 @@ public class Airport {
     private String continent;
     private Float rating;
     private RedBlackBST<String, Airplane> airplaneST = new RedBlackBST<>();
-    private RedBlackBST<String, Flight> flightST = new RedBlackBST<>();
+    private RedBlackBST<Date, Flight> flightST = new RedBlackBST<>();
 
 
     public Airport(String name, String code, String city, String country, String continent, Float rating) {
@@ -125,11 +127,11 @@ public class Airport {
         this.airplaneST = airplaneST;
     }
 
-    public RedBlackBST<String, Flight> getFlightST() {
+    public RedBlackBST<Date, Flight> getFlightST() {
         return flightST;
     }
 
-    public void setFlightST(RedBlackBST<String, Flight> flightST) {
+    public void setFlightST(RedBlackBST<Date, Flight> flightST) {
         this.flightST = flightST;
     }
 }

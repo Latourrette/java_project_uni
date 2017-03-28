@@ -1,2 +1,2 @@
-1;1;Fernão Mendes Pinto;OPO;JFK;30;500;
-2;1;Fernão Mendes Pinto;FFF;OPO;50;700;
+1;1;Fernão Mendes Pinto;OPO;JFK;30;500;201412151520;
+2;1;Fernão Mendes Pinto;JFK;OPO;30;500;201411030340;
