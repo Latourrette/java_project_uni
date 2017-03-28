@@ -271,7 +271,6 @@ public class Main {
     public static void mostTraficAirport(RedBlackBST<String, Airport> airportST) {
         int maxValue = 0;
         ArrayList<String> AirportsName = new ArrayList<>();
-
         for (String i : airportST.keys()) {
             if (maxValue < (airportST.get(i).getFlightOriST().size() + airportST.get(i).getFlightDestST().size())) {
                 maxValue = (airportST.get(i).getFlightOriST().size() + airportST.get(i).getFlightDestST().size());
