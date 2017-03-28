@@ -2,27 +2,32 @@ package airport;
 
 import edu.princeton.cs.algs4.*;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Locale;
 import java.util.Scanner;
+import java.util.Date;
 
 public class Main {
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException {
         RedBlackBST<String, Airport> airportST = new RedBlackBST<>();
-        RedBlackBST<String, Flight> flightST = new RedBlackBST<>();
+        RedBlackBST<Date, Flight> flightST = new RedBlackBST<>();
 
 
         loadFromFileAirport(airportST, ".//data//airports.txt");
         loadFromFileAirplane(airportST, ".//data//airplanes.txt");
         loadFromFileFlight(flightST, ".//data//flights.txt");
-
+        flightsBetweenSometime(flightST);
         //printAllAirports(airportST);
         //printAirplanesByAirport(airportST);
         //printAirport(airportST);
         //printAirplane(airportST);
         //printCountryAirports(airportST);
         //printFlightToAirport(flightST, airportST);
-        printFlightByAirplane(flightST);
+        //printFlightByAirplane(flightST);
     }
 
     public static void loadFromFileAirport(RedBlackBST<String, Airport> airportST, String path) {
@@ -72,7 +77,7 @@ public class Main {
         }
     }
 
-    public static void loadFromFileFlight(RedBlackBST<String, Flight> flightST, String path) {
+    public static void loadFromFileFlight(RedBlackBST<Date, Flight> flightST, String path) {
 
         In in = new In(path);
         try {
@@ -84,9 +89,12 @@ public class Main {
                 String origin = text[2];
                 String destination = text[3];
                 String airplaneName = text[4];
-
-                Flight f = new Flight(code, airplaneID, origin, destination, airplaneName);
-                flightST.put(code, f);
+                String aux = text[5];
+                DateFormat format = new SimpleDateFormat("yyyyMMddhhmm");
+                Date date = format.parse(aux);
+                System.out.println(date);
+                Flight f = new Flight(code, airplaneID, origin, destination, airplaneName, date);
+                flightST.put(date, f);
             }
         } catch (Exception e) {
             System.out.println(e);
@@ -190,7 +198,7 @@ public class Main {
         }
     }
 
-    public static void printFlightToAirport(RedBlackBST<String, Flight> flightST,
+    public static void printFlightToAirport(RedBlackBST<Date, Flight> flightST,
                                             RedBlackBST<String, Airport> airportST) {
 
 
@@ -200,13 +208,14 @@ public class Main {
 
         System.out.println("Flights of " + airportST.get(code).getName());
 
-        for (String i : flightST.keys()) {
+        for (Date i : flightST.keys()) {
             if (flightST.get(i).getOrigin().equals(airportST.get(code).getCode())) {
                 System.out.println("\tCode: " + flightST.get(i).getCode());
                 System.out.println("\tAirplane ID: " + flightST.get(i).getAirplaneID());
                 System.out.println("\tAiprlane name: " + flightST.get(i).getAirplaneName());
                 System.out.println("\tOrigin: " + flightST.get(i).getOrigin());
                 System.out.println("\tDestination: " + flightST.get(i).getDestination());
+                System.out.println("\tDate: " + flightST.get(i).getDate());
             }
         }
 
@@ -227,6 +236,17 @@ public class Main {
                 System.out.println("\tOrigin: " + flightST.get(i).getOrigin());
                 System.out.println("\tDestination: " + flightST.get(i).getDestination());
             }
+        }
+    }
+
+    public static void flightsBetweenSometime(RedBlackBST<Date, Flight> flightsST) throws ParseException {
+        String date1 = "201511030340";
+        String date2 = "201311030340";
+        DateFormat format = new SimpleDateFormat("yyyyMMddhhmm");
+        Date aux = format.parse(date1);
+        Date aux1 = format.parse(date2);
+        for (Date i : flightsST.keys(aux1, aux)){
+            System.out.println(flightsST.get(i).getAirplaneName());
         }
     }
 
