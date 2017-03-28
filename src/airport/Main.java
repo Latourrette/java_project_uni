@@ -96,8 +96,8 @@ public class Main {
                 Integer distance = Integer.parseInt(text[6]);
 
 
-                Flight f = new Flight(date,airplaneID, airplaneName, origin, destination, passengers, distance);
-                airportST.get(origin).getFlightOriST().put(date,f);
+                Flight f = new Flight(date, airplaneID, airplaneName, origin, destination, passengers, distance);
+                airportST.get(origin).getFlightOriST().put(date, f);
                 airportST.get(destination).getFlightDestST().put(date, f);
             }
         } catch (Exception e) {
@@ -290,11 +290,11 @@ public class Main {
             for (String i : AirportsName) {
                 System.out.println(i + " ");
             }
-            System.out.println("com um total de " + maxValue + " voos.");
+            System.out.println("with a total of " + maxValue + " flights.");
         } else {
-            System.out.println("O aeroporto com vais voos é ");
+            System.out.println("The airport with most traffic is ");
             for (String i : AirportsName) {
-                System.out.println(i + " com um total de " + maxValue);
+                System.out.println(i + " with a total of " + maxValue + "flights");
             }
         }
     }
@@ -306,7 +306,7 @@ public class Main {
         Date aux = format.parse(date1);
         Date aux1 = format.parse(date2);
         for (String i : airportST.keys()) {
-            for (Date j : airportST.get(i).getFlightOriST().keys(aux1, aux)){
+            for (Date j : airportST.get(i).getFlightOriST().keys(aux1, aux)) {
                 System.out.println(airportST.get(i).getFlightOriST().get(j).getAirplaneName());
             }
         }
