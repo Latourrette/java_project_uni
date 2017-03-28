@@ -10,9 +10,8 @@ import java.util.*;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException {
         RedBlackBST<String, Airport> airportST = new RedBlackBST<>();
-
 
         loadFromFileAirport(airportST, ".//data//airports.txt");
         loadFromFileAirplane(airportST, ".//data//airplanes.txt");
@@ -23,13 +22,14 @@ public class Main {
         //printAirport(airportST);
         //printAirplane(airportST);
         //printCountryAirports(airportST);
-        //printFlightToAirport(flightST, airportST);
+        //printFlightToAirport(airportST, "OPO");
         //printFlightByAirplane(flightST);
         //mostTraficAirport(airportST);
+        //flightsByTimePeriod(airportST);
 
-        saveToFileAirport(airportST, ".//data//airports.txt");
-        saveToFileAirplane(airportST, ".//data//airplanes.txt");
-        saveToFileFLight(airportST, ".//data//flights.txt");
+        //saveToFileAirport(airportST, ".//data//airports.txt");
+        //saveToFileAirplane(airportST, ".//data//airplanes.txt");
+        //saveToFileFLight(airportST, ".//data//flights.txt");
     }
 
     public static void loadFromFileAirport(RedBlackBST<String, Airport> airportST, String path) {
@@ -86,19 +86,19 @@ public class Main {
 
             while (!in.isEmpty()) {
                 String[] text = in.readLine().split(";");
-                String code = text[0];
+                DateFormat format = new SimpleDateFormat("yyyyMMddhhmm");
+                Date date = format.parse(text[0]);
                 String airplaneID = text[1];
                 String airplaneName = text[2];
                 String origin = text[3];
                 String destination = text[4];
                 Integer passengers = Integer.parseInt(text[5]);
                 Integer distance = Integer.parseInt(text[6]);
-                DateFormat format = new SimpleDateFormat("yyyyMMddhhmm");
-                Date date = format.parse(text[7]);
 
-                Flight f = new Flight(code, airplaneID, airplaneName, origin, destination, passengers, distance, date);
-                airportST.get(origin).getFlightST().put(date, f);
-                airportST.get(destination).getFlightST().put(date, f);
+
+                Flight f = new Flight(date,airplaneID, airplaneName, origin, destination, passengers, distance);
+                airportST.get(origin).getFlightOriST().put(date,f);
+                airportST.get(destination).getFlightDestST().put(date, f);
             }
         } catch (Exception e) {
             System.out.println(e);
@@ -135,7 +135,7 @@ public class Main {
         }
     }
 
-    public static void saveToFileFLight(RedBlackBST<String, Airport> airportST, String path) {
+    /*public static void saveToFileFLight(RedBlackBST<String, Airport> airportST, String path) {
         Out o = new Out(path);
         for (String i : airportST.keys()) {
             for (Date j : airportST.get(i).getFlightST().keys()) {
@@ -148,7 +148,7 @@ public class Main {
                         airportST.get(i).getFlightST().get(j).getDistance() + ";");
             }
         }
-    }
+    }*/
 
     public static void printAllAirports(RedBlackBST<String, Airport> airportST) {
 
@@ -239,30 +239,30 @@ public class Main {
 
         System.out.println("Flights of " + airportST.get(code).getName());
 
-        if (!airportST.get(code).getFlightST().isEmpty()) {
-            for (Date i : airportST.get(code).getFlightST().keys()) {
-                System.out.println("\tCode: " + airportST.get(code).getFlightST().get(i).getCode());
-                System.out.println("\tAirplane ID: " + airportST.get(code).getFlightST().get(i).getAirplaneID());
-                System.out.println("\tAiprlane name: " + airportST.get(code).getFlightST().get(i).getAirplaneName());
-                System.out.println("\tOrigin: " + airportST.get(code).getFlightST().get(i).getOrigin());
-                System.out.println("\tDestination: " + airportST.get(code).getFlightST().get(i).getDestination());
-                System.out.println("\tPassengers: " + airportST.get(code).getFlightST().get(i).getPassengers());
-                System.out.println("\tDistance: " + airportST.get(code).getFlightST().get(i).getDistance());
+        if (!airportST.get(code).getFlightDestST().isEmpty()) {
+            for (Date i : airportST.get(code).getFlightDestST().keys()) {
+                System.out.println("\tCode: " + airportST.get(code).getFlightDestST().get(i).getDate());
+                System.out.println("\tAirplane ID: " + airportST.get(code).getFlightDestST().get(i).getAirplaneID());
+                System.out.println("\tAiprlane name: " + airportST.get(code).getFlightDestST().get(i).getAirplaneName());
+                System.out.println("\tOrigin: " + airportST.get(code).getFlightDestST().get(i).getOrigin());
+                System.out.println("\tDestination: " + airportST.get(code).getFlightDestST().get(i).getDestination());
+                System.out.println("\tPassengers: " + airportST.get(code).getFlightDestST().get(i).getPassengers());
+                System.out.println("\tDistance: " + airportST.get(code).getFlightDestST().get(i).getDistance());
             }
         } else System.out.println("That airport doesn't have flights.");
     }
 
     public static void printFlightByAirplane(RedBlackBST<String, Airport> airportST, String code) {
         for (String i : airportST.keys()) {
-            for (Date j : airportST.get(i).getFlightST().keys()) {
-                if (airportST.get(i).getFlightST().get(j).getAirplaneID().equals(code)) {
-                    System.out.println("\tCode: " + airportST.get(i).getFlightST().get(j).getCode());
-                    System.out.println("\tAirplane ID: " + airportST.get(i).getFlightST().get(j).getAirplaneID());
-                    System.out.println("\tAiprlane name: " + airportST.get(i).getFlightST().get(j).getAirplaneName());
-                    System.out.println("\tOrigin: " + airportST.get(i).getFlightST().get(j).getOrigin());
-                    System.out.println("\tDestination: " + airportST.get(i).getFlightST().get(j).getDestination());
-                    System.out.println("\tPassengers: " + airportST.get(i).getFlightST().get(j).getPassengers());
-                    System.out.println("\tDistance: " + airportST.get(i).getFlightST().get(j).getDistance());
+            for (Date j : airportST.get(i).getFlightDestST().keys()) {
+                if (airportST.get(i).getFlightDestST().get(j).getAirplaneID().equals(code)) {
+                    System.out.println("\tCode: " + airportST.get(i).getFlightDestST().get(j).getDate());
+                    System.out.println("\tAirplane ID: " + airportST.get(i).getFlightDestST().get(j).getAirplaneID());
+                    System.out.println("\tAiprlane name: " + airportST.get(i).getFlightDestST().get(j).getAirplaneName());
+                    System.out.println("\tOrigin: " + airportST.get(i).getFlightDestST().get(j).getOrigin());
+                    System.out.println("\tDestination: " + airportST.get(i).getFlightDestST().get(j).getDestination());
+                    System.out.println("\tPassengers: " + airportST.get(i).getFlightDestST().get(j).getPassengers());
+                    System.out.println("\tDistance: " + airportST.get(i).getFlightDestST().get(j).getDistance());
                 }
             }
         }
@@ -273,12 +273,12 @@ public class Main {
         ArrayList<String> AirportsName = new ArrayList<>();
 
         for (String i : airportST.keys()) {
-            if (maxValue < airportST.get(i).getFlightST().size()) {
-                maxValue = airportST.get(i).getFlightST().size();
+            if (maxValue < (airportST.get(i).getFlightOriST().size() + airportST.get(i).getFlightOriST().size())) {
+                maxValue = (airportST.get(i).getFlightOriST().size() + airportST.get(i).getFlightOriST().size());
             }
         }
         for (String i : airportST.keys()) {
-            if (maxValue == airportST.get(i).getFlightST().size()) {
+            if (maxValue == (airportST.get(i).getFlightOriST().size() + airportST.get(i).getFlightOriST().size())) {
                 if (!AirportsName.contains(i)) {
                     AirportsName.add(i);
                 }
@@ -306,8 +306,8 @@ public class Main {
         Date aux = format.parse(date1);
         Date aux1 = format.parse(date2);
         for (String i : airportST.keys()) {
-            for (Date j : airportST.get(i).getFlightST().keys(aux1, aux)){
-                System.out.println(airportST.get(i).getFlightST().get(j).getAirplaneName());
+            for (Date j : airportST.get(i).getFlightOriST().keys(aux1, aux)){
+                System.out.println(airportST.get(i).getFlightOriST().get(j).getAirplaneName());
             }
         }
     }

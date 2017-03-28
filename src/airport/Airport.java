@@ -11,12 +11,12 @@ public class Airport {
     private String continent;
     private Float rating;
     private RedBlackBST<String, Airplane> airplaneST = new RedBlackBST<>();
-    private RedBlackBST<Date, Flight> flightST = new RedBlackBST<>();
+    private RedBlackBST<Date, Flight> flightOriST = new RedBlackBST<>();
+    private RedBlackBST<Date, Flight> flightDestST = new RedBlackBST<>();
 
 
     public Airport(String name, String code, String city, String country, String continent, Float rating) {
         this.name = name;
-
         this.code = code;
         this.city = city;
         this.country = country;
@@ -127,11 +127,19 @@ public class Airport {
         this.airplaneST = airplaneST;
     }
 
-    public RedBlackBST<Date, Flight> getFlightST() {
-        return flightST;
+    public RedBlackBST<Date, Flight> getFlightOriST() {
+        return flightOriST;
     }
 
-    public void setFlightST(RedBlackBST<Date, Flight> flightST) {
-        this.flightST = flightST;
+    public void setFlightOriST(RedBlackBST<Date, Flight> flightOriST) {
+        this.flightOriST = flightOriST;
+    }
+
+    public RedBlackBST<Date, Flight> getFlightDestST() {
+        return flightDestST;
+    }
+
+    public void setFlightDestST(RedBlackBST<Date, Flight> flightDestST) {
+        this.flightDestST = flightDestST;
     }
 }
