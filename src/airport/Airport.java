@@ -10,7 +10,7 @@ public class Airport {
     private String country;
     private String continent;
     private Float rating;
-    private RedBlackBST<String, Airplane> airplaneST = new RedBlackBST<>();
+    private SeparateChainingHashST<String, Airplane> airplaneST = new SeparateChainingHashST<>();
     private RedBlackBST<Date, Flight> flightOriST = new RedBlackBST<>();
     private RedBlackBST<Date, Flight> flightDestST = new RedBlackBST<>();
 
@@ -119,11 +119,11 @@ public class Airport {
         this.rating = rating;
     }
 
-    public RedBlackBST<String, Airplane> getAirplaneST() {
+    public SeparateChainingHashST<String, Airplane> getAirplaneST() {
         return airplaneST;
     }
 
-    public void setAirplaneST(RedBlackBST<String, Airplane> airplaneST) {
+    public void setAirplaneST(SeparateChainingHashST<String, Airplane> airplaneST) {
         this.airplaneST = airplaneST;
     }
 
