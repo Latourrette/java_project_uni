@@ -4,18 +4,21 @@ package airport;
 import java.util.Date;
 
 public class Flight {
+    private Date date;
+    private String code;
     private String airplaneID;
     private String airplaneName;
     private String origin;
     private String destination;
     private Integer passengers;
     private Integer distance;
-    private Date date;
 
 
-    public Flight(Date date,String airplaneID, String airplaneName, String origin, String destination,
+
+    public Flight(Date date, String code,String airplaneID, String airplaneName, String origin, String destination,
                   Integer passengers, Integer distance) {
         this.date = date;
+        this.code = code;
         this.airplaneID = airplaneID;
         this.airplaneName = airplaneName;
         this.origin = origin;
@@ -79,5 +82,13 @@ public class Flight {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 }
