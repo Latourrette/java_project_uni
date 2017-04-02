@@ -27,27 +27,32 @@ public class Main {
                 958, 12000, 15190, "FCP", 120, 126206);
 
         insertAirport(airportST, a);
-        //insertAirplane(airportST, airplaneST, ap);
-        //printAirplanesByAirport(airportST);
+       // insertAirplane(airportST, airplaneST, ap);
+       // printAirplanesByAirport(airportST);
+       // printAirport(airportST,"FCP");
+        removeAirport(airportST,airportST.get("FCP"));
         printAirport(airportST,"FCP");
 
-        removeAirport(airportST,"FCP");
-        printAirport(airportST,"FCP");
-        //printAirplane(airplaneST,"40");
-        //printCountryAirports(airportST);
+        //printCountryAirports(airportST, "Portugal");
         //printFlightFromAirport(airportST, "OPO");
-        //printFlightToAirport(airportST, "OPO");
-        //printFlightByAirplane(flightST);
+        //printFlightToAirport(airportST, "CDG");
+        //printFlightByAirplane(airplaneST, "1");
         //mostTraficAirport(airportST);
-        //flightsByTimePeriod(airportST, "201311030340", "201511030340");
+        //flightsByTimePeriod(flightST, "201311030340", "201511030340");
         //flightWithMostPassengers(flightST);
         //airportWithMostPassengers(airportST);
 
-        //saveToFileAirport(airportST, ".//data//airports.txt");
-        //saveToFileAirplane(airportST, ".//data//airplanes.txt");
-        //saveToFileFlight(airportST, ".//data//flights.txt");
+        saveToFileAirport(airportST, ".//data//airports.txt");
+        saveToFileAirplane(airplaneST, ".//data//airplanes.txt");
+        saveToFileFlight(flightST, ".//data//flights.txt");
     }
 
+    /**
+     * Loads from airports.txt to airportST.
+     *
+     * @param airportST Symbol Table for airports.
+     * @param path      File path for airports.txt.
+     */
     public static void loadFromFileAirport(RedBlackBST<String, Airport> airportST, String path) {
         In in = new In(path);
         try {
@@ -70,6 +75,13 @@ public class Main {
         }
     }
 
+    /**
+     * Loads from airplanes.txt to airplaneST and other ST's involving airports.
+     *
+     * @param airportST  Symbol Table for airports.
+     * @param airplaneST Symbol Table for airplanes.
+     * @param path       File path for airplanes.txt.
+     */
     public static void loadFromFileAirplane(RedBlackBST<String, Airport> airportST,
                                             SeparateChainingHashST<String, Airplane> airplaneST, String path) {
         In in = new In(path);
@@ -98,6 +110,14 @@ public class Main {
         }
     }
 
+    /**
+     * Loads from flights.txt to flightST and other ST's involving flights.
+     *
+     * @param airportST  Symbol Table for airports.
+     * @param airplaneST Symbol Table for airplanes.
+     * @param flightST   Symbol Table for flights.
+     * @param path       File path for flights.txt.
+     */
     public static void loadFromFileFlight(RedBlackBST<String, Airport> airportST,
                                           SeparateChainingHashST<String, Airplane> airplaneST,
                                           RedBlackBST<Date, Flight> flightST, String path) {
@@ -107,7 +127,7 @@ public class Main {
 
             while (!in.isEmpty()) {
                 String[] text = in.readLine().split(";");
-                DateFormat format = new SimpleDateFormat("yyyyMMddhhmm");
+                DateFormat format = new SimpleDateFormat("dd-MM-yy hh:mm");
                 Date date = format.parse(text[0]);
                 String code = text[1];
                 String airplaneID = text[2];
@@ -128,7 +148,12 @@ public class Main {
         }
     }
 
-
+    /**
+     * Save from airportST to airports.txt.
+     *
+     * @param airportST Symbol Table for airports.
+     * @param path      File path for airports.txt.
+     */
     public static void saveToFileAirport(RedBlackBST<String, Airport> airportST, String path) {
         Out o = new Out(path);
         for (String i : airportST.inOrder()) {
@@ -141,6 +166,12 @@ public class Main {
         }
     }
 
+    /**
+     * Save from airplaneST to airplane.txt.
+     *
+     * @param airplaneST Symbol Table for airplanes.
+     * @param path       File path for airplane.txt.
+     */
     public static void saveToFileAirplane(SeparateChainingHashST<String, Airplane> airplaneST, String path) {
         Out o = new Out(path);
         for (String i : airplaneST.keys()) {
@@ -152,16 +183,25 @@ public class Main {
                     airplaneST.get(i).getCruiseAltitude() + ";" +
                     airplaneST.get(i).getMaxDistance() + ";" +
                     airplaneST.get(i).getCurrentAirport() + ";" +
-                    airplaneST.get(i).getMaxDistance() + ";" +
+                    airplaneST.get(i).getMaxCapacity() + ";" +
                     airplaneST.get(i).getFuelCapacity() + ";");
         }
 
     }
 
+    /**
+     * Save from flightST to flights.txt.
+     *
+     * @param flightST Symbol Table for flights.
+     * @param path     File path for flights.txt.
+     */
     public static void saveToFileFlight(RedBlackBST<Date, Flight> flightST, String path) {
         Out o = new Out(path);
-        for (Date i : flightST.keys()) {
-            o.println(flightST.get(i).getDate() + ";" +
+        DateFormat toString = new SimpleDateFormat("dd-MM-yy hh:mm");
+        String date = "";
+        for (Date i : flightST.inOrder()) {
+            date = toString.format(flightST.get(i).getDate());
+            o.println(date + ";" +
                     flightST.get(i).getAirplaneID() + ";" +
                     flightST.get(i).getAirplaneName() + ";" +
                     flightST.get(i).getOrigin() + ";" +
@@ -171,6 +211,11 @@ public class Main {
         }
     }
 
+    /**
+     * Prints all the airports in the ST.
+     *
+     * @param airportST Symbol Table for airports.
+     */
     public static void printAllAirports(RedBlackBST<String, Airport> airportST) {
 
         System.out.println("Airports list:");
@@ -187,6 +232,12 @@ public class Main {
         }
     }
 
+    /**
+     * Prints a specific airport.
+     *
+     * @param airportST Symbol Table for airports.
+     * @param code      The id key of the airport.
+     */
     public static void printAirport(RedBlackBST<String, Airport> airportST, String code) {
 
         System.out.println("Information of Airport: " + airportST.get(code).getName());
@@ -200,9 +251,14 @@ public class Main {
         System.out.println("");
     }
 
+    /**
+     * Prints all airplanes by airports.
+     *
+     * @param airportST Symbol Table for airports.
+     */
     public static void printAirplanesByAirport(RedBlackBST<String, Airport> airportST) {
 
-        for (String i : airportST.keys()) {
+        for (String i : airportST.inOrder()) {
             System.out.println("Airplanes in " + airportST.get(i).getName());
             for (String j : airportST.get(i).getAirplaneST().keys()) {
                 System.out.println("\tID: " + airportST.get(i).getAirplaneST().get(j).getId());
@@ -221,6 +277,12 @@ public class Main {
         }
     }
 
+    /**
+     * Prints a specific airplane.
+     *
+     * @param airplaneST Symbol Table for airplanes.
+     * @param id         The id key of the airplane.
+     */
     public static void printAirplane(SeparateChainingHashST<String, Airplane> airplaneST, String id) {
 
         for (String i : airplaneST.keys()) {
@@ -241,10 +303,17 @@ public class Main {
 
     }
 
-    public static void printCountryAirports(RedBlackBST<String, Airport> airportST, String c) {
+    /**
+     * Prints airports of a specific airport.
+     *
+     * @param airportST Symbol Table for airports.
+     * @param country   Country name.
+     */
+    public static void printCountryAirports(RedBlackBST<String, Airport> airportST, String country) {
 
+        System.out.println("Airports of " + country + ":");
         for (String i : airportST.keys()) {
-            if (airportST.get(i).getCountry().equals(c)) {
+            if (airportST.get(i).getCountry().equals(country)) {
                 System.out.println("\tName: " + airportST.get(i).getName());
                 System.out.println("\tCode: " + airportST.get(i).getCode());
                 System.out.println("\tCity: " + airportST.get(i).getCity());
@@ -256,12 +325,17 @@ public class Main {
         }
     }
 
-    public static void printFlightFomAirport(RedBlackBST<String, Airport> airportST, String code) {
+    /**
+     * Prints flights from a specific airport.
+     *
+     * @param airportST Symbol Table for airports.
+     * @param code      Code name of an airport.
+     */
+    public static void printFlightFromAirport(RedBlackBST<String, Airport> airportST, String code) {
 
-        System.out.println("Flights of " + airportST.get(code).getName());
-
+        System.out.println("Flights from " + airportST.get(code).getName());
         if (!airportST.get(code).getFlightOriST().isEmpty()) {
-            for (Date i : airportST.get(code).getFlightDestST().keys()) {
+            for (Date i : airportST.get(code).getFlightOriST().keys()) {
                 System.out.println("\tDate: " + airportST.get(code).getFlightOriST().get(i).getDate());
                 System.out.println("\tCode: " + airportST.get(code).getFlightOriST().get(i).getCode());
                 System.out.println("\tAirplane ID: " + airportST.get(code).getFlightOriST().get(i).getAirplaneID());
@@ -274,9 +348,15 @@ public class Main {
         } else System.out.println("That airport doesn't have flights.");
     }
 
+    /**
+     * Prints flights to a specific airport.
+     *
+     * @param airportST Symbol Table for airports.
+     * @param code      Code name of an airport.
+     */
     public static void printFlightToAirport(RedBlackBST<String, Airport> airportST, String code) {
 
-        System.out.println("Flights of " + airportST.get(code).getName());
+        System.out.println("Flights to " + airportST.get(code).getName());
 
         if (!airportST.get(code).getFlightDestST().isEmpty()) {
             for (Date i : airportST.get(code).getFlightDestST().keys()) {
@@ -292,24 +372,33 @@ public class Main {
         } else System.out.println("That airport doesn't have flights.");
     }
 
+    /**
+     * Prints flights of a specific airplane.
+     *
+     * @param airplaneST Symbol Table for airplanes.
+     * @param code       Id code of a specific airplane.
+     */
     public static void printFlightByAirplane(SeparateChainingHashST<String, Airplane> airplaneST, String code) {
+        if (!airplaneST.get(code).getFlightsAirplane().isEmpty()) {
+            for (Date j : airplaneST.get(code).getFlightsAirplane().inOrder()) {
+                System.out.println("\tDate: " + airplaneST.get(code).getFlightsAirplane().get(j).getDate());
+                System.out.println("\tCode: " + airplaneST.get(code).getFlightsAirplane().get(j).getCode());
+                System.out.println("\tAirplane ID: " + airplaneST.get(code).getFlightsAirplane().get(j).getAirplaneID());
+                System.out.println("\tAirplane name: " + airplaneST.get(code).getFlightsAirplane().get(j).getAirplaneName());
+                System.out.println("\tOrigin: " + airplaneST.get(code).getFlightsAirplane().get(j).getOrigin());
+                System.out.println("\tDestination: " + airplaneST.get(code).getFlightsAirplane().get(j).getDestination());
+                System.out.println("\tPassengers: " + airplaneST.get(code).getFlightsAirplane().get(j).getPassengers());
+                System.out.println("\tDistance: " + airplaneST.get(code).getFlightsAirplane().get(j).getDistance());
 
-        for (String i : airplaneST.keys()) {
-            for (Date j : airplaneST.get(i).getFlightsAirplane().inOrder()) {
-                if (!airplaneST.get(i).getFlightsAirplane().isEmpty()) {
-                    System.out.println("\tDate: " + airplaneST.get(i).getFlightsAirplane().get(j).getDate());
-                    System.out.println("\tCode: " + airplaneST.get(i).getFlightsAirplane().get(j).getCode());
-                    System.out.println("\tAirplane ID: " + airplaneST.get(i).getFlightsAirplane().get(j).getAirplaneID());
-                    System.out.println("\tAirplane name: " + airplaneST.get(i).getFlightsAirplane().get(j).getAirplaneName());
-                    System.out.println("\tOrigin: " + airplaneST.get(i).getFlightsAirplane().get(j).getOrigin());
-                    System.out.println("\tDestination: " + airplaneST.get(i).getFlightsAirplane().get(j).getDestination());
-                    System.out.println("\tPassengers: " + airplaneST.get(i).getFlightsAirplane().get(j).getPassengers());
-                    System.out.println("\tDistance: " + airplaneST.get(i).getFlightsAirplane().get(j).getDistance());
-                }
             }
         }
     }
 
+    /**
+     * Calculates the airport with more flights.
+     *
+     * @param airportST Symbol Table for airports.
+     */
     public static void mostTraficAirport(RedBlackBST<String, Airport> airportST) {
         int maxValue = 0;
         ArrayList<String> airportsName = new ArrayList<>();
@@ -334,16 +423,25 @@ public class Main {
             System.out.println("with a total of " + maxValue + " flights.");
         } else {
             System.out.println("The airport with most traffic is: ");
+            System.out.println("");
             for (String i : airportsName) {
-                System.out.println(i + " with a total of " + maxValue + "flights.");
+                System.out.println(i + " with a total of " + maxValue + " flights.");
             }
         }
     }
 
+    /**
+     * Prints flights between two dates.
+     *
+     * @param flightST Symbol Table for flights.
+     * @param date1    First Date.
+     * @param date2    Last Date.
+     * @throws ParseException Prints error whith the date parsing.
+     */
     public static void flightsByTimePeriod(RedBlackBST<Date, Flight> flightST, String date1, String date2)
             throws ParseException {
 
-        DateFormat format = new SimpleDateFormat("yyyyMMddhhmm");
+        DateFormat format = new SimpleDateFormat("dd-MM-yy hh:mm");
         Date start = format.parse(date1);
         Date end = format.parse(date2);
         System.out.println("Flights between " + start + " and " + end + ":");
@@ -351,16 +449,21 @@ public class Main {
         for (Date i : flightST.keys(start, end)) {
             System.out.println("\tDate: " + flightST.get(i).getDate());
             System.out.println("\tAirplane ID: " + flightST.get(i).getAirplaneID());
-            System.out.println("\tAiprlane name: " + flightST.get(i).getAirplaneName());
+            System.out.println("\tAirplane name: " + flightST.get(i).getAirplaneName());
             System.out.println("\tOrigin: " + flightST.get(i).getOrigin());
             System.out.println("\tDestination: " + flightST.get(i).getDestination());
             System.out.println("\tPassengers: " + flightST.get(i).getPassengers());
             System.out.println("\tDistance: " + flightST.get(i).getDistance());
-            System.out.println("\n");
+            System.out.println("");
         }
 
     }
 
+    /**
+     * Calculates the flights with most passengers.
+     *
+     * @param flightST Symbol Table for flights.
+     */
     public static void flightWithMostPassengers(RedBlackBST<Date, Flight> flightST) {
 
         int maxValue = 0;
@@ -407,8 +510,12 @@ public class Main {
         }
     }
 
+    /**
+     * Calculates the airports withe most passengers.
+     *
+     * @param airportST Symbol Table for airports.
+     */
     public static void airportWithMostPassengers(RedBlackBST<String, Airport> airportST) {
-        // Map<String,Integer> aux = new HashMap<>();
 
         int maxValue = 0;
         int maxAirport = 0;
@@ -457,16 +564,37 @@ public class Main {
         System.out.println("with " + maxValue + " passengers.");
     }
 
+    /**
+     * Inserts a new airport into the ST.
+     *
+     * @param airportST Symbol Table for airports.
+     * @param a         Airport to be added.
+     */
     public static void insertAirport(RedBlackBST<String, Airport> airportST, Airport a) {
         airportST.put(a.getCode(), a);
     }
 
+    /**
+     * Inserts a new airplane into the ST's.
+     *
+     * @param airportST  Symbol Table for airports.
+     * @param airplaneST Symbol Table for airplanes.
+     * @param a          Airplane to be added.
+     */
     public static void insertAirplane(RedBlackBST<String, Airport> airportST,
                                       SeparateChainingHashST<String, Airplane> airplaneST, Airplane a) {
         airplaneST.put(a.getId(), a);
         airportST.get(a.getCurrentAirport()).getAirplaneST().put(a.getId(), a);
     }
 
+    /**
+     * Inserts a new flight into the ST's.
+     *
+     * @param airportST  Symbol Table for airports.
+     * @param airplaneST Symbol Table for airplanes.
+     * @param flightST   Symbol Table for flights.
+     * @param f          Flight to be added.
+     */
     public static void insertFlight(RedBlackBST<String, Airport> airportST,
                                     SeparateChainingHashST<String, Airplane> airplaneST,
                                     RedBlackBST<Date, Flight> flightST, Flight f) {
@@ -476,16 +604,37 @@ public class Main {
         airplaneST.get(f.getAirplaneID()).getFlightsAirplane().put(f.getDate(), f);
     }
 
-    public static void removeAirport(RedBlackBST<String, Airport> airportST, String code) {
-        airportST.delete(code);
+    /**
+     * Removes an airport from the ST.
+     *
+     * @param airportST Symbol Table for airports.
+     * @param a         Airport to be removed.
+     */
+    public static void removeAirport(RedBlackBST<String, Airport> airportST, Airport a) {
+        airportST.delete(a.getCode());
     }
 
+    /**
+     * Removes an airplane from the ST's.
+     *
+     * @param airportST  Symbol Table for airports.
+     * @param airplaneST Symbol Table for airplanes.
+     * @param a          Airplane to be removed.
+     */
     public static void removeAirplane(RedBlackBST<String, Airport> airportST,
                                       SeparateChainingHashST<String, Airplane> airplaneST, Airplane a) {
         airplaneST.delete(a.getId());
         airportST.get(a.getCurrentAirport()).getAirplaneST().delete(a.getId());
     }
 
+    /**
+     * Removes a flight from the ST's.
+     *
+     * @param airportST  Symbol Table for airports.
+     * @param airplaneST Symbol Table for airplanes.
+     * @param flightST   Symbol Table for flights.
+     * @param f          Flight to be removed.
+     */
     public static void removeFlight(RedBlackBST<String, Airport> airportST,
                                     SeparateChainingHashST<String, Airplane> airplaneST,
                                     RedBlackBST<Date, Flight> flightST, Flight f) {

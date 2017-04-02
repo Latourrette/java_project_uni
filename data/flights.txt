@@ -1,2 +1,2 @@
-201412151520;1;1;Fernão Mendes Pinto;JFK;OPO;50;500;
-201711030340;2;2;D. João de Castro;OPO;CDG;30;500;
+15-12-2014 15:20;1;1;Fernão Mendes Pinto;JFK;OPO;50;500;
+03-11-2017 03:40;2;2;D. João de Castro;OPO;CDG;30;500;

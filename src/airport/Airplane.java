@@ -15,7 +15,8 @@ public class Airplane {
     private Integer fuelCapacity;
     private RedBlackBST<Date, Flight> flightsAirplane = new RedBlackBST<>();
 
-    public Airplane(String id, String model, String name, String airline, int cruiseSpeed, int cruiseAltitude, int maxDistance, String currentAirport, int maxCapacity, int fuelCapacity) {
+    public Airplane(String id, String model, String name, String airline, Integer cruiseSpeed, Integer cruiseAltitude,
+                    Integer maxDistance, String currentAirport, Integer maxCapacity, Integer fuelCapacity) {
         this.id = id;
         this.model = model;
         this.name = name;
