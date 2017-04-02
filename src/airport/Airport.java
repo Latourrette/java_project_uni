@@ -1,11 +1,12 @@
 package airport;
 
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Airport {
-    private String name;
     private String code;
+    private String name;
     private String city;
     private String country;
     private String continent;
@@ -15,9 +16,9 @@ public class Airport {
     private RedBlackBST<Date, Flight> flightDestST = new RedBlackBST<>();
 
 
-    public Airport(String name, String code, String city, String country, String continent, Float rating) {
-        this.name = name;
+    public Airport(String code, String name, String city, String country, String continent, Float rating) {
         this.code = code;
+        this.name = name;
         this.city = city;
         this.country = country;
         this.continent = continent;
@@ -70,6 +71,7 @@ public class Airport {
             System.out.println(e);
         }
     }*/
+
 
     public String getName() {
         return name;

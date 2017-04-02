@@ -21,9 +21,11 @@ tempo;
     *  ✔️
 - Determinar	qual	o	aeroporto	com	mais	tráfego;
     *  ✔️
-- Determinar	qual	o	voo	que	transportou	mais	passageiros;
+- Determinar	qual	    *  ✔️o	voo	que	transportou	mais	passageiros;
+    *  ✔️
 - Determinar	 qual	 o	 aeroporto	 que	 transportou	 o	 maior	 número	 de	
-passageiros.	
+passageiros.
+	*  ✔️
 - Inserir,	 remover,	 editar	 toda	 a	informaçã o,	 para	 cada	 uma	 das	 várias	 STs	
 consideradas	na	base	de	dados;
 - Calcular	 o	 custo	 de	 uma	 viagem	 com	 determinada	 distância	 e	 numa	

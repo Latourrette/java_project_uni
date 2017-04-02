@@ -1,5 +1,7 @@
 package airport;
 
+import java.util.Date;
+
 public class Airplane {
     private String id; //key
     private String model;
@@ -11,6 +13,7 @@ public class Airplane {
     private String currentAirport;
     private Integer maxCapacity;
     private Integer fuelCapacity;
+    private RedBlackBST<Date, Flight> flightsAirplane = new RedBlackBST<>();
 
     public Airplane(String id, String model, String name, String airline, int cruiseSpeed, int cruiseAltitude, int maxDistance, String currentAirport, int maxCapacity, int fuelCapacity) {
         this.id = id;
@@ -57,27 +60,27 @@ public class Airplane {
         this.airline = airline;
     }
 
-    public int getCruiseSpeed() {
+    public Integer getCruiseSpeed() {
         return cruiseSpeed;
     }
 
-    public void setCruiseSpeed(int cruiseSpeed) {
+    public void setCruiseSpeed(Integer cruiseSpeed) {
         this.cruiseSpeed = cruiseSpeed;
     }
 
-    public int getCruiseAltitude() {
+    public Integer getCruiseAltitude() {
         return cruiseAltitude;
     }
 
-    public void setCruiseAltitude(int cruiseAltitude) {
+    public void setCruiseAltitude(Integer cruiseAltitude) {
         this.cruiseAltitude = cruiseAltitude;
     }
 
-    public int getMaxDistance() {
+    public Integer getMaxDistance() {
         return maxDistance;
     }
 
-    public void setMaxDistance(int maxDistance) {
+    public void setMaxDistance(Integer maxDistance) {
         this.maxDistance = maxDistance;
     }
 
@@ -89,22 +92,29 @@ public class Airplane {
         this.currentAirport = currentAirport;
     }
 
-    public int getMaxCapacity() {
+    public Integer getMaxCapacity() {
         return maxCapacity;
     }
 
-    public void setMaxCapacity(int maxCapacity) {
+    public void setMaxCapacity(Integer maxCapacity) {
         this.maxCapacity = maxCapacity;
     }
 
-    public int getFuelCapacity() {
+    public Integer getFuelCapacity() {
         return fuelCapacity;
     }
 
-    public void setFuelCapacity(int fuelCapacity) {
+    public void setFuelCapacity(Integer fuelCapacity) {
         this.fuelCapacity = fuelCapacity;
     }
 
+    public RedBlackBST<Date, Flight> getFlightsAirplane() {
+        return flightsAirplane;
+    }
+
+    public void setFlightsAirplane(RedBlackBST<Date, Flight> flightsAirplane) {
+        this.flightsAirplane = flightsAirplane;
+    }
 
     @Override
     public String toString() {
