@@ -2,21 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7ffe0cbb-4e30-4303-9fce-2a856f82b42d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/kotlinc.xml" afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/airplanes.txt" afterPath="$PROJECT_DIR$/data/airplanes.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/airports.txt" afterPath="$PROJECT_DIR$/data/airports.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/flights.txt" afterPath="$PROJECT_DIR$/data/flights.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lp2_aed2_project.iml" afterPath="$PROJECT_DIR$/lp2_aed2_project.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/airport/Airplane.java" afterPath="$PROJECT_DIR$/src/airport/Airplane.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/airport/Airport.java" afterPath="$PROJECT_DIR$/src/airport/Airport.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/airport/Flight.java" afterPath="$PROJECT_DIR$/src/airport/Flight.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/airport/Main.java" afterPath="$PROJECT_DIR$/src/airport/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/airport/RedBlackBST.java" afterPath="$PROJECT_DIR$/src/airport/RedBlackBST.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/airport/SeparateChainingHashST.java" afterPath="$PROJECT_DIR$/src/airport/SeparateChainingHashST.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -103,6 +90,19 @@
                 <element signature="docComment;method#fuelCost#0;class#Main#0" expanded="false" />
                 <element signature="method#fuelCost#0;class#Main#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="578">
+                <caret line="34" column="4" lean-forward="false" selection-start-line="34" selection-start-column="4" selection-end-line="34" selection-end-column="4" />
+                <folding />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -252,7 +252,6 @@
         <option value="$PROJECT_DIR$/src/airport/IllegalFlightException.java" />
         <option value="$PROJECT_DIR$/src/airport/IllegalAirplaneException.java" />
         <option value="$PROJECT_DIR$/src/airport/IllegalAirportException.java" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/data/flights.txt" />
         <option value="$PROJECT_DIR$/data/newAirplanes.txt" />
         <option value="$PROJECT_DIR$/data/airplanes.txt" />
@@ -261,6 +260,7 @@
         <option value="$PROJECT_DIR$/src/airport/Airport.java" />
         <option value="$PROJECT_DIR$/src/airport/Flight.java" />
         <option value="$PROJECT_DIR$/src/airport/Airplane.java" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -810,7 +810,7 @@
       <workItem from="1491105237208" duration="411000" />
       <workItem from="1491105988296" duration="331000" />
       <workItem from="1491106377120" duration="21561000" />
-      <workItem from="1491128482450" duration="25000" />
+      <workItem from="1491128482450" duration="143000" />
     </task>
     <task id="LOCAL-00001" summary="Commented">
       <created>1491113299847</created>
@@ -819,11 +819,18 @@
       <option name="project" value="LOCAL" />
       <updated>1491113299847</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Part 1 done. //">
+      <created>1491128542377</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1491128542377</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22615000" />
+    <option name="totallyTimeSpent" value="22733000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -836,6 +843,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1092" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -851,7 +859,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15677084" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15677084" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1309,8 +1317,8 @@
         <state relative-caret-position="153">
           <caret line="9" column="37" lean-forward="false" selection-start-line="9" selection-start-column="37" selection-end-line="9" selection-end-column="37" />
           <folding>
-            <element signature="e#729#730#0" expanded="true" />
-            <element signature="e#759#760#0" expanded="true" />
+            <element signature="e#729#730#0" expanded="false" />
+            <element signature="e#759#760#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1320,8 +1328,8 @@
         <state relative-caret-position="153">
           <caret line="9" column="39" lean-forward="false" selection-start-line="9" selection-start-column="39" selection-end-line="9" selection-end-column="39" />
           <folding>
-            <element signature="e#735#736#0" expanded="true" />
-            <element signature="e#765#766#0" expanded="true" />
+            <element signature="e#735#736#0" expanded="false" />
+            <element signature="e#765#766#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1358,7 +1366,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md" />
     <entry file="file://$PROJECT_DIR$/data/flights.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1447,6 +1454,17 @@
         <state relative-caret-position="3315">
           <caret line="195" column="6" lean-forward="false" selection-start-line="195" selection-start-column="6" selection-end-line="195" selection-end-column="6" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="578">
+            <caret line="34" column="4" lean-forward="false" selection-start-line="34" selection-start-column="4" selection-end-line="34" selection-end-column="4" />
+            <folding />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
