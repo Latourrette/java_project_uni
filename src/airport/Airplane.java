@@ -2,6 +2,9 @@ package airport;
 
 import java.util.Date;
 
+/**
+ * Airplane Class
+ */
 public class Airplane {
     private String id; //key
     private String model;
@@ -15,6 +18,19 @@ public class Airplane {
     private Integer fuelCapacity;
     private RedBlackBST<Date, Flight> flightsAirplane = new RedBlackBST<>();
 
+    /**
+     * Airplane Constructors
+     * @param id Id key
+     * @param model Model of the plane
+     * @param name Name of the plane
+     * @param airline Airline of the plane
+     * @param cruiseSpeed Cruise speed of the plane
+     * @param cruiseAltitude Cruise Altitude of the plane
+     * @param maxDistance Max distance of the plane
+     * @param currentAirport Current airport of the plane
+     * @param maxCapacity Max capacity of passengers of the plane
+     * @param fuelCapacity Max fuel capacity of the plane
+     */
     public Airplane(String id, String model, String name, String airline, Integer cruiseSpeed, Integer cruiseAltitude,
                     Integer maxDistance, String currentAirport, Integer maxCapacity, Integer fuelCapacity) {
         this.id = id;

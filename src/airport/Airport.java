@@ -1,9 +1,11 @@
 package airport;
 
 
-import java.util.ArrayList;
 import java.util.Date;
 
+/**
+ * Airport Class
+ */
 public class Airport {
     private String code;
     private String name;
@@ -15,7 +17,15 @@ public class Airport {
     private RedBlackBST<Date, Flight> flightOriST = new RedBlackBST<>();
     private RedBlackBST<Date, Flight> flightDestST = new RedBlackBST<>();
 
-
+    /**
+     * Airport Constructors
+     * @param code Id key
+     * @param name Name of the airport
+     * @param city City of the airport
+     * @param country Country of the airport
+     * @param continent Continent of the airport
+     * @param rating Rating of the airport
+     */
     public Airport(String code, String name, String city, String country, String continent, Float rating) {
         this.code = code;
         this.name = name;
@@ -24,53 +34,6 @@ public class Airport {
         this.continent = continent;
         this.rating = rating;
     }
-
-    /*
-
-
-    public static boolean removeAirport(RedBlackBST<String, Airport> airportRedBlackBST) {
-        Scanner scan = new Scanner(System.in);
-        System.out.println("Choose airport to delete: ");
-        String aux = scan.nextLine();
-        for (String key : airportRedBlackBST.get(aux).getAirportFlightsST().keys()) {
-            if (airportRedBlackBST.get(aux).getAirportFlightsST().get(key).getLocalOfArrival().equals(aux) ||
-                    airportRedBlackBST.get(aux).getAirportFlightsST().get(key).getLocalOfArrival().equals(aux)) {
-                airportRedBlackBST.get(aux).getAirportFlightsST().delete(key);
-            }
-        }
-        airportRedBlackBST.delete(aux);
-
-        for (String air : airportRedBlackBST.keys()) {
-            if (air.equals(aux)) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    public static void saveToFileAirport(RedBlackBST<String, Airport> airportRedBlackBST, String path) {
-        Out o = new Out(path);
-        for (String aux : airportRedBlackBST.keys()) {
-            Airport air = airportRedBlackBST.get(aux);
-            o.println(air.getName() + ";" + air.getLat() + ";" + air.getLon());
-        }
-    }
-
-    public static void addAirport(RedBlackBST<String, Airport> airportST) {
-        Scanner scan = new Scanner(System.in);
-        try {
-            System.out.println("Airport name: ");
-            String aux = scan.nextLine();
-            System.out.println("Lat: ");
-            String aux2 = scan.nextLine();
-            System.out.println("Lon: ");
-            String aux3 = scan.nextLine();
-            Airport auxObj = new Airport(aux, aux2, aux3);
-            airportST.put(aux, auxObj);
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-    }*/
 
 
     public String getName() {

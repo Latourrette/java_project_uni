@@ -3,30 +3,48 @@ package airport;
 
 import java.util.Date;
 
+/**
+ * Flight Class
+ */
 public class Flight {
     private Date date;
-    private String code;
     private String airplaneID;
-    private String airplaneName;
     private String origin;
     private String destination;
     private Integer passengers;
     private Integer distance;
+    private Integer flightAltitude;
+    private Integer windVelocity;
 
-
-
-    public Flight(Date date, String code,String airplaneID, String airplaneName, String origin, String destination,
-                  Integer passengers, Integer distance) {
+    /**
+     * Flight Constructors
+     * @param date Date of the flight, also the key
+     * @param airplaneID Id of the airplane doing the flight
+     * @param origin Origin of the flight
+     * @param destination Destination of the flight
+     * @param passengers Number of passengers in the flight
+     * @param distance Distance between of origin and destination of the flight
+     * @param flightAltitude Altitude required for the flight
+     * @param windVelocity Wind velocity of the flight
+     */
+    public Flight(Date date, String airplaneID, String origin, String destination, Integer passengers, Integer distance, Integer flightAltitude, Integer windVelocity) {
         this.date = date;
-        this.code = code;
         this.airplaneID = airplaneID;
-        this.airplaneName = airplaneName;
         this.origin = origin;
         this.destination = destination;
         this.passengers = passengers;
         this.distance = distance;
+        this.flightAltitude = flightAltitude;
+        this.windVelocity = windVelocity;
     }
 
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
 
     public String getAirplaneID() {
         return airplaneID;
@@ -52,14 +70,6 @@ public class Flight {
         this.destination = destination;
     }
 
-    public String getAirplaneName() {
-        return airplaneName;
-    }
-
-    public void setAirplaneName(String airplaneName) {
-        this.airplaneName = airplaneName;
-    }
-
     public Integer getPassengers() {
         return passengers;
     }
@@ -76,19 +86,19 @@ public class Flight {
         this.distance = distance;
     }
 
-    public Date getDate() {
-        return date;
+    public Integer getFlightAltitude() {
+        return flightAltitude;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setFlightAltitude(Integer flightAltitude) {
+        this.flightAltitude = flightAltitude;
     }
 
-    public String getCode() {
-        return code;
+    public Integer getWindVelocity() {
+        return windVelocity;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    public void setWindVelocity(Integer windVelocity) {
+        this.windVelocity = windVelocity;
     }
 }
