@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7ffe0cbb-4e30-4303-9fce-2a856f82b42d" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/newAirplanes.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/airport/IllegalAirplaneException.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/airport/IllegalAirportException.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/airport/IllegalFlightException.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,8 +34,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/airport/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="15" column="65" lean-forward="false" selection-start-line="15" selection-start-column="65" selection-end-line="15" selection-end-column="65" />
+            <state relative-caret-position="17">
+              <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
               <folding>
                 <element signature="docComment;class#Main#0" expanded="false" />
                 <element signature="method#main#0;class#Main#0" expanded="false" />
@@ -810,7 +813,7 @@
       <workItem from="1491105237208" duration="411000" />
       <workItem from="1491105988296" duration="331000" />
       <workItem from="1491106377120" duration="21561000" />
-      <workItem from="1491128482450" duration="143000" />
+      <workItem from="1491128482450" duration="272000" />
     </task>
     <task id="LOCAL-00001" summary="Commented">
       <created>1491113299847</created>
@@ -826,11 +829,18 @@
       <option name="project" value="LOCAL" />
       <updated>1491128542377</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Part 1 done. //">
+      <created>1491128647270</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1491128647270</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22733000" />
+    <option name="totallyTimeSpent" value="22862000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1470,8 +1480,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/airport/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="15" column="65" lean-forward="false" selection-start-line="15" selection-start-column="65" selection-end-line="15" selection-end-column="65" />
+        <state relative-caret-position="17">
+          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding>
             <element signature="docComment;class#Main#0" expanded="false" />
             <element signature="method#main#0;class#Main#0" expanded="false" />
