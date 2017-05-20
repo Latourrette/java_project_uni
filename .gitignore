@@ -212,3 +212,9 @@ pip-log.txt
 #Mr Developer
 .mr.developer.cfg
 out/
+
+#IDE
+.idea
+
+#macOS
+.DS_Store

@@ -34,7 +34,7 @@ public class Main {
 
         Flight f = new Flight(format.parse("15-01-1993 15:15"), "40", "FCP", "OPO", 70, 20, 15000, -300);
 
-        //insertAirport(airportST, a);
+        insertAirport(airportST, a);
         //insertAirplane(airportST, airplaneST, ap);
         //insertFlight(airportST, airplaneST, flightST, f);
 
@@ -49,7 +49,7 @@ public class Main {
         //printFlightToAirport(airportST, "CDG");
         //printFlightByAirplane(airplaneST, "1");
         //mostTrafficAirport(airportST);
-        //flightsByTimePeriod(flightST, "201311030340", "201511030340");
+        //flightsByTimePeriod(flightST, "031120130340", "032110150340");
         //flightWithMostPassengers(flightST);
         //airportWithMostPassengers(airportST);
 

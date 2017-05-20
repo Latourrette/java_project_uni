@@ -1,6 +1,6 @@
 /******************************************************************************
- *  Compilation:  javac Edge.java
- *  Execution:    java Edge
+ *  Compilation:  javac Connection.java
+ *  Execution:    java Connection
  *  Dependencies: StdOut.java
  *
  *  Immutable weighted edge.
@@ -10,7 +10,7 @@
 package edu.princeton.cs.algs4;
 
 /**
- *  The {@code Edge} class represents a weighted edge in an 
+ *  The {@code Connection} class represents a weighted edge in an
  *  {@link EdgeWeightedGraph}. Each edge consists of two integers
  *  (naming the two vertices) and a real-value weight. The data type
  *  provides methods for accessing the two endpoints of the edge and
@@ -106,7 +106,7 @@ public class Edge implements Comparable<Edge> {
     }
 
     /**
-     * Unit tests the {@code Edge} data type.
+     * Unit tests the {@code Connection} data type.
      *
      * @param args the command-line arguments
      */

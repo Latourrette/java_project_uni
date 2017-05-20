@@ -1,7 +1,7 @@
 /******************************************************************************
  *  Compilation:  javac GlobalMincut.java
  *  Execution:    java  GlobalMincut filename.txt
- *  Dependencies: EdgeWeightedGraph.java Edge.java UF.java 
+ *  Dependencies: EdgeWeightedGraph.java Connection.java UF.java
  *                IndexMaxPQ.java FlowNetwork.java FlowEdge.java 
  *                FordFulkerson.java In.java StdOut.java
  *  Data files:   http://algs4.cs.princeton.edu/43mst/tinyEWG.txt

@@ -79,7 +79,7 @@ public class EulerianCycle {
                 return;
 
         // create local view of adjacency lists, to iterate one vertex at a time
-        // the helper Edge data type is used to avoid exploring both copies of an edge v-w
+        // the helper Connection data type is used to avoid exploring both copies of an edge v-w
         Queue<Edge>[] adj = (Queue<Edge>[]) new Queue[G.V()];
         for (int v = 0; v < G.V(); v++)
             adj[v] = new Queue<Edge>();

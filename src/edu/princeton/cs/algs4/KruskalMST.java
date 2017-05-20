@@ -1,7 +1,7 @@
 /******************************************************************************
  *  Compilation:  javac KruskalMST.java
  *  Execution:    java  KruskalMST filename.txt
- *  Dependencies: EdgeWeightedGraph.java Edge.java Queue.java
+ *  Dependencies: EdgeWeightedGraph.java Connection.java Queue.java
  *                UF.java In.java StdOut.java
  *  Data files:   http://algs4.cs.princeton.edu/43mst/tinyEWG.txt
  *                http://algs4.cs.princeton.edu/43mst/mediumEWG.txt
@@ -162,7 +162,7 @@ public class KruskalMST {
                 int x = f.either(), y = f.other(x);
                 if (!uf.connected(x, y)) {
                     if (f.weight() < e.weight()) {
-                        System.err.println("Edge " + f + " violates cut optimality conditions");
+                        System.err.println("Connection " + f + " violates cut optimality conditions");
                         return false;
                     }
                 }

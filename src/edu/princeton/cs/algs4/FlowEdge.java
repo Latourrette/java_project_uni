@@ -46,7 +46,7 @@ public class FlowEdge {
     public FlowEdge(int v, int w, double capacity) {
         if (v < 0) throw new IllegalArgumentException("vertex index must be a non-negative integer");
         if (w < 0) throw new IllegalArgumentException("vertex index must be a non-negative integer");
-        if (!(capacity >= 0.0)) throw new IllegalArgumentException("Edge capacity must be non-negative");
+        if (!(capacity >= 0.0)) throw new IllegalArgumentException("Connection capacity must be non-negative");
         this.v         = v;
         this.w         = w;  
         this.capacity  = capacity;

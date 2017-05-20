@@ -168,7 +168,7 @@ public class FordFulkerson {
         for (int v = 0; v < G.V(); v++) {
             for (FlowEdge e : G.adj(v)) {
                 if (e.flow() < -FLOATING_POINT_EPSILON || e.flow() > e.capacity() + FLOATING_POINT_EPSILON) {
-                    System.err.println("Edge does not satisfy capacity constraints: " + e);
+                    System.err.println("Connection does not satisfy capacity constraints: " + e);
                     return false;
                 }
             }

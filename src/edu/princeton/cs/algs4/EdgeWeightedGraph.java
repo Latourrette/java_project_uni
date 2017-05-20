@@ -1,7 +1,7 @@
 /******************************************************************************
  *  Compilation:  javac EdgeWeightedGraph.java
  *  Execution:    java EdgeWeightedGraph filename.txt
- *  Dependencies: Bag.java Edge.java In.java StdOut.java
+ *  Dependencies: Bag.java Connection.java In.java StdOut.java
  *  Data files:   http://algs4.cs.princeton.edu/43mst/tinyEWG.txt
  *                http://algs4.cs.princeton.edu/43mst/mediumEWG.txt
  *                http://algs4.cs.princeton.edu/43mst/largeEWG.txt
@@ -203,7 +203,7 @@ public class EdgeWeightedGraph {
     /**
      * Returns all edges in this edge-weighted graph.
      * To iterate over the edges in this edge-weighted graph, use foreach notation:
-     * {@code for (Edge e : G.edges())}.
+     * {@code for (Connection e : G.edges())}.
      *
      * @return all edges in this edge-weighted graph, as an iterable
      */
