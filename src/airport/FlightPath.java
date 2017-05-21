@@ -31,13 +31,6 @@ public class FlightPath {
     }
 
 
-    @Override
-    public String toString() {
-        return "FlightPath{" +
-                "id=" + id +
-                ", airports=" + airports +
-                '}';
-    }
 
     public void saveFlightPath(String path) {
         Out o = new Out(path);
