@@ -19,12 +19,13 @@ public class Airport {
 
     /**
      * Airport Constructors
-     * @param code Id key
-     * @param name Name of the airport
-     * @param city City of the airport
-     * @param country Country of the airport
+     *
+     * @param code      Id key
+     * @param name      Name of the airport
+     * @param city      City of the airport
+     * @param country   Country of the airport
      * @param continent Continent of the airport
-     * @param rating Rating of the airport
+     * @param rating    Rating of the airport
      */
     public Airport(String code, String name, String city, String country, String continent, Float rating) {
         this.code = code;
@@ -106,5 +107,15 @@ public class Airport {
 
     public void setFlightDestST(RedBlackBST<Date, Flight> flightDestST) {
         this.flightDestST = flightDestST;
+    }
+
+    @Override
+    public String toString() {
+        return "Code = '" + code + '\'' +
+                ", Name = '" + name + '\'' +
+                ", City = '" + city + '\'' +
+                ", Country = '" + country + '\'' +
+                ", Continent = '" + continent + '\'' +
+                ", Rating = " + rating;
     }
 }

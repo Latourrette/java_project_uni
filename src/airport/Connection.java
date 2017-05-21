@@ -7,7 +7,8 @@
  *
  * 2015/2016 (c) Universidade Fernando Pessoa
  *
- */
+ *//*
+
 package airport;
 
 import edu.princeton.cs.algs4.*;
@@ -61,3 +62,4 @@ public class Connection extends DirectedEdge {
         }
     }
 }
+*/

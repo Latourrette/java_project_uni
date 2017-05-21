@@ -178,7 +178,7 @@ Desktop.ini
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
 
-# Mac crap
+#Mac crap
 .DS_Store
 
 
@@ -214,7 +214,14 @@ pip-log.txt
 out/
 
 #IDE
-.idea
+.idea/
+lp2_aed2_project.iml
 
-#macOS
-.DS_Store
+
+/build.xml
+build.xml
+nbproject/
+src/airport/App.form
+src/airport/App.java
+!/src/airport/App.java
+!/src/airport/App.form

@@ -20,16 +20,17 @@ public class Airplane {
 
     /**
      * Airplane Constructors
-     * @param id Id key
-     * @param model Model of the plane
-     * @param name Name of the plane
-     * @param airline Airline of the plane
-     * @param cruiseSpeed Cruise speed of the plane
+     *
+     * @param id             Id key
+     * @param model          Model of the plane
+     * @param name           Name of the plane
+     * @param airline        Airline of the plane
+     * @param cruiseSpeed    Cruise speed of the plane
      * @param cruiseAltitude Cruise Altitude of the plane
-     * @param maxDistance Max distance of the plane
+     * @param maxDistance    Max distance of the plane
      * @param currentAirport Current airport of the plane
-     * @param maxCapacity Max capacity of passengers of the plane
-     * @param fuelCapacity Max fuel capacity of the plane
+     * @param maxCapacity    Max capacity of passengers of the plane
+     * @param fuelCapacity   Max fuel capacity of the plane
      */
     public Airplane(String id, String model, String name, String airline, Integer cruiseSpeed, Integer cruiseAltitude,
                     Integer maxDistance, String currentAirport, Integer maxCapacity, Integer fuelCapacity) {
@@ -135,17 +136,17 @@ public class Airplane {
 
     @Override
     public String toString() {
-        return "Airplane{" +
-                "id='" + id + '\'' +
-                ", model='" + model + '\'' +
-                ", name='" + name + '\'' +
-                ", airline='" + airline + '\'' +
-                ", cruiseSpeed=" + cruiseSpeed +
-                ", cruiseAltitude=" + cruiseAltitude +
-                ", maxDistance=" + maxDistance +
-                ", currentAirport='" + currentAirport + '\'' +
-                ", maxCapacity=" + maxCapacity +
-                ", fuelCapacity=" + fuelCapacity +
-                '}';
+        return "Airplane{ " +
+                "Id = '" + id + '\'' +
+                ", Model = '" + model + '\'' +
+                ", Name = '" + name + '\'' +
+                ", Airline = '" + airline + '\'' +
+                ", Cruise Speed = " + cruiseSpeed +
+                ", Cruise Altitude = " + cruiseAltitude +
+                ", Max Distance = " + maxDistance +
+                ", Current Airport = '" + currentAirport + '\'' +
+                ", Max Capacity = " + maxCapacity +
+                ", Fuel Capacity = " + fuelCapacity +
+                " }";
     }
 }

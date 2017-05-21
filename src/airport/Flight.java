@@ -1,6 +1,8 @@
 package airport;
 
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -18,14 +20,15 @@ public class Flight {
 
     /**
      * Flight Constructors
-     * @param date Date of the flight, also the key
-     * @param airplaneID Id of the airplane doing the flight
-     * @param origin Origin of the flight
-     * @param destination Destination of the flight
-     * @param passengers Number of passengers in the flight
-     * @param distance Distance between of origin and destination of the flight
+     *
+     * @param date           Date of the flight, also the key
+     * @param airplaneID     Id of the airplane doing the flight
+     * @param origin         Origin of the flight
+     * @param destination    Destination of the flight
+     * @param passengers     Number of passengers in the flight
+     * @param distance       Distance between of origin and destination of the flight
      * @param flightAltitude Altitude required for the flight
-     * @param windVelocity Wind velocity of the flight
+     * @param windVelocity   Wind velocity of the flight
      */
     public Flight(Date date, String airplaneID, String origin, String destination, Integer passengers, Integer distance, Integer flightAltitude, Integer windVelocity) {
         this.date = date;
@@ -100,5 +103,22 @@ public class Flight {
 
     public void setWindVelocity(Integer windVelocity) {
         this.windVelocity = windVelocity;
+    }
+
+    @Override
+    public String toString() {
+
+        DateFormat toString = new SimpleDateFormat("dd-MM-yyyy HH:mm");
+        String newDate = toString.format(this.getDate());
+
+
+        return "Date = " + newDate +
+                ", Airplane ID '= " + airplaneID + '\'' +
+                ", Origin = '" + origin + '\'' +
+                ", Destination = '" + destination + '\'' +
+                ", Passengers = " + passengers +
+                ", Distance = " + distance +
+                ", Flight Altitude = " + flightAltitude +
+                ", Wind Velocity = " + windVelocity;
     }
 }
