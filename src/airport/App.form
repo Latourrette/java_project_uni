@@ -56,56 +56,55 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="jComboBoxAirport" max="32767" attributes="0"/>
-                      <EmptySpace pref="477" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jButtonAddAirport" min="-2" pref="100" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jButtonRemoveAirport" min="-2" pref="100" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jButtonEditAirport" min="-2" pref="100" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabelCode" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabelAirportName" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabelCity" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabelCountry" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabelContinent" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabelRating" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="jComboBoxAirport" alignment="0" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="jButtonAddAirport" min="-2" pref="100" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jButtonRemoveAirport" min="-2" pref="100" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jButtonEditAirport" min="-2" pref="100" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="jTextFieldRating" max="32767" attributes="0"/>
-                                          <Component id="jTextFieldContinent" alignment="0" pref="211" max="32767" attributes="0"/>
-                                          <Component id="jTextFieldCountry" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jTextFieldCity" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jTextFieldAirportName" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jTextFieldCode" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jTextFieldXAxis" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jTextFieldYAxis" alignment="0" max="32767" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jLabelCode" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabelAirportName" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabelCity" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabelCountry" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabelContinent" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabelRating" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="jTextFieldRating" max="32767" attributes="0"/>
+                                              <Component id="jTextFieldContinent" alignment="0" pref="211" max="32767" attributes="0"/>
+                                              <Component id="jTextFieldCountry" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="jTextFieldCity" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="jTextFieldAirportName" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="jTextFieldCode" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="jTextFieldXAxis" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="jTextFieldYAxis" alignment="0" max="32767" attributes="0"/>
+                                          </Group>
                                       </Group>
                                   </Group>
                               </Group>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="109" max="-2" attributes="0"/>
-                              <Component id="jButtonListAirport" min="-2" pref="100" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="109" max="-2" attributes="0"/>
+                                  <Component id="jButtonListAirport" min="-2" pref="100" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="210" max="32767" attributes="0"/>
+                      <EmptySpace pref="211" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -237,11 +236,17 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Add"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAddAirportActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jButtonRemoveAirport">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Remove"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonRemoveAirportActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jButtonEditAirport">
               <Properties>
@@ -289,6 +294,19 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                              <Component id="jButtonAddAirplane" min="-2" pref="100" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jButtonListAirplane" min="-2" pref="100" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Component id="jButtonRemoveAirplane" min="-2" pref="99" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jButtonEditAirplane" min="-2" pref="100" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
                           <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                               <Component id="jComboBoxAirplane" alignment="0" max="32767" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
@@ -312,30 +330,16 @@
                                       <Component id="jTextFieldCurrentAirport" alignment="0" min="-2" pref="205" max="-2" attributes="0"/>
                                       <Component id="jTextFieldMaxDistance" alignment="0" min="-2" pref="205" max="-2" attributes="0"/>
                                       <Component id="jTextFieldCruiseAltitude" alignment="0" min="-2" pref="205" max="-2" attributes="0"/>
-                                      <Component id="jTextFieldModelCruiseSpeed" alignment="0" min="-2" pref="205" max="-2" attributes="0"/>
+                                      <Component id="jTextFieldCruiseSpeed" alignment="0" min="-2" pref="205" max="-2" attributes="0"/>
                                       <Component id="jTextFieldAirline" alignment="0" min="-2" pref="205" max="-2" attributes="0"/>
                                       <Component id="jTextFieldAirplaneName" alignment="0" min="-2" pref="205" max="-2" attributes="0"/>
                                       <Component id="jTextFieldModel" alignment="0" min="-2" pref="205" max="-2" attributes="0"/>
                                       <Component id="jTextFieldId" min="-2" pref="205" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                              <Component id="jButtonAddAirplane" min="-2" pref="100" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jButtonListAirplane" min="-2" pref="100" max="-2" attributes="0"/>
-                                  <Group type="102" attributes="0">
-                                      <Component id="jButtonRemoveAirplane" min="-2" pref="99" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jButtonEditAirplane" min="-2" pref="100" max="-2" attributes="0"/>
-                                  </Group>
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="185" max="32767" attributes="0"/>
+                      <EmptySpace pref="205" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -365,7 +369,7 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jTextFieldModelCruiseSpeed" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldCruiseSpeed" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabelCruiseSpeed" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -401,7 +405,7 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jButtonListAirplane" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="108" max="32767" attributes="0"/>
+                      <EmptySpace pref="119" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -483,7 +487,7 @@
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldAirline">
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextFieldModelCruiseSpeed">
+            <Component class="javax.swing.JTextField" name="jTextFieldCruiseSpeed">
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldCruiseAltitude">
             </Component>
@@ -499,11 +503,17 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Add"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAddAirplaneActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jButtonRemoveAirplane">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Remove"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonRemoveAirplaneActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jButtonEditAirplane">
               <Properties>
@@ -534,47 +544,46 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="jComboBoxFlight" alignment="0" max="32767" attributes="0"/>
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabelDate" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabelAirplaneID" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabelOrigin" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabelDestination" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabelPassengers" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabelDistance" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabelFlightAltitude" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabelWindVelocity" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="jTextFieldDate" alignment="0" pref="180" max="32767" attributes="0"/>
-                                          <Component id="jTextFieldAirplaneID" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jTextFieldOrigin" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jTextFieldDestination" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jTextFieldPassengers" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jTextFieldDistance" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jTextFieldFlightAltitude" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jTextFieldWindVelocity" alignment="0" max="32767" attributes="0"/>
-                                      </Group>
+                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="jComboBoxFlight" alignment="0" max="32767" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLabelDate" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelAirplaneID" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelOrigin" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelDestination" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelPassengers" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelDistance" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelFlightAltitude" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelWindVelocity" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="jTextFieldDate" alignment="0" pref="180" max="32767" attributes="0"/>
+                                      <Component id="jTextFieldAirplaneID" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jTextFieldOrigin" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jTextFieldDestination" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jTextFieldPassengers" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jTextFieldDistance" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jTextFieldFlightAltitude" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jTextFieldWindVelocity" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jButtonListFlight" min="-2" pref="73" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jButtonAddFlight" min="-2" pref="100" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jButtonRemoveFlight" min="-2" pref="100" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="jButtonListFlight" max="32767" attributes="0"/>
+                                  <Component id="jButtonRemoveFlight" pref="100" max="32767" attributes="0"/>
+                              </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jButtonEditFlight" min="-2" pref="100" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="125" max="32767" attributes="0"/>
+                      <EmptySpace pref="211" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -606,7 +615,6 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabelPassengers" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jTextFieldPassengers" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButtonListFlight" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -629,7 +637,9 @@
                           <Component id="jButtonRemoveFlight" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jButtonEditFlight" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="0" pref="130" max="32767" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="jButtonListFlight" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="110" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -646,6 +656,9 @@
                   </StringArray>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBoxFlightActionPerformed"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
@@ -719,16 +732,25 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Add"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAddFlightActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jButtonRemoveFlight">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Remove"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonRemoveFlightActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jButtonEditFlight">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Edit"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonEditFlightActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jButtonListFlight">
               <Properties>

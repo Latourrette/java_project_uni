@@ -1,6 +1,9 @@
 package airport;
 
-import edu.princeton.cs.algs4.*;
+
+
+import edu.princeton.cs.algs4.In;
+import edu.princeton.cs.algs4.Out;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -21,17 +24,18 @@ public class Main {
 
         DateFormat format = new SimpleDateFormat("dd-MM-yyyy HH:mm");
 
-        loadFromFileAirport(airportST, ".//data//airports.txt");
-        loadFromFileAirplane(airportST, airplaneST, ".//data//airplanes.txt");
-        loadFromFileFlight(airportST, airplaneST, flightST, ".//data//flights.txt");
+        loadFromFileAirport(airportST, "./data/airports.txt");
+        loadFromFileAirplane(airportST, airplaneST, "./data/airplanes.txt");
+        loadFromFileFlight(airportST, airplaneST, flightST, "./data/flights.txt");
 
         Airport a = new Airport("FCP", "Futebol Club Porto", "Porto", "Portugal",
-                "Europe", 10.0f, 50,40);
+                "Europe", 10.0f, 41.248055, -8.681389);
 
         Airplane ap = new Airplane("40", "Toshiba", "Grande Maquina", "Toshiba Airlines",
                 958, 12000, 15190, "FCP", 120, 126206);
 
-        Flight f = new Flight(format.parse("15-01-1993 15:15"), "40", "FCP", "OPO", 70, 20, 15000, -300);
+        Flight f = new Flight(format.parse("15-01-1993 15:15"), "40", "FCP", "OPO",
+                70, 20, 15000, -300);
 
         //insertAirport(airportST, a);
         //insertAirplane(airportST, airplaneST, ap);
@@ -54,14 +58,14 @@ public class Main {
         //printAirplane(airplaneST, "11");
         //printFlightByAirplane(airplaneST, "2");
 
-        //(flightST, "03-11-2013 03:40", "03-12-2015 03:40");
-        //flightWithMostPassengers(flightST);
+        //flightsByTimePeriod(flightST, "03-11-2013 03:40", "03-12-2020 03:40");
+        flightWithMostPassengers(flightST);
 
 
         saveToFileAirport(airportST, ".//data//airports.txt");
         saveToFileAirplane(airplaneST, ".//data//airplanes.txt");
         saveToFileFlight(flightST, ".//data//flights.txt");
-        editAfterFlight(airportST, airplaneST, flightST);
+        //editAfterFlight(airportST, airplaneST, flightST);
     }
 
     /**
@@ -153,10 +157,10 @@ public class Main {
                 String destination = text[3];
                 Integer passengers = Integer.parseInt(text[4]);
                 Integer distance = Integer.parseInt(text[5]);
-                Integer flighAltitude = Integer.parseInt(text[6]);
+                Integer flightAltitude = Integer.parseInt(text[6]);
                 Integer windVelocity = Integer.parseInt(text[7]);
 
-                Flight f = new Flight(date, airplaneID, origin, destination, passengers, distance, flighAltitude, windVelocity);
+                Flight f = new Flight(date, airplaneID, origin, destination, passengers, distance, flightAltitude, windVelocity);
 
                 airportST.get(origin).getFlightOriST().put(date, f);
                 airportST.get(destination).getFlightDestST().put(date, f);
@@ -177,12 +181,14 @@ public class Main {
     public static void saveToFileAirport(RedBlackBST<String, Airport> airportST, String path) {
         Out o = new Out(path);
         for (String i : airportST.inOrder()) {
-            o.println(airportST.get(i).getCode() + ";" +
-                    airportST.get(i).getName() + ";" +
+            o.println(airportST.get(i).getName() + ";" +
+                    airportST.get(i).getCode() + ";" +
                     airportST.get(i).getCity() + ";" +
                     airportST.get(i).getCountry() + ";" +
                     airportST.get(i).getContinent() + ";" +
-                    airportST.get(i).getRating() + ";");
+                    airportST.get(i).getRating() + ";" +
+                    airportST.get(i).getxAxis() + ";" +
+                    airportST.get(i).getyAxis() + ";");
         }
     }
 
@@ -710,29 +716,6 @@ public class Main {
 
     }
 
-    /**
-     * Calculates fuel cost with the altitude in mind.
-     *
-     * @param airplaneST Symbol Table for airplanes.
-     * @param n          Multiplier of when the plane is below cruise altitude.
-     * @param m          Multiplier of when the plane is above cruise altitude.
-     */
-    public static void fuelCost(SeparateChainingHashST<String, Airplane> airplaneST, int n, int m) {
-        int cost = 0;
-
-        for (String i : airplaneST.keys()) {
-            if (!airplaneST.get(i).getFlightsAirplane().isEmpty()) {
-                for (Date j : airplaneST.get(i).getFlightsAirplane().inOrder()) {
-                    if (airplaneST.get(i).getFlightsAirplane().get(j).getFlightAltitude() < airplaneST.get(i).getCruiseAltitude()) {
-                        cost = (airplaneST.get(i).getCruiseAltitude() - airplaneST.get(i).getFlightsAirplane().get(j).getFlightAltitude()) * m;
-                    }
-                    if (airplaneST.get(i).getFlightsAirplane().get(j).getFlightAltitude() > airplaneST.get(i).getCruiseAltitude()) {
-                        cost = (airplaneST.get(i).getFlightsAirplane().get(j).getFlightAltitude() - airplaneST.get(i).getCruiseAltitude()) * n;
-                    }
-                }
-            }
-        }
-    }
 }
 
 

@@ -1,3 +1,4 @@
+/*
 
 package airport;
 
@@ -12,10 +13,12 @@ import java.util.Scanner;
 import java.util.Vector;
 import edu.princeton.cs.algs4.DirectedEdge;
 
+*/
 /**
  *
  * @author eu
- */
+ *//*
+
 public class JframeAuxFunctions {
 
     private static final double _eQuatorialEarthRadius = 6378.1370D;
@@ -83,12 +86,14 @@ public class JframeAuxFunctions {
         return fasterPath(grafo, grafo.indexOf(aer_origem), grafo.indexOf(aer_destino),map,airportST,airplane);
     }
     
-    /**
+    */
+/**
      * Retorna uma string os voos efetuados num determinado espaço de tempo
      *
      * @param airportST
      * @throws ParseException
-     */
+     *//*
+
     public static String printFlightsTimePeriod(RedBlackBST<Date, Flights> flightsST, String date1, String date2) throws ParseException {
         DateFormat ft = new SimpleDateFormat("HH:mm:ss yyyy.MM.dd");
         String text = "Voos entre " + ft.parse(date1) + " e " + ft.parse(date2) + "\n\n";
@@ -101,12 +106,14 @@ public class JframeAuxFunctions {
         return text;
     }
 
-    /**
+    */
+/**
      * Retorna uma string os voos de um determinado avião
      *
      * @param airportST
      * @param airplaneST
-     */
+     *//*
+
     public static String printFlightsAirplane(RedBlackBST<String, Airport> airportST, RedBlackBST<String, Airplane> airplaneST, String airplaneName) {
         String text = "";
         ArrayList<String> dupControl = new ArrayList<>();
@@ -121,12 +128,14 @@ public class JframeAuxFunctions {
         return text;
     }
 
-    /**
+    */
+/**
      * Retorna uma string os aviões num determinado aeroporto
      *
      * @param airportST
      * @param airplaneST
-     */
+     *//*
+
     public static String printAirplanesInAirport(RedBlackBST<String, Airport> airportST, RedBlackBST<String, Airplane> airplaneST, String airport) {
         String text = "";
 
@@ -144,12 +153,14 @@ public class JframeAuxFunctions {
         return text;
     }
 
-    /**
+    */
+/**
      * Retorna uma string com os códigos e nomes do(s) aeroporto(s) com mais
      * passageiros
      *
      * @param airportST
-     */
+     *//*
+
     public static String mostsAirportPeople(RedBlackBST<String, Airport> airportST) {
         Map<String, Integer> aux = new HashMap<>();
         for (String s : airportST.inOrder()) {
@@ -179,11 +190,13 @@ public class JframeAuxFunctions {
         return text;
     }
 
-    /**
+    */
+/**
      * Retorna uma string com o(s) voo(s) com mais passageiros
      *
      * @param airportST
-     */
+     *//*
+
     public static String mostPeopleFlights(RedBlackBST<Date, Flights> flightsST) {
 
         int maxValue = 0;
@@ -216,13 +229,15 @@ public class JframeAuxFunctions {
         return text;
     }
 
-    /**
+    */
+/**
      * Retorna uma string com os códigos e nomes do(s) aeroporto(s) de um
      * determinado continente
      *
      * @param airportST
      * @throws IllegalAirportException
-     */
+     *//*
+
     public static String continentAirports(RedBlackBST<String, Airport> airportST, String continent) {
         String text = "Continente: " + continent + "\n\n";
         if (!airportST.isEmpty()) {
@@ -240,13 +255,15 @@ public class JframeAuxFunctions {
         return text;
     }
 
-    /**
+    */
+/**
      * Retorna uma string com os códigos e nomes do(s) aeroporto(s) de um
      * determinado país
      *
      * @param airportST
      * @throws IllegalAirportException
-     */
+     *//*
+
     public static String countryAirports(RedBlackBST<String, Airport> airportST, String country) {
         String text = "País: " + country + "\n\n";
         if (!airportST.isEmpty()) {
@@ -263,14 +280,16 @@ public class JframeAuxFunctions {
         return text;
     }
 
-    /**
+    */
+/**
      * Retorna uma string com os códigos e nomes do(s) aeroporto(s) com mais
      * voos
      *
      * @param airportST
      * @throws IllegalAirportException
      * @throws IllegalFlightException
-     */
+     *//*
+
     public static String mostFlights(RedBlackBST<String, Airport> airportST) {
         int maxValue = 0;
         if (!airportST.isEmpty()) {
@@ -307,13 +326,15 @@ public class JframeAuxFunctions {
         return text;
     }
 
-    /**
+    */
+/**
      * Retorna uma string com os voos que estao de partida de um certo aeroporto
      *
      * @param airportST
      * @throws IllegalAirportException
      * @throws IllegalFlightException
-     */
+     *//*
+
     public static String outcomingFlights(RedBlackBST<String, Airport> airportST, String aux) {
         Scanner scan = new Scanner(System.in);
         String text = "";
@@ -335,13 +356,15 @@ public class JframeAuxFunctions {
         return text;
     }
 
-    /**
+    */
+/**
      * Retorna uma string com os voos que estão a chegar a um certo aeroporto
      *
      * @param airportST
      * @throws IllegalAirportException
      * @throws IllegalFlightException
-     */
+     *//*
+
     public static String incomingFlights(RedBlackBST<String, Airport> airportST, String aux) {
         Scanner scan = new Scanner(System.in);
         System.out.print("Airport name: ");
@@ -367,10 +390,12 @@ public class JframeAuxFunctions {
         return text;
     }
     
-    /**
+    */
+/**
      * Verifica se a informação do voo está correta e retorna true ou false
      * @param airplaneST
-     */
+     *//*
+
     
     public static boolean verifyAirplane(String airplaneCode,String airport1, String airport2,RedBlackBST<String, Airplane> airplaneST, RedBlackBST<String, Airport> airportST){
         if (!airplaneST.contains(airplaneCode) || !airportST.contains(airport1) || !airportST.contains(airport2) || 
@@ -454,3 +479,4 @@ public class JframeAuxFunctions {
     
     
 }
+*/

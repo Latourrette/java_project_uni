@@ -5,6 +5,9 @@
  */
 package airport;
 
+import java.awt.event.ActionEvent;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Vector;
 import javax.swing.*;
@@ -21,10 +24,10 @@ public class App extends javax.swing.JFrame {
      * Creates new form App
      */
     public App() {
-        initComponents();
         Main.loadFromFileAirport(Main.airportST, ".//data//airports.txt");
         Main.loadFromFileAirplane(Main.airportST, Main.airplaneST, ".//data//airplanes.txt");
         Main.loadFromFileFlight(Main.airportST, Main.airplaneST, Main.flightST, ".//data//flights.txt");
+        initComponents();
 
 
         for (String key : Main.airportST.keys()) {
@@ -98,7 +101,7 @@ public class App extends javax.swing.JFrame {
         jTextFieldModel = new javax.swing.JTextField();
         jTextFieldAirplaneName = new javax.swing.JTextField();
         jTextFieldAirline = new javax.swing.JTextField();
-        jTextFieldModelCruiseSpeed = new javax.swing.JTextField();
+        jTextFieldCruiseSpeed = new javax.swing.JTextField();
         jTextFieldCruiseAltitude = new javax.swing.JTextField();
         jTextFieldMaxDistance = new javax.swing.JTextField();
         jTextFieldCurrentAirport = new javax.swing.JTextField();
@@ -136,7 +139,7 @@ public class App extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jComboBoxAirport.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxAirport.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Item 1", "Item 2", "Item 3", "Item 4"}));
         jComboBoxAirport.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxAirportActionPerformed(evt);
@@ -168,8 +171,18 @@ public class App extends javax.swing.JFrame {
         });
 
         jButtonAddAirport.setText("Add");
+        jButtonAddAirport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAddAirportActionPerformed(evt);
+            }
+        });
 
         jButtonRemoveAirport.setText("Remove");
+        jButtonRemoveAirport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRemoveAirportActionPerformed(evt);
+            }
+        });
 
         jButtonEditAirport.setText("Edit");
         jButtonEditAirport.addActionListener(new java.awt.event.ActionListener() {
@@ -193,97 +206,96 @@ public class App extends javax.swing.JFrame {
         javax.swing.GroupLayout jPanelAiportLayout = new javax.swing.GroupLayout(jPanelAiport);
         jPanelAiport.setLayout(jPanelAiportLayout);
         jPanelAiportLayout.setHorizontalGroup(
-            jPanelAiportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelAiportLayout.createSequentialGroup()
-                .addComponent(jComboBoxAirport, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap(477, Short.MAX_VALUE))
-            .addGroup(jPanelAiportLayout.createSequentialGroup()
-                .addGroup(jPanelAiportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelAiportLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanelAiportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanelAiportLayout.createSequentialGroup()
-                                .addComponent(jButtonAddAirport, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButtonRemoveAirport, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButtonEditAirport, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanelAiportLayout.createSequentialGroup()
-                                .addGroup(jPanelAiportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelCode)
-                                    .addComponent(jLabelAirportName)
-                                    .addComponent(jLabelCity)
-                                    .addComponent(jLabelCountry)
-                                    .addComponent(jLabelContinent)
-                                    .addComponent(jLabelRating)
-                                    .addComponent(jLabel1))
-                                .addGap(51, 51, 51)
-                                .addGroup(jPanelAiportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextFieldRating)
-                                    .addComponent(jTextFieldContinent, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE)
-                                    .addComponent(jTextFieldCountry)
-                                    .addComponent(jTextFieldCity)
-                                    .addComponent(jTextFieldAirportName)
-                                    .addComponent(jTextFieldCode)
-                                    .addComponent(jTextFieldXAxis)
-                                    .addComponent(jTextFieldYAxis)))))
-                    .addGroup(jPanelAiportLayout.createSequentialGroup()
-                        .addGap(109, 109, 109)
-                        .addComponent(jButtonListAirport, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanelAiportLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel2)))
-                .addContainerGap(210, Short.MAX_VALUE))
+                jPanelAiportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanelAiportLayout.createSequentialGroup()
+                                .addGroup(jPanelAiportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(jComboBoxAirport, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGroup(jPanelAiportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(jPanelAiportLayout.createSequentialGroup()
+                                                        .addContainerGap()
+                                                        .addGroup(jPanelAiportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                .addGroup(jPanelAiportLayout.createSequentialGroup()
+                                                                        .addComponent(jButtonAddAirport, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                        .addComponent(jButtonRemoveAirport, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                        .addComponent(jButtonEditAirport, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                .addGroup(jPanelAiportLayout.createSequentialGroup()
+                                                                        .addGroup(jPanelAiportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                .addComponent(jLabelCode)
+                                                                                .addComponent(jLabelAirportName)
+                                                                                .addComponent(jLabelCity)
+                                                                                .addComponent(jLabelCountry)
+                                                                                .addComponent(jLabelContinent)
+                                                                                .addComponent(jLabelRating)
+                                                                                .addComponent(jLabel1))
+                                                                        .addGap(51, 51, 51)
+                                                                        .addGroup(jPanelAiportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                                                .addComponent(jTextFieldRating)
+                                                                                .addComponent(jTextFieldContinent, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE)
+                                                                                .addComponent(jTextFieldCountry)
+                                                                                .addComponent(jTextFieldCity)
+                                                                                .addComponent(jTextFieldAirportName)
+                                                                                .addComponent(jTextFieldCode)
+                                                                                .addComponent(jTextFieldXAxis)
+                                                                                .addComponent(jTextFieldYAxis)))))
+                                                .addGroup(jPanelAiportLayout.createSequentialGroup()
+                                                        .addGap(109, 109, 109)
+                                                        .addComponent(jButtonListAirport, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGroup(jPanelAiportLayout.createSequentialGroup()
+                                                        .addContainerGap()
+                                                        .addComponent(jLabel2))))
+                                .addContainerGap(211, Short.MAX_VALUE))
         );
         jPanelAiportLayout.setVerticalGroup(
-            jPanelAiportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelAiportLayout.createSequentialGroup()
-                .addComponent(jComboBoxAirport, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanelAiportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelCode)
-                    .addComponent(jTextFieldCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelAiportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldAirportName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelAirportName))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelAiportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelCity))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelAiportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldCountry, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelCountry))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelAiportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldContinent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelContinent))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelAiportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelRating)
-                    .addComponent(jTextFieldRating, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelAiportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jTextFieldXAxis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelAiportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextFieldYAxis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
-                .addGroup(jPanelAiportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonAddAirport)
-                    .addComponent(jButtonRemoveAirport)
-                    .addComponent(jButtonEditAirport))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonListAirport)
-                .addContainerGap(157, Short.MAX_VALUE))
+                jPanelAiportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanelAiportLayout.createSequentialGroup()
+                                .addComponent(jComboBoxAirport, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanelAiportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabelCode)
+                                        .addComponent(jTextFieldCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanelAiportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jTextFieldAirportName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabelAirportName))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanelAiportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jTextFieldCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabelCity))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanelAiportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jTextFieldCountry, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabelCountry))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanelAiportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jTextFieldContinent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabelContinent))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanelAiportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabelRating)
+                                        .addComponent(jTextFieldRating, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanelAiportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel1)
+                                        .addComponent(jTextFieldXAxis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanelAiportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel2)
+                                        .addComponent(jTextFieldYAxis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(24, 24, 24)
+                                .addGroup(jPanelAiportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jButtonAddAirport)
+                                        .addComponent(jButtonRemoveAirport)
+                                        .addComponent(jButtonEditAirport))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButtonListAirport)
+                                .addContainerGap(157, Short.MAX_VALUE))
         );
 
         jTabbedPaneMain.addTab("Airport", jPanelAiport);
 
-        jComboBoxAirplane.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxAirplane.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Item 1", "Item 2", "Item 3", "Item 4"}));
         jComboBoxAirplane.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxAirplaneActionPerformed(evt);
@@ -311,8 +323,18 @@ public class App extends javax.swing.JFrame {
         jLabelFuelCapacity.setText("Fuel Capacity:");
 
         jButtonAddAirplane.setText("Add");
+        jButtonAddAirplane.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAddAirplaneActionPerformed(evt);
+            }
+        });
 
         jButtonRemoveAirplane.setText("Remove");
+        jButtonRemoveAirplane.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRemoveAirplaneActionPerformed(evt);
+            }
+        });
 
         jButtonEditAirplane.setText("Edit");
         jButtonEditAirplane.addActionListener(new java.awt.event.ActionListener() {
@@ -326,106 +348,110 @@ public class App extends javax.swing.JFrame {
         javax.swing.GroupLayout jPanelAirplaneLayout = new javax.swing.GroupLayout(jPanelAirplane);
         jPanelAirplane.setLayout(jPanelAirplaneLayout);
         jPanelAirplaneLayout.setHorizontalGroup(
-            jPanelAirplaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelAirplaneLayout.createSequentialGroup()
-                .addGroup(jPanelAirplaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelAirplaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jComboBoxAirplane, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelAirplaneLayout.createSequentialGroup()
-                            .addContainerGap()
-                            .addGroup(jPanelAirplaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabelId)
-                                .addComponent(jLabelModel)
-                                .addComponent(jLabelAirplaneName)
-                                .addComponent(jLabelAirline)
-                                .addComponent(jLabelCruiseSpeed)
-                                .addComponent(jLabelCruiseAltitude)
-                                .addComponent(jLabelMaxDistance)
-                                .addComponent(jLabelCurrentAirport)
-                                .addComponent(jLabelMaxCapacity)
-                                .addComponent(jLabelFuelCapacity))
-                            .addGap(36, 36, 36)
-                            .addGroup(jPanelAirplaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jTextFieldMaxCapacity, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextFieldFuelCapacity, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextFieldCurrentAirport, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextFieldMaxDistance, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextFieldCruiseAltitude, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextFieldModelCruiseSpeed, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextFieldAirline, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextFieldAirplaneName, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextFieldModel, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(15, 15, 15)))
-                    .addGroup(jPanelAirplaneLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jButtonAddAirplane, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanelAirplaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButtonListAirplane, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanelAirplaneLayout.createSequentialGroup()
-                                .addComponent(jButtonRemoveAirplane, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButtonEditAirplane, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(185, Short.MAX_VALUE))
+                jPanelAirplaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanelAirplaneLayout.createSequentialGroup()
+                                .addGroup(jPanelAirplaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanelAirplaneLayout.createSequentialGroup()
+                                                .addGap(18, 18, 18)
+                                                .addComponent(jButtonAddAirplane, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addGroup(jPanelAirplaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(jButtonListAirplane, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addGroup(jPanelAirplaneLayout.createSequentialGroup()
+                                                                .addComponent(jButtonRemoveAirplane, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                .addComponent(jButtonEditAirplane, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addGroup(jPanelAirplaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                .addComponent(jComboBoxAirplane, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelAirplaneLayout.createSequentialGroup()
+                                                        .addContainerGap()
+                                                        .addGroup(jPanelAirplaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                .addComponent(jLabelId)
+                                                                .addComponent(jLabelModel)
+                                                                .addComponent(jLabelAirplaneName)
+                                                                .addComponent(jLabelAirline)
+                                                                .addComponent(jLabelCruiseSpeed)
+                                                                .addComponent(jLabelCruiseAltitude)
+                                                                .addComponent(jLabelMaxDistance)
+                                                                .addComponent(jLabelCurrentAirport)
+                                                                .addComponent(jLabelMaxCapacity)
+                                                                .addComponent(jLabelFuelCapacity))
+                                                        .addGap(36, 36, 36)
+                                                        .addGroup(jPanelAirplaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                .addComponent(jTextFieldMaxCapacity, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addComponent(jTextFieldFuelCapacity, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addComponent(jTextFieldCurrentAirport, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addComponent(jTextFieldMaxDistance, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addComponent(jTextFieldCruiseAltitude, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addComponent(jTextFieldCruiseSpeed, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addComponent(jTextFieldAirline, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addComponent(jTextFieldAirplaneName, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addComponent(jTextFieldModel, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addComponent(jTextFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addContainerGap(205, Short.MAX_VALUE))
         );
         jPanelAirplaneLayout.setVerticalGroup(
-            jPanelAirplaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelAirplaneLayout.createSequentialGroup()
-                .addComponent(jComboBoxAirplane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanelAirplaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelId)
-                    .addComponent(jTextFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelAirplaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldModel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelModel))
-                .addGap(6, 6, 6)
-                .addGroup(jPanelAirplaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldAirplaneName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelAirplaneName))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelAirplaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldAirline, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelAirline))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelAirplaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldModelCruiseSpeed, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelCruiseSpeed))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelAirplaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldCruiseAltitude, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelCruiseAltitude))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelAirplaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldMaxDistance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelMaxDistance))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelAirplaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldCurrentAirport, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelCurrentAirport))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelAirplaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldMaxCapacity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelMaxCapacity))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelAirplaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldFuelCapacity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelFuelCapacity))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanelAirplaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonAddAirplane)
-                    .addComponent(jButtonRemoveAirplane)
-                    .addComponent(jButtonEditAirplane))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonListAirplane)
-                .addContainerGap(108, Short.MAX_VALUE))
+                jPanelAirplaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanelAirplaneLayout.createSequentialGroup()
+                                .addComponent(jComboBoxAirplane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanelAirplaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabelId)
+                                        .addComponent(jTextFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanelAirplaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jTextFieldModel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabelModel))
+                                .addGap(6, 6, 6)
+                                .addGroup(jPanelAirplaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jTextFieldAirplaneName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabelAirplaneName))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanelAirplaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jTextFieldAirline, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabelAirline))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanelAirplaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jTextFieldCruiseSpeed, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabelCruiseSpeed))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanelAirplaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jTextFieldCruiseAltitude, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabelCruiseAltitude))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanelAirplaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jTextFieldMaxDistance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabelMaxDistance))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanelAirplaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jTextFieldCurrentAirport, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabelCurrentAirport))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanelAirplaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jTextFieldMaxCapacity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabelMaxCapacity))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanelAirplaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jTextFieldFuelCapacity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabelFuelCapacity))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanelAirplaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jButtonAddAirplane)
+                                        .addComponent(jButtonRemoveAirplane)
+                                        .addComponent(jButtonEditAirplane))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButtonListAirplane)
+                                .addContainerGap(119, Short.MAX_VALUE))
         );
 
         jTabbedPaneMain.addTab("Airplane", jPanelAirplane);
 
-        jComboBoxFlight.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxFlight.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Item 1", "Item 2", "Item 3", "Item 4"}));
+        jComboBoxFlight.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxFlightActionPerformed(evt);
+            }
+        });
 
         jLabelDate.setText("Date:");
 
@@ -462,97 +488,112 @@ public class App extends javax.swing.JFrame {
         });
 
         jButtonAddFlight.setText("Add");
+        jButtonAddFlight.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAddFlightActionPerformed(evt);
+            }
+        });
 
         jButtonRemoveFlight.setText("Remove");
+        jButtonRemoveFlight.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRemoveFlightActionPerformed(evt);
+            }
+        });
 
         jButtonEditFlight.setText("Edit");
+        jButtonEditFlight.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEditFlightActionPerformed(evt);
+            }
+        });
 
         jButtonListFlight.setText("List");
 
         javax.swing.GroupLayout jPanelFlightLayout = new javax.swing.GroupLayout(jPanelFlight);
         jPanelFlight.setLayout(jPanelFlightLayout);
         jPanelFlightLayout.setHorizontalGroup(
-            jPanelFlightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelFlightLayout.createSequentialGroup()
-                .addGroup(jPanelFlightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelFlightLayout.createSequentialGroup()
-                        .addGroup(jPanelFlightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jComboBoxFlight, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(jPanelFlightLayout.createSequentialGroup()
-                                .addContainerGap()
+                jPanelFlightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanelFlightLayout.createSequentialGroup()
                                 .addGroup(jPanelFlightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelDate)
-                                    .addComponent(jLabelAirplaneID)
-                                    .addComponent(jLabelOrigin)
-                                    .addComponent(jLabelDestination)
-                                    .addComponent(jLabelPassengers)
-                                    .addComponent(jLabelDistance)
-                                    .addComponent(jLabelFlightAltitude)
-                                    .addComponent(jLabelWindVelocity))
-                                .addGap(51, 51, 51)
-                                .addGroup(jPanelFlightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextFieldDate, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
-                                    .addComponent(jTextFieldAirplaneID)
-                                    .addComponent(jTextFieldOrigin)
-                                    .addComponent(jTextFieldDestination)
-                                    .addComponent(jTextFieldPassengers)
-                                    .addComponent(jTextFieldDistance)
-                                    .addComponent(jTextFieldFlightAltitude)
-                                    .addComponent(jTextFieldWindVelocity))))
-                        .addGap(18, 18, 18)
-                        .addComponent(jButtonListFlight, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanelFlightLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jButtonAddFlight, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonRemoveFlight, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonEditFlight, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(125, Short.MAX_VALUE))
+                                        .addGroup(jPanelFlightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                .addComponent(jComboBoxFlight, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addGroup(jPanelFlightLayout.createSequentialGroup()
+                                                        .addContainerGap()
+                                                        .addGroup(jPanelFlightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                .addComponent(jLabelDate)
+                                                                .addComponent(jLabelAirplaneID)
+                                                                .addComponent(jLabelOrigin)
+                                                                .addComponent(jLabelDestination)
+                                                                .addComponent(jLabelPassengers)
+                                                                .addComponent(jLabelDistance)
+                                                                .addComponent(jLabelFlightAltitude)
+                                                                .addComponent(jLabelWindVelocity))
+                                                        .addGap(51, 51, 51)
+                                                        .addGroup(jPanelFlightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                                .addComponent(jTextFieldDate, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
+                                                                .addComponent(jTextFieldAirplaneID)
+                                                                .addComponent(jTextFieldOrigin)
+                                                                .addComponent(jTextFieldDestination)
+                                                                .addComponent(jTextFieldPassengers)
+                                                                .addComponent(jTextFieldDistance)
+                                                                .addComponent(jTextFieldFlightAltitude)
+                                                                .addComponent(jTextFieldWindVelocity))))
+                                        .addGroup(jPanelFlightLayout.createSequentialGroup()
+                                                .addContainerGap()
+                                                .addComponent(jButtonAddFlight, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addGroup(jPanelFlightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                        .addComponent(jButtonListFlight, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(jButtonRemoveFlight, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jButtonEditFlight, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addContainerGap(211, Short.MAX_VALUE))
         );
         jPanelFlightLayout.setVerticalGroup(
-            jPanelFlightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelFlightLayout.createSequentialGroup()
-                .addComponent(jComboBoxFlight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addGroup(jPanelFlightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabelDate)
-                    .addComponent(jTextFieldDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanelFlightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelAirplaneID)
-                    .addComponent(jTextFieldAirplaneID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanelFlightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelOrigin)
-                    .addComponent(jTextFieldOrigin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanelFlightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelDestination)
-                    .addComponent(jTextFieldDestination, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanelFlightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelPassengers)
-                    .addComponent(jTextFieldPassengers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonListFlight))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanelFlightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelDistance)
-                    .addComponent(jTextFieldDistance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanelFlightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelFlightAltitude)
-                    .addComponent(jTextFieldFlightAltitude, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(11, 11, 11)
-                .addGroup(jPanelFlightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelWindVelocity)
-                    .addComponent(jTextFieldWindVelocity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanelFlightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonAddFlight)
-                    .addComponent(jButtonRemoveFlight)
-                    .addComponent(jButtonEditFlight))
-                .addGap(0, 130, Short.MAX_VALUE))
+                jPanelFlightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanelFlightLayout.createSequentialGroup()
+                                .addComponent(jComboBoxFlight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(30, 30, 30)
+                                .addGroup(jPanelFlightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jLabelDate)
+                                        .addComponent(jTextFieldDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanelFlightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabelAirplaneID)
+                                        .addComponent(jTextFieldAirplaneID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanelFlightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabelOrigin)
+                                        .addComponent(jTextFieldOrigin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanelFlightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabelDestination)
+                                        .addComponent(jTextFieldDestination, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanelFlightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabelPassengers)
+                                        .addComponent(jTextFieldPassengers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanelFlightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabelDistance)
+                                        .addComponent(jTextFieldDistance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanelFlightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabelFlightAltitude)
+                                        .addComponent(jTextFieldFlightAltitude, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(11, 11, 11)
+                                .addGroup(jPanelFlightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabelWindVelocity)
+                                        .addComponent(jTextFieldWindVelocity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanelFlightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jButtonAddFlight)
+                                        .addComponent(jButtonRemoveFlight)
+                                        .addComponent(jButtonEditFlight))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButtonListFlight)
+                                .addGap(0, 110, Short.MAX_VALUE))
         );
 
         jTabbedPaneMain.addTab("Flight", jPanelFlight);
@@ -560,12 +601,12 @@ public class App extends javax.swing.JFrame {
         javax.swing.GroupLayout jPanelDrawLayout = new javax.swing.GroupLayout(jPanelDraw);
         jPanelDraw.setLayout(jPanelDrawLayout);
         jPanelDrawLayout.setHorizontalGroup(
-            jPanelDrawLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 528, Short.MAX_VALUE)
+                jPanelDrawLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 528, Short.MAX_VALUE)
         );
         jPanelDrawLayout.setVerticalGroup(
-            jPanelDrawLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 461, Short.MAX_VALUE)
+                jPanelDrawLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 461, Short.MAX_VALUE)
         );
 
         jTabbedPaneMain.addTab("Draw", jPanelDraw);
@@ -573,47 +614,232 @@ public class App extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPaneMain)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jTabbedPaneMain)
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPaneMain)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jTabbedPaneMain)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonEditAirplaneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditAirplaneActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonEditAirplaneActionPerformed
+    private void jTextFieldCodeActionPerformed(ActionEvent evt) {
+    }
 
-    private void jComboBoxAirplaneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxAirplaneActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBoxAirplaneActionPerformed
+    private void jTextFieldContinentActionPerformed(ActionEvent evt) {
+    }
 
-    private void jTextFieldContinentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldContinentActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldContinentActionPerformed
+    private void jComboBoxAirportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxAirplaneActionPerformed
+        JComboBox cb = (JComboBox) evt.getSource();
+        String key = (String) cb.getSelectedItem();
 
-    private void jTextFieldCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCodeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldCodeActionPerformed
-
-    private void jComboBoxAirportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxAirportActionPerformed
-        // TODO add your handling code here:
-        JComboBox c = (JComboBox) evt.getSource();
-        String key = (String) c.getSelectedItem();
         jTextFieldCode.setText(Main.airportST.get(key).getCode());
         jTextFieldAirportName.setText(Main.airportST.get(key).getName());
         jTextFieldCity.setText(Main.airportST.get(key).getCity());
         jTextFieldCountry.setText(Main.airportST.get(key).getCountry());
         jTextFieldContinent.setText(Main.airportST.get(key).getContinent());
         jTextFieldRating.setText(Float.toString(Main.airportST.get(key).getRating()));
-        jTextFieldXAxis.setText(Double.toString(Main.airportST.get(key).getXAxis()));
-        jTextFieldYAxis.setText(Double.toString(Main.airportST.get(key).getYAxis()));
+        jTextFieldXAxis.setText(Double.toString(Main.airportST.get(key).getxAxis()));
+        jTextFieldYAxis.setText(Double.toString(Main.airportST.get(key).getyAxis()));
+    }//GEN-LAST:event_jComboBoxAirplaneActionPerformed
+
+    private void jComboBoxAirplaneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxAirportActionPerformed
+        JComboBox cb = (JComboBox) evt.getSource();
+        String key = (String) cb.getSelectedItem();
+        jTextFieldId.setText(Main.airplaneST.get(key).getId());
+        jTextFieldModel.setText(Main.airplaneST.get(key).getModel());
+        jTextFieldAirplaneName.setText(Main.airplaneST.get(key).getName());
+        jTextFieldAirline.setText(Main.airplaneST.get(key).getAirline());
+        jTextFieldCruiseSpeed.setText(Integer.toString(Main.airplaneST.get(key).getCruiseSpeed()));
+        jTextFieldCruiseAltitude.setText(Integer.toString(Main.airplaneST.get(key).getCruiseAltitude()));
+        jTextFieldMaxDistance.setText(Integer.toString(Main.airplaneST.get(key).getMaxDistance()));
+        jTextFieldCurrentAirport.setText(Main.airplaneST.get(key).getCurrentAirport());
+        jTextFieldMaxCapacity.setText(Integer.toString(Main.airplaneST.get(key).getMaxCapacity()));
+        jTextFieldFuelCapacity.setText(Integer.toString(Main.airplaneST.get(key).getFuelCapacity()));
 
     }//GEN-LAST:event_jComboBoxAirportActionPerformed
+
+    private void jComboBoxFlightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxFlightActionPerformed
+
+        JComboBox cb = (JComboBox) evt.getSource();
+        DateFormat workPls = new SimpleDateFormat("dd-MM-yyyy HH:mm");
+        Date key = (Date) cb.getSelectedItem();
+
+        jTextFieldDate.setText(workPls.format(Main.flightST.get(key).getDate()));
+        jTextFieldAirplaneID.setText(Main.flightST.get(key).getAirplaneID());
+        jTextFieldOrigin.setText(Main.flightST.get(key).getOrigin());
+        jTextFieldDestination.setText(Main.flightST.get(key).getDestination());
+        jTextFieldPassengers.setText(Integer.toString(Main.flightST.get(key).getPassengers()));
+        jTextFieldDistance.setText(Integer.toString(Main.flightST.get(key).getDistance()));
+        jTextFieldFlightAltitude.setText(Integer.toString(Main.flightST.get(key).getFlightAltitude()));
+        jTextFieldWindVelocity.setText(Integer.toString(Main.flightST.get(key).getWindVelocity()));
+
+    }//GEN-LAST:event_jComboBoxFlightActionPerformed
+
+    private void jButtonAddAirportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddAirportActionPerformed
+
+        if (!Main.airportST.contains(jTextFieldCode.getText())) {
+            Airport newA = new Airport(jTextFieldCode.getText(), jTextFieldAirportName.getText(), jTextFieldCity.getText(),
+                    jTextFieldCountry.getText(), jTextFieldContinent.getText(), Float.parseFloat(jTextFieldYAxis.getText()),
+                    Double.parseDouble(jTextFieldXAxis.getText()), Double.parseDouble(jTextFieldRating.getText()));
+
+            Main.airportST.put(jTextFieldCode.getText(), newA);
+
+            if (Main.airportST.contains(jTextFieldCode.getText())) {
+                JOptionPane.showMessageDialog(null, "Airport: " + jTextFieldCode.getText() + " inserted!", "Well done :)", JOptionPane.INFORMATION_MESSAGE);
+                airport.addElement(jTextFieldCode.getText());
+                jComboBoxAirport.setSelectedItem(airport.get(airport.size() - 1));
+            } else {
+                JOptionPane.showMessageDialog(null, "Unknown error!", "Warning :|", JOptionPane.WARNING_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "The following airport already exists: " + jTextFieldCode.getText(), "Error :(", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_jButtonAddAirportActionPerformed
+
+    private void jButtonRemoveAirportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRemoveAirportActionPerformed
+
+        String airportCode = jComboBoxAirport.getSelectedItem().toString();
+
+        Main.airportST.delete(airportCode);
+        if (!Main.airportST.contains(airportCode)) {
+            JOptionPane.showMessageDialog(null, "Airport: " + airportCode + " removed!", "Well done :)", JOptionPane.INFORMATION_MESSAGE);
+            airport.remove(airportCode);
+        } else {
+            JOptionPane.showMessageDialog(null, "Airport: " + airportCode + " was not removed!", "!", JOptionPane.INFORMATION_MESSAGE);
+        }
+
+
+    }//GEN-LAST:event_jButtonRemoveAirportActionPerformed
+
+    private void jButtonEditAirportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditAirportActionPerformed
+
+        String airportCode = jComboBoxAirport.getSelectedItem().toString();
+
+        Main.airportST.get(airportCode).setName(jTextFieldAirportName.getText());
+        Main.airportST.get(airportCode).setCity(jTextFieldCity.toString());
+        Main.airportST.get(airportCode).setCountry(jTextFieldCountry.getText());
+        Main.airportST.get(airportCode).setContinent(jTextFieldContinent.getText());
+        Main.airportST.get(airportCode).setRating(Float.parseFloat(jTextFieldRating.getText()));
+        Main.airportST.get(airportCode).setxAxis(Double.parseDouble(jTextFieldXAxis.getText()));
+        Main.airportST.get(airportCode).setyAxis(Double.parseDouble(jTextFieldYAxis.getText()));
+
+        if (Main.airportST.get(airportCode).getName().equals(jTextFieldAirportName.getText())
+                && Main.airportST.get(airportCode).getCity().equals(jTextFieldCity.toString())
+                && Main.airportST.get(airportCode).getCountry().equals(jTextFieldCountry.getText())
+                && Main.airportST.get(airportCode).getContinent().equals(jTextFieldContinent.getText())
+                && Main.airportST.get(airportCode).getRating().equals(Float.parseFloat(jTextFieldRating.getText()))
+                && Main.airportST.get(airportCode).getxAxis() == (Double.parseDouble(jTextFieldXAxis.getText()))
+                && Main.airportST.get(airportCode).getyAxis() == (Double.parseDouble(jTextFieldYAxis.getText()))) {
+            JOptionPane.showMessageDialog(null, "Airport: " + airportCode + " updated!", "Well done :)", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, "Error while editing!", "Warning :|", JOptionPane.WARNING_MESSAGE);
+        }
+
+    }//GEN-LAST:event_jButtonEditAirportActionPerformed
+
+    private void jButtonAddAirplaneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddAirplaneActionPerformed
+        if (!Main.airplaneST.contains(jTextFieldId.getText())) {
+            if (Main.airportST.contains(jTextFieldCurrentAirport.getText())) {
+
+                Airplane newA = new Airplane(jTextFieldId.getText(), jTextFieldModel.getText(), jTextFieldAirplaneName.getText(),
+                        jTextFieldAirline.getText(), Integer.parseInt(jTextFieldCruiseSpeed.getText()),
+                        Integer.parseInt(jTextFieldCruiseAltitude.getText()), Integer.parseInt(jTextFieldMaxDistance.getText()),
+                        jTextFieldCurrentAirport.getText(), Integer.parseInt(jTextFieldMaxCapacity.getText()),
+                        Integer.parseInt(jTextFieldFuelCapacity.getText()));
+
+                Main.airplaneST.put(jTextFieldId.getText(), newA);
+
+                if (Main.airplaneST.contains(jTextFieldId.getText())) {
+                    JOptionPane.showMessageDialog(null, "Airplane: " + jTextFieldId.getText() + " inserted!", "Well done :)", JOptionPane.INFORMATION_MESSAGE);
+                    airplane.addElement(jTextFieldId.getText());
+                    jComboBoxAirplane.setSelectedItem(airplane.get(airplane.size() - 1));
+                } else {
+                    JOptionPane.showMessageDialog(null, "Unknown error!", "Warning :|", JOptionPane.WARNING_MESSAGE);
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "The airport: " + jTextFieldCurrentAirport.getText() + " does not exists!", "Error :(", JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "The following airplane already exists: " + jTextFieldId.getText(), "Error :(", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_jButtonAddAirplaneActionPerformed
+
+    private void jButtonRemoveAirplaneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRemoveAirplaneActionPerformed
+
+        String airplaneID = jComboBoxAirplane.getSelectedItem().toString();
+
+        for (String a : Main.airportST.inOrder()) {
+            for (Date f : Main.airportST.get(a).getFlightOriST().inOrder()) {
+                if (Main.airportST.get(a).getFlightOriST().get(f).getAirplaneID().equals(airplaneID)) {
+                    flight.remove(f);
+                    Main.airportST.get(a).getFlightOriST().delete(f);
+                }
+            }
+            for (Date f : Main.airportST.get(a).getFlightDestST().inOrder()) {
+                if (Main.airportST.get(a).getFlightDestST().get(f).getAirplaneID().equals(airplaneID)) {
+                    flight.remove(f);
+                    Main.airportST.get(a).getFlightDestST().delete(f);
+                }
+            }
+            Main.airportST.get(a).getAirplaneST().delete(airplaneID);
+        }
+
+        Main.airplaneST.delete(airplaneID);
+        if (!Main.airplaneST.contains(airplaneID)) {
+            JOptionPane.showMessageDialog(null, "Airplane: " + airplaneID + " removed!", "Well done :)", JOptionPane.INFORMATION_MESSAGE);
+            airplane.remove(airplaneID);
+        } else {
+            JOptionPane.showMessageDialog(null, "Airplane: " + airplaneID + " was not removed!", "!", JOptionPane.INFORMATION_MESSAGE);
+        }
+
+
+    }//GEN-LAST:event_jButtonRemoveAirplaneActionPerformed
+
+    private void jButtonEditAirplaneActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButtonEditAirplaneActionPerformed
+
+        String airplaneID = jComboBoxAirplane.getSelectedItem().toString();
+
+        Main.airplaneST.get(airplaneID).setModel(jTextFieldModel.getText());
+        Main.airplaneST.get(airplaneID).setName(jTextFieldAirplaneName.getText());
+        Main.airplaneST.get(airplaneID).setAirline(jTextFieldAirline.getText());
+        Main.airplaneST.get(airplaneID).setCruiseSpeed(Integer.parseInt(jTextFieldCruiseSpeed.toString()));
+        Main.airplaneST.get(airplaneID).setCruiseAltitude(Integer.parseInt(jTextFieldCruiseAltitude.getText()));
+        Main.airplaneST.get(airplaneID).setMaxDistance(Integer.parseInt(jTextFieldMaxDistance.getText()));
+        Main.airplaneST.get(airplaneID).setCurrentAirport(jTextFieldCurrentAirport.getText());
+        Main.airplaneST.get(airplaneID).setFuelCapacity(Integer.parseInt(jTextFieldMaxCapacity.getText()));
+        Main.airplaneST.get(airplaneID).setMaxCapacity(Integer.parseInt(jTextFieldFuelCapacity.getText()));
+
+        if (Main.airplaneST.get(airplaneID).getModel().equals(jTextFieldModel.getText())
+                && Main.airplaneST.get(airplaneID).getName().equals(jTextFieldAirplaneName.getText())
+                && Main.airplaneST.get(airplaneID).getAirline().equals(jTextFieldAirline.getText())
+                && Main.airplaneST.get(airplaneID).getCruiseSpeed().equals(Integer.parseInt(jTextFieldCruiseSpeed.toString()))
+                && Main.airplaneST.get(airplaneID).getCruiseAltitude().equals(Integer.parseInt(jTextFieldCruiseAltitude.getText()))
+                && Main.airplaneST.get(airplaneID).getMaxDistance().equals(Integer.parseInt(jTextFieldMaxDistance.getText()))
+                && Main.airplaneST.get(airplaneID).getCurrentAirport().equals(jTextFieldCurrentAirport.getText())
+                && Main.airplaneST.get(airplaneID).getMaxCapacity().equals(Integer.parseInt(jTextFieldMaxCapacity.getText()))
+                && Main.airplaneST.get(airplaneID).getFuelCapacity().equals(Integer.parseInt(jTextFieldFuelCapacity.getText()))) {
+            JOptionPane.showMessageDialog(null, "Airplane: " + airplaneID + " updated!", "Well done :)", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, "Error while editing!", "Warning :|", JOptionPane.WARNING_MESSAGE);
+        }
+
+
+    }//GEN-LAST:event_jButtonEditAirplaneActionPerformed
+
+    private void jButtonAddFlightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddFlightActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonAddFlightActionPerformed
+
+    private void jButtonRemoveFlightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRemoveFlightActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonRemoveFlightActionPerformed
+
+    private void jButtonEditFlightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditFlightActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonEditFlightActionPerformed
 
     private void jTextFieldDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDateActionPerformed
         // TODO add your handling code here:
@@ -627,13 +853,10 @@ public class App extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldFlightAltitudeActionPerformed
 
-    private void jButtonEditAirportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditAirportActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonEditAirportActionPerformed
-
     private void jTextFieldXAxisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldXAxisActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldXAxisActionPerformed
+
 
     /**
      * @param args the command line arguments
@@ -727,6 +950,7 @@ public class App extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldContinent;
     private javax.swing.JTextField jTextFieldCountry;
     private javax.swing.JTextField jTextFieldCruiseAltitude;
+    private javax.swing.JTextField jTextFieldCruiseSpeed;
     private javax.swing.JTextField jTextFieldCurrentAirport;
     private javax.swing.JTextField jTextFieldDate;
     private javax.swing.JTextField jTextFieldDestination;
@@ -737,7 +961,6 @@ public class App extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldMaxCapacity;
     private javax.swing.JTextField jTextFieldMaxDistance;
     private javax.swing.JTextField jTextFieldModel;
-    private javax.swing.JTextField jTextFieldModelCruiseSpeed;
     private javax.swing.JTextField jTextFieldOrigin;
     private javax.swing.JTextField jTextFieldPassengers;
     private javax.swing.JTextField jTextFieldRating;

@@ -92,19 +92,19 @@ public class Airport {
         this.rating = rating;
     }
 
-    public double getXAxis() {
+    public double getxAxis() {
         return xAxis;
     }
 
-    public void setXAxis(double xAxis) {
+    public void setxAxis(double xAxis) {
         this.xAxis = xAxis;
     }
 
-    public double getYAxis() {
+    public double getyAxis() {
         return yAxis;
     }
 
-    public void setYAxis(double yAxis) {
+    public void setyAxis(double yAxis) {
         this.yAxis = yAxis;
     }
 
