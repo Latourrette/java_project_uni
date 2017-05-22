@@ -134,6 +134,24 @@ public class Airplane {
         this.flightsAirplane = flightsAirplane;
     }
 
+    public double getFlightCost(float altitude, float windVelocity, double weight) {
+        double altitudeDiference = (Math.abs(getCruiseAltitude() - altitude))/1000;
+        double xConsumption = altitudeDiference * 200;
+        double standardAltitude = getFuelConsumption();
+        xConsumption += windVelocity * 20;
+        standardAltitude += xConsumption;
+        return  Math.round((weight * standardAltitude/1000)*1.98);
+    }
+
+    public double getFlightDuration(double weight){
+        return (weight / this.getCruiseSpeed()*100)/100;
+    }
+
+    public float getFuelConsumption() {
+        return 1000 * getFuelCapacity() / getMaxDistance();
+    }
+
+
     @Override
     public String toString() {
         return "Airplane{ " +

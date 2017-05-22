@@ -1,65 +1,50 @@
-/*
- *
- * Projeto (projeto_lp2_1516) - Linguagens de Programaçao 2
- * 
- * edu.ufp.inf.lp2.project.gui
- * AppMainJFrame.java
- *
- * 2015/2016 (c) Universidade Fernando Pessoa
- *
- *//*
 
 package airport;
 
 import edu.princeton.cs.algs4.*;
 
+
+/**
+ *
+ * @author andredsnogueira
+ */
 public class Connection extends DirectedEdge {
 
 
-    private double windVelocityWeight;
-    private double airTunnelWeight;
+    private float windVelocity;
+    private float airTunnel;
 
-    public Connection(int l1, int l2, double distance, double windVelocity, double airTunnel) {
-        super(l1, l2, distance);
-        this.windVelocityWeight = windVelocity;
-        this.airTunnelWeight = airTunnel;
+
+    public Connection(int v, int w, double weight, float windVelocity, float airTunnel) {
+        super(v, w, weight);
+        this.airTunnel = airTunnel;
+        this.windVelocity = windVelocity;
+
     }
 
-    public double getWindVelocityWeight() {
-        return windVelocityWeight;
+    public float getWindVelocity() {
+        return windVelocity;
     }
 
-    public void setWindVelocityWeight(double windVelocityWeight) {
-        this.windVelocityWeight = windVelocityWeight;
+    public void setWindVelocity(float windVelocity) {
+        this.windVelocity = windVelocity;
     }
 
-    public double getAirTunnelWeight() {
-        return airTunnelWeight;
+    public float getAirTunnel() {
+        return airTunnel;
     }
 
-    public void setAirTunnelWeight(double airTunnelWeight) {
-        this.airTunnelWeight = airTunnelWeight;
+    public void setAirTunnel(float airTunnel) {
+        this.airTunnel = airTunnel;
     }
 
-    @Override
-    public String toString() {
-        return super.from() + "->" + super.to() +
-                " - {Distance: " + super.weight() + " , Wind Velocity: " + this.windVelocityWeight
-                + " , Air Tunnel: " + this.airTunnelWeight + "}";
+    public double flightDuration(Airplane a){
+        return a.getFlightDuration(super.weight());
     }
 
-    @Override
-    public double weight() {
-        switch (Network.selectedCost) {
-            case Network.Distance:
-                return super.weight();
-            case Network.WindVelocity:
-                return this.windVelocityWeight;
-            case Network.AirTunnel:
-                return this.airTunnelWeight;
-            default:
-                return super.weight();
-        }
+    public double flightCost(Airplane a){
+        return a.getFlightCost(this.airTunnel, this.windVelocity, super.weight());
     }
+
+
 }
-*/

@@ -26,7 +26,7 @@ public class Main {
         loadFromFileFlight(airportST, airplaneST, flightST, ".//data//flights.txt");
 
         Airport a = new Airport("FCP", "Futebol Club Porto", "Porto", "Portugal",
-                "Europe", 10.0f);
+                "Europe", 10.0f, 50,40);
 
         Airplane ap = new Airplane("40", "Toshiba", "Grande Maquina", "Toshiba Airlines",
                 958, 12000, 15190, "FCP", 120, 126206);
@@ -75,15 +75,17 @@ public class Main {
         try {
             while (!in.isEmpty()) {
                 String[] text = in.readLine().split(";");
-                String code = text[0];
-                String name = text[1];
+                String code = text[1];
+                String name = text[0];
                 String city = text[2];
                 String country = text[3];
                 String continent = text[4];
                 Float classification = Float.parseFloat(text[5]);
+                Double xAxis = Double.parseDouble(text[6]);
+                Double yAxis = Double.parseDouble(text[7]);
 
 
-                Airport a = new Airport(code, name, city, country, continent, classification);
+                Airport a = new Airport(code, name, city, country, continent, classification, xAxis, yAxis);
                 airportST.put(code, a);
             }
         } catch (Exception e) {

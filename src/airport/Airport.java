@@ -13,28 +13,35 @@ public class Airport {
     private String country;
     private String continent;
     private Float rating;
+    private double xAxis;
+    private double yAxis;
     private SeparateChainingHashST<String, Airplane> airplaneST = new SeparateChainingHashST<>();
     private RedBlackBST<Date, Flight> flightOriST = new RedBlackBST<>();
     private RedBlackBST<Date, Flight> flightDestST = new RedBlackBST<>();
 
     /**
-     * Airport Constructors
      *
-     * @param code      Id key
-     * @param name      Name of the airport
-     * @param city      City of the airport
-     * @param country   Country of the airport
-     * @param continent Continent of the airport
-     * @param rating    Rating of the airport
+     * @param code
+     * @param name
+     * @param city
+     * @param country
+     * @param continent
+     * @param rating
+     * @param xAxis
+     * @param yAxis
      */
-    public Airport(String code, String name, String city, String country, String continent, Float rating) {
+    public Airport(String code, String name, String city, String country, String continent, Float rating, double xAxis,
+                   double yAxis) {
         this.code = code;
         this.name = name;
         this.city = city;
         this.country = country;
         this.continent = continent;
         this.rating = rating;
+        this.xAxis = xAxis;
+        this.yAxis = yAxis;
     }
+
 
 
     public String getName() {
@@ -83,6 +90,22 @@ public class Airport {
 
     public void setRating(Float rating) {
         this.rating = rating;
+    }
+
+    public double getXAxis() {
+        return xAxis;
+    }
+
+    public void setXAxis(double xAxis) {
+        this.xAxis = xAxis;
+    }
+
+    public double getYAxis() {
+        return yAxis;
+    }
+
+    public void setYAxis(double yAxis) {
+        this.yAxis = yAxis;
     }
 
     public SeparateChainingHashST<String, Airplane> getAirplaneST() {
