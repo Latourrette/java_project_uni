@@ -7,6 +7,7 @@ package airport;
 
 import java.awt.event.ActionEvent;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Vector;
@@ -490,7 +491,11 @@ public class App extends javax.swing.JFrame {
         jButtonAddFlight.setText("Add");
         jButtonAddFlight.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAddFlightActionPerformed(evt);
+                try {
+                    jButtonAddFlightActionPerformed(evt);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -719,7 +724,7 @@ public class App extends javax.swing.JFrame {
         String airportCode = jComboBoxAirport.getSelectedItem().toString();
 
         Main.airportST.get(airportCode).setName(jTextFieldAirportName.getText());
-        Main.airportST.get(airportCode).setCity(jTextFieldCity.toString());
+        Main.airportST.get(airportCode).setCity(jTextFieldCity.getText());
         Main.airportST.get(airportCode).setCountry(jTextFieldCountry.getText());
         Main.airportST.get(airportCode).setContinent(jTextFieldContinent.getText());
         Main.airportST.get(airportCode).setRating(Float.parseFloat(jTextFieldRating.getText()));
@@ -727,7 +732,7 @@ public class App extends javax.swing.JFrame {
         Main.airportST.get(airportCode).setyAxis(Double.parseDouble(jTextFieldYAxis.getText()));
 
         if (Main.airportST.get(airportCode).getName().equals(jTextFieldAirportName.getText())
-                && Main.airportST.get(airportCode).getCity().equals(jTextFieldCity.toString())
+                && Main.airportST.get(airportCode).getCity().equals(jTextFieldCity.getText())
                 && Main.airportST.get(airportCode).getCountry().equals(jTextFieldCountry.getText())
                 && Main.airportST.get(airportCode).getContinent().equals(jTextFieldContinent.getText())
                 && Main.airportST.get(airportCode).getRating().equals(Float.parseFloat(jTextFieldRating.getText()))
@@ -738,19 +743,22 @@ public class App extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Error while editing!", "Warning :|", JOptionPane.WARNING_MESSAGE);
         }
 
+
     }//GEN-LAST:event_jButtonEditAirportActionPerformed
 
     private void jButtonAddAirplaneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddAirplaneActionPerformed
         if (!Main.airplaneST.contains(jTextFieldId.getText())) {
             if (Main.airportST.contains(jTextFieldCurrentAirport.getText())) {
 
-                Airplane newA = new Airplane(jTextFieldId.getText(), jTextFieldModel.getText(), jTextFieldAirplaneName.getText(),
+                Airplane newA = new Airplane(jTextFieldId.getText(),
+                        jTextFieldModel.getText(), jTextFieldAirplaneName.getText(),
                         jTextFieldAirline.getText(), Integer.parseInt(jTextFieldCruiseSpeed.getText()),
                         Integer.parseInt(jTextFieldCruiseAltitude.getText()), Integer.parseInt(jTextFieldMaxDistance.getText()),
                         jTextFieldCurrentAirport.getText(), Integer.parseInt(jTextFieldMaxCapacity.getText()),
                         Integer.parseInt(jTextFieldFuelCapacity.getText()));
 
                 Main.airplaneST.put(jTextFieldId.getText(), newA);
+                Main.airportST.get(jTextFieldCurrentAirport.getText()).getAirplaneST().put(jTextFieldId.getText(), newA);
 
                 if (Main.airplaneST.contains(jTextFieldId.getText())) {
                     JOptionPane.showMessageDialog(null, "Airplane: " + jTextFieldId.getText() + " inserted!", "Well done :)", JOptionPane.INFORMATION_MESSAGE);
@@ -802,43 +810,138 @@ public class App extends javax.swing.JFrame {
 
         String airplaneID = jComboBoxAirplane.getSelectedItem().toString();
 
-        Main.airplaneST.get(airplaneID).setModel(jTextFieldModel.getText());
-        Main.airplaneST.get(airplaneID).setName(jTextFieldAirplaneName.getText());
-        Main.airplaneST.get(airplaneID).setAirline(jTextFieldAirline.getText());
-        Main.airplaneST.get(airplaneID).setCruiseSpeed(Integer.parseInt(jTextFieldCruiseSpeed.toString()));
-        Main.airplaneST.get(airplaneID).setCruiseAltitude(Integer.parseInt(jTextFieldCruiseAltitude.getText()));
-        Main.airplaneST.get(airplaneID).setMaxDistance(Integer.parseInt(jTextFieldMaxDistance.getText()));
-        Main.airplaneST.get(airplaneID).setCurrentAirport(jTextFieldCurrentAirport.getText());
-        Main.airplaneST.get(airplaneID).setFuelCapacity(Integer.parseInt(jTextFieldMaxCapacity.getText()));
-        Main.airplaneST.get(airplaneID).setMaxCapacity(Integer.parseInt(jTextFieldFuelCapacity.getText()));
+        if (Main.airportST.contains(jTextFieldCurrentAirport.getText())) {
 
-        if (Main.airplaneST.get(airplaneID).getModel().equals(jTextFieldModel.getText())
-                && Main.airplaneST.get(airplaneID).getName().equals(jTextFieldAirplaneName.getText())
-                && Main.airplaneST.get(airplaneID).getAirline().equals(jTextFieldAirline.getText())
-                && Main.airplaneST.get(airplaneID).getCruiseSpeed().equals(Integer.parseInt(jTextFieldCruiseSpeed.toString()))
-                && Main.airplaneST.get(airplaneID).getCruiseAltitude().equals(Integer.parseInt(jTextFieldCruiseAltitude.getText()))
-                && Main.airplaneST.get(airplaneID).getMaxDistance().equals(Integer.parseInt(jTextFieldMaxDistance.getText()))
-                && Main.airplaneST.get(airplaneID).getCurrentAirport().equals(jTextFieldCurrentAirport.getText())
-                && Main.airplaneST.get(airplaneID).getMaxCapacity().equals(Integer.parseInt(jTextFieldMaxCapacity.getText()))
-                && Main.airplaneST.get(airplaneID).getFuelCapacity().equals(Integer.parseInt(jTextFieldFuelCapacity.getText()))) {
-            JOptionPane.showMessageDialog(null, "Airplane: " + airplaneID + " updated!", "Well done :)", JOptionPane.INFORMATION_MESSAGE);
+            Main.airplaneST.get(airplaneID).setModel(jTextFieldModel.getText());
+            Main.airplaneST.get(airplaneID).setName(jTextFieldAirplaneName.getText());
+            Main.airplaneST.get(airplaneID).setAirline(jTextFieldAirline.getText());
+            Main.airplaneST.get(airplaneID).setCruiseSpeed(Integer.parseInt(jTextFieldCruiseSpeed.getText()));
+            Main.airplaneST.get(airplaneID).setCruiseAltitude(Integer.parseInt(jTextFieldCruiseAltitude.getText()));
+            Main.airplaneST.get(airplaneID).setMaxDistance(Integer.parseInt(jTextFieldMaxDistance.getText()));
+            Main.airplaneST.get(airplaneID).setCurrentAirport(jTextFieldCurrentAirport.getText());
+            Main.airplaneST.get(airplaneID).setMaxCapacity(Integer.parseInt(jTextFieldMaxCapacity.getText()));
+            Main.airplaneST.get(airplaneID).setFuelCapacity(Integer.parseInt(jTextFieldFuelCapacity.getText()));
+
+
+            if (Main.airplaneST.get(airplaneID).getModel().equals(jTextFieldModel.getText())
+                    && Main.airplaneST.get(airplaneID).getName().equals(jTextFieldAirplaneName.getText())
+                    && Main.airplaneST.get(airplaneID).getAirline().equals(jTextFieldAirline.getText())
+                    && Main.airplaneST.get(airplaneID).getCruiseSpeed().equals(Integer.parseInt(jTextFieldCruiseSpeed.getText()))
+                    && Main.airplaneST.get(airplaneID).getCruiseAltitude().equals(Integer.parseInt(jTextFieldCruiseAltitude.getText()))
+                    && Main.airplaneST.get(airplaneID).getMaxDistance().equals(Integer.parseInt(jTextFieldMaxDistance.getText()))
+                    && Main.airplaneST.get(airplaneID).getCurrentAirport().equals(jTextFieldCurrentAirport.getText())
+                    && Main.airplaneST.get(airplaneID).getMaxCapacity().equals(Integer.parseInt(jTextFieldMaxCapacity.getText()))
+                    && Main.airplaneST.get(airplaneID).getFuelCapacity().equals(Integer.parseInt(jTextFieldFuelCapacity.getText()))) {
+
+                JOptionPane.showMessageDialog(null, "Airplane: " + airplaneID + " updated!", "Well done :)", JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(null, "Error while editing!", "Warning :|", JOptionPane.WARNING_MESSAGE);
+            }
+
         } else {
-            JOptionPane.showMessageDialog(null, "Error while editing!", "Warning :|", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Airport " + jTextFieldCurrentAirport.getText()
+                    + " does not exists!", "Error :(", JOptionPane.ERROR_MESSAGE);
         }
-
 
     }//GEN-LAST:event_jButtonEditAirplaneActionPerformed
 
-    private void jButtonAddFlightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddFlightActionPerformed
-        // TODO add your handling code here:
+    private void jButtonAddFlightActionPerformed(java.awt.event.ActionEvent evt) throws ParseException {//GEN-FIRST:event_jButtonAddFlightActionPerformed
+
+        DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm");
+
+        if (!Main.flightST.contains(dateFormat.parse(jTextFieldDate.getText()))) {
+            if (Main.airportST.contains(jTextFieldOrigin.getText()) && Main.airportST.contains(jTextFieldDestination.getText())
+                    && Main.airplaneST.contains(jTextFieldAirplaneID.getText())) {
+
+                Flight newF = new Flight(dateFormat.parse(jTextFieldDate.getText()),
+                        jTextFieldAirplaneID.getText(), jTextFieldOrigin.getText(),
+                        jTextFieldDestination.getText(), Integer.parseInt(jTextFieldPassengers.getText()),
+                        Integer.parseInt(jTextFieldDistance.getText()), Integer.parseInt(jTextFieldFlightAltitude.getText()),
+                        Integer.parseInt(jTextFieldWindVelocity.getText()));
+
+                Main.airportST.get(jTextFieldOrigin.getText()).getFlightOriST().put(dateFormat.parse(jTextFieldDate.getText()), newF);
+                Main.airportST.get(jTextFieldDestination.getText()).getFlightDestST().put(dateFormat.parse(jTextFieldDate.getText()), newF);
+                Main.airplaneST.get(jTextFieldAirplaneID.getText()).getFlightsAirplane().put(dateFormat.parse(jTextFieldDate.getText()), newF);
+                Main.flightST.put(dateFormat.parse(jTextFieldDate.getText()), newF);
+
+                if (Main.flightST.contains(dateFormat.parse(jTextFieldDate.getText()))) {
+                    JOptionPane.showMessageDialog(null, "Flight: " + jTextFieldId.getText() + " inserted!", "Well done :)", JOptionPane.INFORMATION_MESSAGE);
+                    flight.addElement(dateFormat.parse(jTextFieldDate.getText()));
+                    jComboBoxFlight.setSelectedItem(flight.get(flight.size() - 1));
+                } else {
+                    JOptionPane.showMessageDialog(null, "Unknown error!", "Warning :|", JOptionPane.WARNING_MESSAGE);
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "The airport or the airplane does not exists!", "Error :(", JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "The following flight already exists: " + jTextFieldDate.getText(), "Error :(", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_jButtonAddFlightActionPerformed
 
     private void jButtonRemoveFlightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRemoveFlightActionPerformed
-        // TODO add your handling code here:
+
+        Date flightID = (Date) jComboBoxFlight.getSelectedItem();
+
+        for (String a : Main.airportST.inOrder()) {
+            if (Main.airportST.get(a).getFlightOriST().contains(flightID)) {
+                Main.airportST.get(a).getFlightOriST().delete(flightID);
+            } else if (Main.airportST.get(a).getFlightDestST().contains(flightID)) {
+                Main.airportST.get(a).getFlightDestST().delete(flightID);
+            }
+        }
+        for (String a : Main.airplaneST.keys()) {
+            if (Main.airplaneST.get(a).getFlightsAirplane().contains(flightID)) {
+                Main.airplaneST.get(a).getFlightsAirplane().delete(flightID);
+            }
+        }
+        if (Main.flightST.contains(flightID)) {
+            Main.flightST.delete(flightID);
+        }
+        if (!Main.flightST.contains(flightID)) {
+            JOptionPane.showMessageDialog(null, "Flight: " + flightID + " removed!", "Well done :)", JOptionPane.INFORMATION_MESSAGE);
+            flight.remove(flightID);
+        } else {
+            JOptionPane.showMessageDialog(null, "Flight: " + flightID + " was not removed!", "!", JOptionPane.INFORMATION_MESSAGE);
+        }
+
     }//GEN-LAST:event_jButtonRemoveFlightActionPerformed
 
     private void jButtonEditFlightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditFlightActionPerformed
-        // TODO add your handling code here:
+
+        Date flightID = (Date) jComboBoxFlight.getSelectedItem();
+
+        if (Main.airportST.contains(jTextFieldOrigin.getText()) || Main.airportST.contains(jTextFieldDestination.getText())) {
+            if (Main.airplaneST.contains(jTextFieldAirplaneID.getText())) {
+
+                Main.flightST.get(flightID).setAirplaneID(jTextFieldAirplaneID.getText());
+                Main.flightST.get(flightID).setOrigin(jTextFieldOrigin.getText());
+                Main.flightST.get(flightID).setDestination(jTextFieldDestination.getText());
+                Main.flightST.get(flightID).setPassengers(Integer.parseInt(jTextFieldPassengers.getText()));
+                Main.flightST.get(flightID).setDistance(Integer.parseInt(jTextFieldDistance.getText()));
+                Main.flightST.get(flightID).setFlightAltitude(Integer.parseInt(jTextFieldFlightAltitude.getText()));
+                Main.flightST.get(flightID).setWindVelocity(Integer.parseInt(jTextFieldWindVelocity.getText()));
+
+                if (Main.flightST.get(flightID).getAirplaneID().equals(jTextFieldAirplaneID.getText())
+                        && Main.flightST.get(flightID).getOrigin().equals(jTextFieldOrigin.getText())
+                        && Main.flightST.get(flightID).getDestination().equals(jTextFieldDestination.getText())
+                        && Main.flightST.get(flightID).getPassengers().equals(Integer.parseInt(jTextFieldPassengers.getText()))
+                        && Main.flightST.get(flightID).getDistance().equals(Integer.parseInt(jTextFieldDistance.getText()))
+                        && Main.flightST.get(flightID).getFlightAltitude().equals(Integer.parseInt(jTextFieldFlightAltitude.getText()))
+                        && Main.flightST.get(flightID).getWindVelocity().equals(Integer.parseInt(jTextFieldWindVelocity.getText()))) {
+
+                    JOptionPane.showMessageDialog(null, "Flight: " + flightID + " updated!", "Well done :)", JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Error while editing!", "Warning :|", JOptionPane.WARNING_MESSAGE);
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Airplane " + jTextFieldAirplaneID.getText() +
+                        " does not exists!", "Error :(", JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Airport " + jTextFieldOrigin.getText() + " or "
+                    + jTextFieldDestination.getText() + " does not exists!", "Error :(", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_jButtonEditFlightActionPerformed
 
     private void jTextFieldDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDateActionPerformed

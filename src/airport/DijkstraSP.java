@@ -1,5 +1,4 @@
-/*
-*****************************************************************************
+/******************************************************************************
  *  Compilation:  javac DijkstraSP.java
  *  Execution:    java DijkstraSP input.txt s
  *  Dependencies: EdgeWeightedDigraph.java IndexMinPQ.java Stack.java DirectedEdge.java
@@ -28,7 +27,7 @@
  *  0 to 4 (0.42)  0->44  0.06   44->93  0.07   ...  77->4  0.11   
  *  ...
  *
- *****************************************************************************
+ ******************************************************************************/
 
 package airport;
 
@@ -36,7 +35,7 @@ import edu.princeton.cs.algs4.*;
 
 
 
-*
+/**
  *  The {@code DijkstraSP} class represents a data type for solving the
  *  single-source shortest paths problem in edge-weighted digraphs
  *  where the edge weights are nonnegative.
@@ -54,12 +53,13 @@ import edu.princeton.cs.algs4.*;
  *
  *  @author Robert Sedgewick
  *  @author Kevin Wayne
+ */
 public class DijkstraSP {
     private double[] distTo;          // distTo[v] = distance  of shortest s->v path
     private Connection[] edgeTo;    // edgeTo[v] = last edge on shortest s->v path
     private IndexMinPQ<Double> pq;    // priority queue of vertices
 
-    *
+    /**
      * Computes a shortest-paths tree from the source vertex {@code s} to every other
      * vertex in the edge-weighted digraph {@code G}.
      *
@@ -67,6 +67,7 @@ public class DijkstraSP {
      * @param  s the source vertex
      * @throws IllegalArgumentException if an edge weight is negative
      * @throws IllegalArgumentException unless {@code 0 <= s < V}
+     */
     public DijkstraSP(EdgeWeightedDigraph G, int s, Airplane a) {
         for (Connection e : G.edges()) {
             if (e.weight() < 0)
@@ -97,7 +98,7 @@ public class DijkstraSP {
 
     // relax edge e and update pq if changed
     private void relax(Connection c, Airplane a) {
-        int v = c.from(), w = c.to();
+        int v = c.from(), w = c.to();x
         switch(AppMainJFrame.searchOption){
             case "Caminho mais rápido entre o Aeroporto X e Y": {
                 if (distTo[w] > distTo[v] + c.flightDuration(a)) {
@@ -133,36 +134,39 @@ public class DijkstraSP {
 
     }
 
-    *
+    /**
      * Returns the length of a shortest path from the source vertex {@code s} to vertex {@code v}.
      * @param  v the destination vertex
      * @return the length of a shortest path from the source vertex {@code s} to vertex {@code v};
      *         {@code Double.POSITIVE_INFINITY} if no such path
      * @throws IllegalArgumentException unless {@code 0 <= v < V}
+     */
     public double distTo(int v) {
         validateVertex(v);
         return distTo[v];
     }
 
-    *
+    /**
      * Returns true if there is a path from the source vertex {@code s} to vertex {@code v}.
      *
      * @param  v the destination vertex
      * @return {@code true} if there is a path from the source vertex
      *         {@code s} to vertex {@code v}; {@code false} otherwise
      * @throws IllegalArgumentException unless {@code 0 <= v < V}
+     */
     public boolean hasPathTo(int v) {
         validateVertex(v);
         return distTo[v] < Double.POSITIVE_INFINITY;
     }
 
-    *
+    /**
      * Returns a shortest path from the source vertex {@code s} to vertex {@code v}.
      *
      * @param  v the destination vertex
      * @return a shortest path from the source vertex {@code s} to vertex {@code v}
      *         as an iterable of edges, and {@code null} if no such path
      * @throws IllegalArgumentException unless {@code 0 <= v < V}
+     */
     public Iterable<Connection> pathTo(int v) {
         validateVertex(v);
         if (!hasPathTo(v)) return null;
@@ -232,17 +236,18 @@ public class DijkstraSP {
             throw new IllegalArgumentException("vertex " + v + " is not between 0 and " + (V-1));
     }
 
-    *
+    /**
      * Unit tests the {@code DijkstraSP} data type.
      *
      * @param args the command-line arguments
+     */
     public static void main(String[] args) {
         In in = new In(args[0]);
         EdgeWeightedDigraph G = new EdgeWeightedDigraph(in);
         int s = Integer.parseInt(args[1]);
 
         // compute shortest paths
-        DijkstraSP sp = new DijkstraSP(G, s);
+        /*DijkstraSP sp = new DijkstraSP(G, s);
 
 
         // print shortest path
@@ -257,12 +262,12 @@ public class DijkstraSP {
             else {
                 StdOut.printf("%d to %d         no path\n", s, t);
             }
-        }
+        }*/
     }
 
 }
 
-*****************************************************************************
+/******************************************************************************
  *  Copyright 2002-2016, Robert Sedgewick and Kevin Wayne.
  *
  *  This file is part of algs4.jar, which accompanies the textbook

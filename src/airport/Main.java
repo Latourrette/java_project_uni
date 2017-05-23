@@ -20,6 +20,8 @@ public class Main {
     public static SeparateChainingHashST<String, Airplane> airplaneST = new SeparateChainingHashST<>();
     public static RedBlackBST<Date, Flight> flightST = new RedBlackBST<>();
 
+    public static SymbolDigraph sd = new SymbolDigraph(".//data//graph.txt", ";");
+
     public static void main(String[] args) throws ParseException {
 
         DateFormat format = new SimpleDateFormat("dd-MM-yyyy HH:mm");
@@ -28,14 +30,11 @@ public class Main {
         loadFromFileAirplane(airportST, airplaneST, "./data/airplanes.txt");
         loadFromFileFlight(airportST, airplaneST, flightST, "./data/flights.txt");
 
-        Airport a = new Airport("FCP", "Futebol Club Porto", "Porto", "Portugal",
-                "Europe", 10.0f, 41.248055, -8.681389);
+        //Airport a = new Airport("FCP", "Futebol Club Porto", "Porto", "Portugal","Europe", 10.0f, 41.248055, -8.681389);
 
-        Airplane ap = new Airplane("40", "Toshiba", "Grande Maquina", "Toshiba Airlines",
-                958, 12000, 15190, "FCP", 120, 126206);
+        //Airplane ap = new Airplane("40", "Toshiba", "Grande Maquina", "Toshiba Airlines",958, 12000, 15190, "FCP", 120, 126206);
 
-        Flight f = new Flight(format.parse("15-01-1993 15:15"), "40", "FCP", "OPO",
-                70, 20, 15000, -300);
+        //Flight f = new Flight(format.parse("15-01-1993 15:15"), "40", "FCP", "OPO",70, 20, 15000, -300);
 
         //insertAirport(airportST, a);
         //insertAirplane(airportST, airplaneST, ap);
@@ -59,7 +58,7 @@ public class Main {
         //printFlightByAirplane(airplaneST, "2");
 
         //flightsByTimePeriod(flightST, "03-11-2013 03:40", "03-12-2020 03:40");
-        flightWithMostPassengers(flightST);
+        //flightWithMostPassengers(flightST);
 
 
         saveToFileAirport(airportST, ".//data//airports.txt");
