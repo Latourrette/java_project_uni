@@ -4,10 +4,6 @@ package airport;
 import edu.princeton.cs.algs4.*;
 
 
-/**
- *
- * @author andredsnogueira
- */
 public class Connection extends DirectedEdge {
 
 

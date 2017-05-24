@@ -797,6 +797,25 @@ public class Main {
         }
         return null;
     }
+
+    public static void isConnected(EdgeWeightedDigraph g) {
+        int s = 0;
+        int flag = 0;
+
+        DijkstraSP sp = new DijkstraSP(sd.digraph(), s,null,1);
+
+        for (int t = 0; t < g.V(); t++) {
+            if (!sp.hasPathTo(t)) {
+                flag = 1;
+            }
+        }
+        if (flag == 0) {
+            System.out.println("Network is connected!");
+        } else {
+            System.out.println("Network is not connected!");
+        }
+    }
+
 }
 
 

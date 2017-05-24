@@ -134,8 +134,8 @@ public class Airplane {
         this.flightsAirplane = flightsAirplane;
     }
 
-    public double getFlightCost(float altitude, float windVelocity, double weight) {
-        double altitudeDiference = (Math.abs(getCruiseAltitude() - altitude))/1000;
+    public double getFlightCost(float airTunnel, float windVelocity, double weight) {
+        double altitudeDiference = (Math.abs(getCruiseAltitude() - airTunnel))/1000;
         double xConsumption = altitudeDiference * 200;
         double standardAltitude = getFuelConsumption();
         xConsumption += windVelocity * 20;
