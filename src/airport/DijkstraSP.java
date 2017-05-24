@@ -34,25 +34,24 @@ package airport;
 import edu.princeton.cs.algs4.*;
 
 
-
 /**
- *  The {@code DijkstraSP} class represents a data type for solving the
- *  single-source shortest paths problem in edge-weighted digraphs
- *  where the edge weights are nonnegative.
- *  <p>
- *  This implementation uses Dijkstra's algorithm with a binary heap.
- *  The constructor takes time proportional to <em>E</em> log <em>V</em>,
- *  where <em>V</em> is the number of vertices and <em>E</em> is the number of edges.
- *  Afterwards, the {@code distTo()} and {@code hasPathTo()} methods take
- *  constant time and the {@code pathTo()} method takes time proportional to the
- *  number of edges in the shortest path returned.
- *  <p>
- *  For additional documentation,
- *  see <a href="http://algs4.cs.princeton.edu/44sp">Section 4.4</a> of
- *  <i>Algorithms, 4th Edition</i> by Robert Sedgewick and Kevin Wayne.
+ * The {@code DijkstraSP} class represents a data type for solving the
+ * single-source shortest paths problem in edge-weighted digraphs
+ * where the edge weights are nonnegative.
+ * <p>
+ * This implementation uses Dijkstra's algorithm with a binary heap.
+ * The constructor takes time proportional to <em>E</em> log <em>V</em>,
+ * where <em>V</em> is the number of vertices and <em>E</em> is the number of edges.
+ * Afterwards, the {@code distTo()} and {@code hasPathTo()} methods take
+ * constant time and the {@code pathTo()} method takes time proportional to the
+ * number of edges in the shortest path returned.
+ * <p>
+ * For additional documentation,
+ * see <a href="http://algs4.cs.princeton.edu/44sp">Section 4.4</a> of
+ * <i>Algorithms, 4th Edition</i> by Robert Sedgewick and Kevin Wayne.
  *
- *  @author Robert Sedgewick
- *  @author Kevin Wayne
+ * @author Robert Sedgewick
+ * @author Kevin Wayne
  */
 public class DijkstraSP {
     private double[] distTo;          // distTo[v] = distance  of shortest s->v path
@@ -63,12 +62,12 @@ public class DijkstraSP {
      * Computes a shortest-paths tree from the source vertex {@code s} to every other
      * vertex in the edge-weighted digraph {@code G}.
      *
-     * @param  G the edge-weighted digraph
-     * @param  s the source vertex
+     * @param G the edge-weighted digraph
+     * @param s the source vertex
      * @throws IllegalArgumentException if an edge weight is negative
      * @throws IllegalArgumentException unless {@code 0 <= s < V}
      */
-    public DijkstraSP(EdgeWeightedDigraph G, int s, Airplane a) {
+    public DijkstraSP(EdgeWeightedDigraph G, int s, Airplane a, Integer Option) {
         for (Connection e : G.edges()) {
             if (e.weight() < 0)
                 throw new IllegalArgumentException("edge " + e + " has negative weight");
@@ -89,7 +88,7 @@ public class DijkstraSP {
         while (!pq.isEmpty()) {
             int v = pq.delMin();
             for (Connection e : G.adj(v))
-                relax(e, a);
+                relax(e, a, Option);
         }
 
         // check optimality conditions
@@ -97,10 +96,10 @@ public class DijkstraSP {
     }
 
     // relax edge e and update pq if changed
-    private void relax(Connection c, Airplane a) {
-        int v = c.from(), w = c.to();x
-        switch(AppMainJFrame.searchOption){
-            case "Caminho mais rápido entre o Aeroporto X e Y": {
+    private void relax(Connection c, Airplane a, Integer Option) {
+        int v = c.from(), w = c.to();
+        switch (Option) {
+            case 1: { //fast
                 if (distTo[w] > distTo[v] + c.flightDuration(a)) {
                     distTo[w] = distTo[v] + c.flightDuration(a);
                     edgeTo[w] = c;
@@ -109,9 +108,8 @@ public class DijkstraSP {
                 }
                 break;
             }
-            case "Caminho mais curto entre o Aeroporto X e Y": {
+            case 2: { // short
                 if (distTo[w] > distTo[v] + c.weight()) {
-                    System.out.println(c.weight());
                     distTo[w] = distTo[v] + c.weight();
                     edgeTo[w] = c;
                     if (pq.contains(w)) pq.decreaseKey(w, distTo[w]);
@@ -119,15 +117,18 @@ public class DijkstraSP {
                 }
                 break;
             }
-            case "Caminho mais económico entre o Aeroporto X e Y": {
+            case 3: { // economic
                 if (distTo[w] > distTo[v] + c.flightCost(a)) {
-                    System.out.println(c.flightCost(a));
                     distTo[w] = distTo[v] + c.flightCost(a);
                     edgeTo[w] = c;
                     if (pq.contains(w)) pq.decreaseKey(w, distTo[w]);
                     else pq.insert(w, distTo[w]);
                 }
             }
+            case 4: { // direct
+
+            }
+
             default:
                 break;
         }
@@ -136,9 +137,10 @@ public class DijkstraSP {
 
     /**
      * Returns the length of a shortest path from the source vertex {@code s} to vertex {@code v}.
-     * @param  v the destination vertex
+     *
+     * @param v the destination vertex
      * @return the length of a shortest path from the source vertex {@code s} to vertex {@code v};
-     *         {@code Double.POSITIVE_INFINITY} if no such path
+     * {@code Double.POSITIVE_INFINITY} if no such path
      * @throws IllegalArgumentException unless {@code 0 <= v < V}
      */
     public double distTo(int v) {
@@ -149,9 +151,9 @@ public class DijkstraSP {
     /**
      * Returns true if there is a path from the source vertex {@code s} to vertex {@code v}.
      *
-     * @param  v the destination vertex
+     * @param v the destination vertex
      * @return {@code true} if there is a path from the source vertex
-     *         {@code s} to vertex {@code v}; {@code false} otherwise
+     * {@code s} to vertex {@code v}; {@code false} otherwise
      * @throws IllegalArgumentException unless {@code 0 <= v < V}
      */
     public boolean hasPathTo(int v) {
@@ -162,9 +164,9 @@ public class DijkstraSP {
     /**
      * Returns a shortest path from the source vertex {@code s} to vertex {@code v}.
      *
-     * @param  v the destination vertex
+     * @param v the destination vertex
      * @return a shortest path from the source vertex {@code s} to vertex {@code v}
-     *         as an iterable of edges, and {@code null} if no such path
+     * as an iterable of edges, and {@code null} if no such path
      * @throws IllegalArgumentException unless {@code 0 <= v < V}
      */
     public Iterable<Connection> pathTo(int v) {
@@ -233,7 +235,7 @@ public class DijkstraSP {
     private void validateVertex(int v) {
         int V = distTo.length;
         if (v < 0 || v >= V)
-            throw new IllegalArgumentException("vertex " + v + " is not between 0 and " + (V-1));
+            throw new IllegalArgumentException("vertex " + v + " is not between 0 and " + (V - 1));
     }
 
     /**

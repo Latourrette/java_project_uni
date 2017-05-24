@@ -16,7 +16,6 @@ public class Flight {
     private Integer passengers;
     private Integer distance;
     private Integer flightAltitude;
-    private Integer windVelocity;
 
     /**
      * Flight Constructors
@@ -30,7 +29,7 @@ public class Flight {
      * @param flightAltitude Altitude required for the flight
      * @param windVelocity   Wind velocity of the flight
      */
-    public Flight(Date date, String airplaneID, String origin, String destination, Integer passengers, Integer distance, Integer flightAltitude, Integer windVelocity) {
+    public Flight(Date date, String airplaneID, String origin, String destination, Integer passengers, Integer distance, Integer flightAltitude) {
         this.date = date;
         this.airplaneID = airplaneID;
         this.origin = origin;
@@ -38,7 +37,6 @@ public class Flight {
         this.passengers = passengers;
         this.distance = distance;
         this.flightAltitude = flightAltitude;
-        this.windVelocity = windVelocity;
     }
 
     public Date getDate() {
@@ -97,13 +95,6 @@ public class Flight {
         this.flightAltitude = flightAltitude;
     }
 
-    public Integer getWindVelocity() {
-        return windVelocity;
-    }
-
-    public void setWindVelocity(Integer windVelocity) {
-        this.windVelocity = windVelocity;
-    }
 
     @Override
     public String toString() {
@@ -118,7 +109,6 @@ public class Flight {
                 ", Destination = '" + destination + '\'' +
                 ", Passengers = " + passengers +
                 ", Distance = " + distance +
-                ", Flight Altitude = " + flightAltitude +
-                ", Wind Velocity = " + windVelocity;
+                ", Flight Altitude = " + flightAltitude;
     }
 }

@@ -1,7 +1,7 @@
 package airport;
 
 
-
+import edu.princeton.cs.algs4.DirectedEdge;
 import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.Out;
 
@@ -22,6 +22,9 @@ public class Main {
 
     public static SymbolDigraph sd = new SymbolDigraph(".//data//graph.txt", ";");
 
+    public static DesignMap map = new DesignMap(100, 100);
+
+
     public static void main(String[] args) throws ParseException {
 
         DateFormat format = new SimpleDateFormat("dd-MM-yyyy HH:mm");
@@ -29,6 +32,10 @@ public class Main {
         loadFromFileAirport(airportST, "./data/airports.txt");
         loadFromFileAirplane(airportST, airplaneST, "./data/airplanes.txt");
         loadFromFileFlight(airportST, airplaneST, flightST, "./data/flights.txt");
+
+        /**
+         * Parte 1
+         */
 
         //Airport a = new Airport("FCP", "Futebol Club Porto", "Porto", "Portugal","Europe", 10.0f, 41.248055, -8.681389);
 
@@ -60,11 +67,22 @@ public class Main {
         //flightsByTimePeriod(flightST, "03-11-2013 03:40", "03-12-2020 03:40");
         //flightWithMostPassengers(flightST);
 
-
-        saveToFileAirport(airportST, ".//data//airports.txt");
-        saveToFileAirplane(airplaneST, ".//data//airplanes.txt");
-        saveToFileFlight(flightST, ".//data//flights.txt");
+        //saveToFileAirport(airportST, ".//data//airports.txt");
+        //saveToFileAirplane(airplaneST, ".//data//airplanes.txt");
+        //saveToFileFlight(flightST, ".//data//flights.txt");
         //editAfterFlight(airportST, airplaneST, flightST);
+
+        /**
+         * Parte 2
+         */
+
+        //System.out.println(shortestPathClient(sd, "OPO", "LAD", map));
+
+        //shortestPath(sd, "OPO", "LAD", map, airportST);
+        //economicPath(sd, "OPO", "LAD", map, returnFlightAirplane("OPO", "LAD"));
+        //fastestPath(sd, "OPO", "BOG", map, returnFlightAirplane("OPO", "BOG"));
+
+
     }
 
     /**
@@ -157,9 +175,8 @@ public class Main {
                 Integer passengers = Integer.parseInt(text[4]);
                 Integer distance = Integer.parseInt(text[5]);
                 Integer flightAltitude = Integer.parseInt(text[6]);
-                Integer windVelocity = Integer.parseInt(text[7]);
 
-                Flight f = new Flight(date, airplaneID, origin, destination, passengers, distance, flightAltitude, windVelocity);
+                Flight f = new Flight(date, airplaneID, origin, destination, passengers, distance, flightAltitude);
 
                 airportST.get(origin).getFlightOriST().put(date, f);
                 airportST.get(destination).getFlightDestST().put(date, f);
@@ -232,8 +249,7 @@ public class Main {
                     flightST.get(i).getDestination() + ";" +
                     flightST.get(i).getPassengers() + ";" +
                     flightST.get(i).getDistance() + ";" +
-                    flightST.get(i).getFlightAltitude() + ";" +
-                    flightST.get(i).getWindVelocity() + ";");
+                    flightST.get(i).getFlightAltitude() + ";");
         }
     }
 
@@ -566,22 +582,23 @@ public class Main {
                                       SeparateChainingHashST<String, Airplane> airplaneST, Airplane a) {
         try {
             if (airportST.contains(a.getCurrentAirport())) {
-                airportST.get(a.getCurrentAirport()).getAirplaneST().put(a.getId(), a);
+                try {
+                    if (!airplaneST.contains(a.getId())) {
+                        airportST.get(a.getCurrentAirport()).getAirplaneST().put(a.getId(), a);
+                        airplaneST.put(a.getId(), a);
+                        System.out.println("Airplane " + a.getName() + " inserted.");
+                    } else throw new
+                            IllegalAirplaneException("This airplane already exists!");
+                } catch (IllegalAirplaneException e) {
+                    e.printStackTrace();
+                }
             } else throw new
                     IllegalAirportException("This airport doesn't exists!");
         } catch (IllegalAirportException e) {
             e.printStackTrace();
         }
 
-        try {
-            if (!airplaneST.contains(a.getId())) {
-                airplaneST.put(a.getId(), a);
-                System.out.println("Airplane " + a.getName() + " inserted.");
-            } else throw new
-                    IllegalAirplaneException("This airplane already exists!");
-        } catch (IllegalAirplaneException e) {
-            e.printStackTrace();
-        }
+
     }
 
 
@@ -600,31 +617,31 @@ public class Main {
 
         try {
             if (airplaneST.contains(f.getAirplaneID())) {
-                airplaneST.get(f.getAirplaneID()).getFlightsAirplane().put(f.getDate(), f);
+                try {
+                    if (airportST.contains(f.getOrigin()) && airportST.contains(f.getDestination())) {
+                        try {
+                            if (!flightST.contains(f.getDate())) {
+                                airplaneST.get(f.getAirplaneID()).getFlightsAirplane().put(f.getDate(), f);
+                                airportST.get(f.getOrigin()).getFlightOriST().put(f.getDate(), f);
+                                airportST.get(f.getDestination()).getFlightDestST().put(f.getDate(), f);
+                                flightST.put(f.getDate(), f);
+                            } else throw new
+                                    IllegalFlightException("This flight already exists!");
+                        } catch (IllegalFlightException e) {
+                            e.printStackTrace();
+                        }
+                    } else throw new
+                            IllegalAirportException("This airport doesn't exists!");
+                } catch (IllegalAirportException e) {
+                    e.printStackTrace();
+                }
             } else throw new
                     IllegalFlightException("This airport doesn't exist!");
         } catch (IllegalFlightException e) {
             e.printStackTrace();
         }
 
-        try {
-            if (airportST.contains(f.getOrigin()) && airportST.contains(f.getDestination())) {
-                airportST.get(f.getOrigin()).getFlightOriST().put(f.getDate(), f);
-                airportST.get(f.getDestination()).getFlightDestST().put(f.getDate(), f);
-            } else throw new
-                    IllegalAirportException("This airport doesn't exists!");
-        } catch (IllegalAirportException e) {
-            e.printStackTrace();
-        }
 
-        try {
-            if (!flightST.contains(f.getDate())) {
-                flightST.put(f.getDate(), f);
-            } else throw new
-                    IllegalFlightException("This flight already exists!");
-        } catch (IllegalFlightException e) {
-            e.printStackTrace();
-        }
     }
 
     /**
@@ -715,6 +732,71 @@ public class Main {
 
     }
 
+
+    public static String fastestPath(SymbolDigraph sd, Airport airportOrigin, Airport airportDestination, DesignMap map, Airplane a) {
+
+        String result = "The fastest path is:\n";
+        Integer origin = sd.indexOf(airportOrigin.getCode());
+        Integer destination = sd.indexOf(airportDestination.getCode());
+
+
+        DijkstraSP fastestPath = new DijkstraSP(sd.digraph(), origin, a, 1);
+        for (DirectedEdge g : fastestPath.pathTo(destination)) {
+           // System.out.println(sd.nameOf(g.from()) + " -> " + sd.nameOf(g.to()));
+            result = result + "\t" + sd.nameOf(g.from()) + " -> " + sd.nameOf(g.to()) + "\n";
+            map.addGraphConnection(sd.nameOf(g.from()), sd.nameOf(g.to()), airportST);
+        }
+        return result;
+    }
+
+    public static String shortestPath(SymbolDigraph sd, Airport airportOrigin, Airport airportDestination, DesignMap map) {
+
+        String result = "The shortest path is:\n";
+        Double total = 0.0;
+        Integer origin = sd.indexOf(airportOrigin.getCode());
+        Integer destination = sd.indexOf(airportDestination.getCode());
+
+        DijkstraSP shortestPath = new DijkstraSP(sd.digraph(), origin, null, 2);
+        for (DirectedEdge g : shortestPath.pathTo(destination)) {
+
+           // System.out.println(sd.nameOf(g.from()) + " -> " + sd.nameOf(g.to()) + " : " + g.weight() + " km");
+            total = total + g.weight();
+            result = result + "\t" + sd.nameOf(g.from()) + " -> " + sd.nameOf(g.to()) + " : " + g.weight() + " km\n";
+            map.addGraphConnection(sd.nameOf(g.from()), sd.nameOf(g.to()), airportST);
+
+        }
+
+        //System.out.println("The total distance, of the shortest path, from " + airportOrigin + " to " + airportDestination + " is " + total + " km.");
+        result = result + "The total distance, of the shortest path, from " + airportOrigin.getCode() + " to " + airportDestination.getCode() + " is " + total + " km.";
+        return result;
+    }
+
+    public static String economicPath(SymbolDigraph sd, Airport airportOrigin, Airport airportDestination, DesignMap map, Airplane a) {
+
+        String result = "The most economic path is:\n";
+        Integer origin = sd.indexOf(airportOrigin.getCode());
+        Integer destination = sd.indexOf(airportDestination.getCode());
+
+        DijkstraSP economicPath = new DijkstraSP(sd.digraph(), origin, a, 3);
+        for (DirectedEdge g : economicPath.pathTo(destination)) {
+            //System.out.println(sd.nameOf(g.from()) + " -> " + sd.nameOf(g.to()));
+            result = result + "\t" + sd.nameOf(g.from()) + " -> " + sd.nameOf(g.to()) + "\n";
+            map.addGraphConnection(sd.nameOf(g.from()), sd.nameOf(g.to()), airportST);
+        }
+        return result;
+    }
+
+
+    public static Airplane returnFlightAirplane(String origin, String destination) {
+
+        for (Date f : flightST.inOrder()) {
+            if (flightST.get(f).getOrigin().equals(origin) && flightST.get(f).getDestination().equals(destination)) {
+                return airplaneST.get(flightST.get(f).getAirplaneID());
+            }
+
+        }
+        return null;
+    }
 }
 
 
