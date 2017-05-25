@@ -9,7 +9,6 @@ International Soekarno-Hatta;CGK;Jakarta;Indonesia;Asia;7.8;-6.125567;106.655897
 Moscou Domodedovo;DME;Moscow;Russia;Asia;7.8;55.408611;37.906111;
 Internacional John Kennedy;JFK;Nova York;US;North America;9.3;40.639751;-73.778925;
 Frankfurt;FRA;Frankfurt;Germany;Europe;9.6;50.0379326;8.5621518;
-Futebol Club Porto;FCP;Porto;Portugal;Europe;10.0;41.248055;-8.681389;
 Internacional Fiumicino-Leonardo da Vinci;FCO;Roma;Italy;Europe;8.3;41.804475;12.250797;
 Rio Galeão;GIG;Rio de Janeiro;Brazil;South America;5.3;-22.808903;-43.243647;
 Boryspil;KBP;Kiev;Ukraine;Europe;8.0;50.345;30.894722;

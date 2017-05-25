@@ -44,8 +44,8 @@ import edu.princeton.cs.algs4.*;
  * @author Kevin Wayne
  */
 public class SymbolDigraph {
-    private ST<String, Integer> st;  // string -> index
-    private String[] keys;           // index  -> string
+    public ST<String, Integer> st;  // string -> index
+    public String[] keys;           // index  -> string
     private EdgeWeightedDigraph graph;    // the underlying digraph
 
     /**
@@ -64,7 +64,9 @@ public class SymbolDigraph {
         // distinct strings with an index
         In in = new In(filename);
         while (in.hasNextLine()) {
+
             String[] a = in.readLine().split(delimiter);
+            //System.out.println(a);
             for (int i = 0; i < a.length; i++) {
                 if (!st.contains(a[i]))
                     st.put(a[i], st.size());
@@ -88,8 +90,8 @@ public class SymbolDigraph {
             for (int i = 1; i < a.length; i = i + 4) {
                 int w = st.get(a[i]);
                 double distance = Double.parseDouble(a[i + 1]);
-                float windVelocity = Float.parseFloat(a[i + 2]);
-                float airTunnel = Float.parseFloat(a[i + 3]);
+                double windVelocity = Double.parseDouble(a[i + 2]);
+                double airTunnel = Double.parseDouble(a[i + 3]);
                 Connection c = new Connection(v, w, distance, windVelocity, airTunnel);
                 graph.addEdge(c);
             }

@@ -7,30 +7,30 @@ import edu.princeton.cs.algs4.*;
 public class Connection extends DirectedEdge {
 
 
-    private float windVelocity;
-    private float airTunnel;
+    private double windVelocity;
+    private double airTunnel;
 
 
-    public Connection(int v, int w, double weight, float windVelocity, float airTunnel) {
+    public Connection(int v, int w, double weight, double windVelocity, double airTunnel) {
         super(v, w, weight);
         this.airTunnel = airTunnel;
         this.windVelocity = windVelocity;
 
     }
 
-    public float getWindVelocity() {
+    public double getWindVelocity() {
         return windVelocity;
     }
 
-    public void setWindVelocity(float windVelocity) {
+    public void setWindVelocity(double windVelocity) {
         this.windVelocity = windVelocity;
     }
 
-    public float getAirTunnel() {
+    public double getAirTunnel() {
         return airTunnel;
     }
 
-    public void setAirTunnel(float airTunnel) {
+    public void setAirTunnel(double airTunnel) {
         this.airTunnel = airTunnel;
     }
 

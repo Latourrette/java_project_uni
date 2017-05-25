@@ -2,19 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3847a6e6-0321-43b6-ab27-0382f5aca0d4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/airport/App.form" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/airport/App.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/airport/DesignMap.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/airport/EdgeWeightedDigraph.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/airport/JframeAuxFunctions.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/airport/Network.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/airplanes.txt" afterPath="$PROJECT_DIR$/data/airplanes.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/airports.txt" afterPath="$PROJECT_DIR$/data/airports.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/flights.txt" afterPath="$PROJECT_DIR$/data/flights.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nbproject/private/private.properties" afterPath="$PROJECT_DIR$/nbproject/private/private.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/airport/Airplane.java" afterPath="$PROJECT_DIR$/src/airport/Airplane.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/airport/Airport.java" afterPath="$PROJECT_DIR$/src/airport/Airport.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/airport/App.form" afterPath="$PROJECT_DIR$/src/airport/App.form" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/airport/App.java" afterPath="$PROJECT_DIR$/src/airport/App.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/airport/Connection.java" afterPath="$PROJECT_DIR$/src/airport/Connection.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/airport/DijkstraSP.java" afterPath="$PROJECT_DIR$/src/airport/DijkstraSP.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/airport/Main.java" afterPath="$PROJECT_DIR$/src/airport/Main.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/airport/SymbolDigraph.java" afterPath="$PROJECT_DIR$/src/airport/SymbolDigraph.java" />
     </list>
@@ -44,15 +40,14 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/airport/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1040">
-              <caret line="78" column="36" lean-forward="false" selection-start-line="78" selection-start-column="36" selection-end-line="78" selection-end-column="36" />
+            <state relative-caret-position="548">
+              <caret line="819" column="16" lean-forward="false" selection-start-line="819" selection-start-column="16" selection-end-line="819" selection-end-column="16" />
               <folding>
                 <element signature="docComment;class#Main#0" expanded="false" />
                 <element signature="docComment;method#loadFromFileAirport#0;class#Main#0" expanded="false" />
                 <element signature="docComment;method#loadFromFileAirplane#0;class#Main#0" expanded="false" />
                 <element signature="method#loadFromFileAirplane#0;class#Main#0" expanded="false" />
                 <element signature="docComment;method#loadFromFileFlight#0;class#Main#0" expanded="false" />
-                <element signature="method#loadFromFileFlight#0;class#Main#0" expanded="false" />
                 <element signature="docComment;method#saveToFileAirport#0;class#Main#0" expanded="false" />
                 <element signature="method#saveToFileAirport#0;class#Main#0" expanded="false" />
                 <element signature="docComment;method#saveToFileAirplane#0;class#Main#0" expanded="false" />
@@ -96,80 +91,104 @@
                 <element signature="method#removeFlight#0;class#Main#0" expanded="false" />
                 <element signature="docComment;method#editAfterFlight#0;class#Main#0" expanded="false" />
                 <element signature="method#editAfterFlight#0;class#Main#0" expanded="false" />
-                <element signature="docComment;method#fuelCost#0;class#Main#0" expanded="false" />
-                <element signature="method#fuelCost#0;class#Main#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Airport.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/airport/Airport.java">
+      <file leaf-file-name="DesignMap.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/airport/DesignMap.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1312">
-              <caret line="106" column="20" lean-forward="false" selection-start-line="106" selection-start-column="20" selection-end-line="106" selection-end-column="20" />
+            <state relative-caret-position="384">
+              <caret line="33" column="28" lean-forward="false" selection-start-line="33" selection-start-column="21" selection-end-line="33" selection-end-column="28" />
               <folding>
-                <element signature="e#1998#1999#0" expanded="true" />
-                <element signature="e#2026#2027#0" expanded="true" />
-                <element signature="e#2068#2069#0" expanded="true" />
-                <element signature="e#2102#2103#0" expanded="true" />
-                <element signature="e#2134#2135#0" expanded="true" />
-                <element signature="e#2162#2163#0" expanded="true" />
-                <element signature="e#2204#2205#0" expanded="true" />
-                <element signature="e#2238#2239#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="airports.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/airports.txt">
+      <file leaf-file-name="JframeAuxFunctions.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/airport/JframeAuxFunctions.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="512">
-              <caret line="32" column="53" lean-forward="false" selection-start-line="32" selection-start-column="53" selection-end-line="32" selection-end-column="53" />
+            <state relative-caret-position="614">
+              <caret line="116" column="0" lean-forward="false" selection-start-line="116" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#4412#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DijkstraSP.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/airport/DijkstraSP.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-636">
+              <caret line="175" column="73" lean-forward="false" selection-start-line="175" selection-start-column="73" selection-end-line="175" selection-end-column="73" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="App.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="SymbolDigraph.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/airport/SymbolDigraph.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="656">
+              <caret line="42" column="27" lean-forward="false" selection-start-line="42" selection-start-column="27" selection-end-line="42" selection-end-column="27" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="App.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/airport/App.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="613" column="85" lean-forward="true" selection-start-line="613" selection-start-column="0" selection-end-line="614" selection-end-column="0" />
+            <state relative-caret-position="496">
+              <caret line="46" column="22" lean-forward="false" selection-start-line="46" selection-start-column="22" selection-end-line="46" selection-end-column="22" />
               <folding>
-                <element signature="e#6169#6170#0" expanded="true" />
-                <element signature="e#6237#6238#0" expanded="true" />
-                <element signature="e#6658#6659#0" expanded="true" />
-                <element signature="e#6724#6725#0" expanded="true" />
-                <element signature="e#6895#6896#0" expanded="true" />
-                <element signature="e#6966#6967#0" expanded="true" />
-                <element signature="e#7272#7273#0" expanded="true" />
-                <element signature="e#7342#7343#0" expanded="true" />
-                <element signature="e#7626#7627#0" expanded="true" />
-                <element signature="e#7693#7694#0" expanded="true" />
-                <element signature="e#15790#15791#0" expanded="true" />
-                <element signature="e#15859#15860#0" expanded="true" />
-                <element signature="e#16665#16666#0" expanded="true" />
-                <element signature="e#16736#16737#0" expanded="true" />
-                <element signature="e#27237#27238#0" expanded="true" />
-                <element signature="e#27303#27304#0" expanded="true" />
-                <element signature="e#27471#27472#0" expanded="true" />
-                <element signature="e#27539#27540#0" expanded="true" />
-                <element signature="e#39919#40006#0" expanded="true" />
-                <element signature="e#41373#41374#0" expanded="true" />
-                <element signature="e#41431#41432#0" expanded="true" />
+                <element signature="docComment;method#App#0;class#App#0" expanded="false" />
+                <element signature="docComment;method#initComponents#0;class#App#0" expanded="false" />
+                <element signature="e#2176#2265#0" expanded="true" />
+                <element signature="e#7013#7014#0" expanded="true" />
+                <element signature="e#7081#7082#0" expanded="true" />
+                <element signature="e#7547#7548#0" expanded="true" />
+                <element signature="e#7616#7617#0" expanded="true" />
+                <element signature="e#7836#7837#0" expanded="true" />
+                <element signature="e#7908#7909#0" expanded="true" />
+                <element signature="e#8122#8123#0" expanded="true" />
+                <element signature="e#8192#8193#0" expanded="true" />
+                <element signature="e#17512#17513#0" expanded="true" />
+                <element signature="e#17581#17582#0" expanded="true" />
+                <element signature="e#18290#18291#0" expanded="true" />
+                <element signature="e#18360#18361#0" expanded="true" />
+                <element signature="e#18582#18583#0" expanded="true" />
+                <element signature="e#18655#18656#0" expanded="true" />
+                <element signature="e#18871#18872#0" expanded="true" />
+                <element signature="e#18942#18943#0" expanded="true" />
+                <element signature="e#30324#30325#0" expanded="true" />
+                <element signature="e#30391#30392#0" expanded="true" />
+                <element signature="e#30938#30939#0" expanded="true" />
+                <element signature="e#31006#31007#0" expanded="true" />
+                <element signature="e#31224#31225#0" expanded="true" />
+                <element signature="e#31295#31296#0" expanded="true" />
+                <element signature="e#31507#31508#0" expanded="true" />
+                <element signature="e#31576#31577#0" expanded="true" />
+                <element signature="e#39907#39908#0" expanded="true" />
+                <element signature="e#39979#39980#0" expanded="true" />
+                <element signature="e#40184#40185#0" expanded="true" />
+                <element signature="e#40245#40246#0" expanded="true" />
+                <element signature="e#40568#40569#0" expanded="true" />
+                <element signature="e#40629#40630#0" expanded="true" />
+                <element signature="e#40834#40835#0" expanded="true" />
+                <element signature="e#40895#40896#0" expanded="true" />
+                <element signature="e#41117#41118#0" expanded="true" />
+                <element signature="e#41187#41188#0" expanded="true" />
+                <element signature="e#72403#72490#0" expanded="true" />
+                <element signature="e#73857#73858#0" expanded="true" />
+                <element signature="e#73915#73916#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="14" column="10" lean-forward="true" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="10" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -182,6 +201,11 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>Connect</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -200,17 +224,19 @@
         <option value="$PROJECT_DIR$/src/airport/Network.java" />
         <option value="$PROJECT_DIR$/src/airport/FlightPath.java" />
         <option value="$PROJECT_DIR$/src/airport/DijkstraSP.java" />
-        <option value="$PROJECT_DIR$/src/airport/Airplane.java" />
-        <option value="$PROJECT_DIR$/src/airport/Connection.java" />
         <option value="$PROJECT_DIR$/src/airport/EdgeWeightedDigraph.java" />
-        <option value="$PROJECT_DIR$/src/airport/SymbolDigraph.java" />
-        <option value="$PROJECT_DIR$/data/airports.txt" />
         <option value="$PROJECT_DIR$/src/airport/Airport.java" />
         <option value="$PROJECT_DIR$/src/airport/DesignMap.java" />
         <option value="$PROJECT_DIR$/src/airport/JframeAuxFunctions.java" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/airport/Airplane.java" />
+        <option value="$PROJECT_DIR$/src/airport/Connection.java" />
+        <option value="$PROJECT_DIR$/data/airports.txt" />
+        <option value="$PROJECT_DIR$/data/airplanes.txt" />
+        <option value="$PROJECT_DIR$/data/flights.txt" />
+        <option value="$PROJECT_DIR$/src/airport/SymbolDigraph.java" />
         <option value="$PROJECT_DIR$/src/airport/Main.java" />
         <option value="$PROJECT_DIR$/src/airport/App.java" />
-        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -221,9 +247,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="24" />
-    <option name="width" value="1366" />
-    <option name="height" value="744" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1096" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -241,6 +268,7 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -264,6 +292,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="algs4" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -301,7 +333,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -766,6 +797,7 @@
       <workItem from="1495400082149" duration="4786000" />
       <workItem from="1495405102187" duration="25000" />
       <workItem from="1495405131027" duration="1505000" />
+      <workItem from="1495657523778" duration="16768000" />
     </task>
     <task id="LOCAL-00001" summary="Coiso">
       <created>1495382783664</created>
@@ -778,7 +810,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24390000" />
+    <option name="totallyTimeSpent" value="41158000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -790,38 +822,38 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="24" width="1366" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296146" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21501014" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32967034" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21501014" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19838946" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16197917" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296146" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32967034" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32810047" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -846,127 +878,11 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/airport/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2656">
-          <caret line="709" column="0" lean-forward="false" selection-start-line="709" selection-start-column="0" selection-end-line="709" selection-end-column="0" />
-          <folding>
-            <element signature="docComment;class#Main#0" expanded="false" />
-            <element signature="docComment;method#loadFromFileAirport#0;class#Main#0" expanded="false" />
-            <element signature="docComment;method#loadFromFileAirplane#0;class#Main#0" expanded="false" />
-            <element signature="method#loadFromFileAirplane#0;class#Main#0" expanded="false" />
-            <element signature="docComment;method#loadFromFileFlight#0;class#Main#0" expanded="false" />
-            <element signature="method#loadFromFileFlight#0;class#Main#0" expanded="false" />
-            <element signature="docComment;method#saveToFileAirport#0;class#Main#0" expanded="false" />
-            <element signature="method#saveToFileAirport#0;class#Main#0" expanded="false" />
-            <element signature="docComment;method#saveToFileAirplane#0;class#Main#0" expanded="false" />
-            <element signature="method#saveToFileAirplane#0;class#Main#0" expanded="false" />
-            <element signature="docComment;method#saveToFileFlight#0;class#Main#0" expanded="false" />
-            <element signature="method#saveToFileFlight#0;class#Main#0" expanded="false" />
-            <element signature="docComment;method#printAllAirports#0;class#Main#0" expanded="false" />
-            <element signature="method#printAllAirports#0;class#Main#0" expanded="false" />
-            <element signature="docComment;method#printAirport#0;class#Main#0" expanded="false" />
-            <element signature="method#printAirport#0;class#Main#0" expanded="false" />
-            <element signature="docComment;method#printAirplanesByAirport#0;class#Main#0" expanded="false" />
-            <element signature="method#printAirplanesByAirport#0;class#Main#0" expanded="false" />
-            <element signature="docComment;method#printAirplane#0;class#Main#0" expanded="false" />
-            <element signature="method#printAirplane#0;class#Main#0" expanded="false" />
-            <element signature="docComment;method#printCountryAirports#0;class#Main#0" expanded="false" />
-            <element signature="method#printCountryAirports#0;class#Main#0" expanded="false" />
-            <element signature="docComment;method#printFlightFromAirport#0;class#Main#0" expanded="false" />
-            <element signature="method#printFlightFromAirport#0;class#Main#0" expanded="false" />
-            <element signature="docComment;method#printFlightToAirport#0;class#Main#0" expanded="false" />
-            <element signature="method#printFlightToAirport#0;class#Main#0" expanded="false" />
-            <element signature="docComment;method#printFlightByAirplane#0;class#Main#0" expanded="false" />
-            <element signature="method#printFlightByAirplane#0;class#Main#0" expanded="false" />
-            <element signature="docComment;method#mostTrafficAirport#0;class#Main#0" expanded="false" />
-            <element signature="method#mostTrafficAirport#0;class#Main#0" expanded="false" />
-            <element signature="docComment;method#flightsByTimePeriod#0;class#Main#0" expanded="false" />
-            <element signature="method#flightsByTimePeriod#0;class#Main#0" expanded="false" />
-            <element signature="docComment;method#flightWithMostPassengers#0;class#Main#0" expanded="false" />
-            <element signature="method#flightWithMostPassengers#0;class#Main#0" expanded="false" />
-            <element signature="docComment;method#airportWithMostPassengers#0;class#Main#0" expanded="false" />
-            <element signature="method#airportWithMostPassengers#0;class#Main#0" expanded="false" />
-            <element signature="docComment;method#insertAirport#0;class#Main#0" expanded="false" />
-            <element signature="method#insertAirport#0;class#Main#0" expanded="false" />
-            <element signature="docComment;method#insertAirplane#0;class#Main#0" expanded="false" />
-            <element signature="docComment;method#insertFlight#0;class#Main#0" expanded="false" />
-            <element signature="method#insertFlight#0;class#Main#0" expanded="false" />
-            <element signature="docComment;method#removeAirport#0;class#Main#0" expanded="false" />
-            <element signature="method#removeAirport#0;class#Main#0" expanded="false" />
-            <element signature="docComment;method#removeAirplane#0;class#Main#0" expanded="false" />
-            <element signature="method#removeAirplane#0;class#Main#0" expanded="false" />
-            <element signature="docComment;method#removeFlight#0;class#Main#0" expanded="false" />
-            <element signature="method#removeFlight#0;class#Main#0" expanded="false" />
-            <element signature="docComment;method#editAfterFlight#0;class#Main#0" expanded="false" />
-            <element signature="method#editAfterFlight#0;class#Main#0" expanded="false" />
-            <element signature="docComment;method#fuelCost#0;class#Main#0" expanded="false" />
-            <element signature="method#fuelCost#0;class#Main#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/flights.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/airport/Airport.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1312">
-          <caret line="118" column="38" lean-forward="false" selection-start-line="118" selection-start-column="38" selection-end-line="118" selection-end-column="38" />
-          <folding>
-            <element signature="e#1998#1999#0" expanded="true" />
-            <element signature="e#2026#2027#0" expanded="true" />
-            <element signature="e#2068#2069#0" expanded="true" />
-            <element signature="e#2102#2103#0" expanded="true" />
-            <element signature="e#2134#2135#0" expanded="true" />
-            <element signature="e#2162#2163#0" expanded="true" />
-            <element signature="e#2204#2205#0" expanded="true" />
-            <element signature="e#2238#2239#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/airport/Flight.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1344">
-          <caret line="118" column="48" lean-forward="false" selection-start-line="118" selection-start-column="48" selection-end-line="118" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/airport/Network.java" />
-    <entry file="file://$PROJECT_DIR$/src/airport/Connection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="16">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
-          <folding>
-            <element signature="e#444#445#0" expanded="true" />
-            <element signature="e#479#480#0" expanded="true" />
-            <element signature="e#534#535#0" expanded="true" />
-            <element signature="e#582#583#0" expanded="true" />
-            <element signature="e#617#618#0" expanded="true" />
-            <element signature="e#649#650#0" expanded="true" />
-            <element signature="e#698#699#0" expanded="true" />
-            <element signature="e#740#741#0" expanded="true" />
-            <element signature="e#787#788#0" expanded="true" />
-            <element signature="e#845#846#0" expanded="true" />
-            <element signature="e#888#889#0" expanded="true" />
-            <element signature="e#977#978#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/airport/DijkstraSP.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="416">
           <caret line="55" column="13" lean-forward="false" selection-start-line="55" selection-start-column="13" selection-end-line="55" selection-end-column="13" />
-          <folding>
-            <element signature="e#6792#6804#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -996,7 +912,6 @@
             <element signature="docComment;method#loadFromFileAirplane#0;class#Main#0" expanded="false" />
             <element signature="method#loadFromFileAirplane#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#loadFromFileFlight#0;class#Main#0" expanded="false" />
-            <element signature="method#loadFromFileFlight#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#saveToFileAirport#0;class#Main#0" expanded="false" />
             <element signature="method#saveToFileAirport#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#saveToFileAirplane#0;class#Main#0" expanded="false" />
@@ -1040,8 +955,6 @@
             <element signature="method#removeFlight#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#editAfterFlight#0;class#Main#0" expanded="false" />
             <element signature="method#editAfterFlight#0;class#Main#0" expanded="false" />
-            <element signature="docComment;method#fuelCost#0;class#Main#0" expanded="false" />
-            <element signature="method#fuelCost#0;class#Main#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1059,14 +972,8 @@
         <state relative-caret-position="1312">
           <caret line="118" column="38" lean-forward="false" selection-start-line="118" selection-start-column="38" selection-end-line="118" selection-end-column="38" />
           <folding>
-            <element signature="e#1998#1999#0" expanded="true" />
-            <element signature="e#2026#2027#0" expanded="true" />
-            <element signature="e#2068#2069#0" expanded="true" />
-            <element signature="e#2102#2103#0" expanded="true" />
-            <element signature="e#2134#2135#0" expanded="true" />
-            <element signature="e#2162#2163#0" expanded="true" />
-            <element signature="e#2204#2205#0" expanded="true" />
-            <element signature="e#2238#2239#0" expanded="true" />
+            <element signature="method#Airport#0;class#Airport#0" expanded="false" />
+            <element signature="method#toString#0;class#Airport#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1084,10 +991,7 @@
         <state relative-caret-position="1536">
           <caret line="138" column="26" lean-forward="false" selection-start-line="138" selection-start-column="26" selection-end-line="138" selection-end-column="26" />
           <folding>
-            <element signature="e#4006#4007#0" expanded="true" />
-            <element signature="e#4069#4070#0" expanded="true" />
-            <element signature="e#4110#4111#0" expanded="true" />
-            <element signature="e#4176#4177#0" expanded="true" />
+            <element signature="e#4112#4113#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1103,7 +1007,6 @@
             <element signature="docComment;method#loadFromFileAirplane#0;class#Main#0" expanded="false" />
             <element signature="method#loadFromFileAirplane#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#loadFromFileFlight#0;class#Main#0" expanded="false" />
-            <element signature="method#loadFromFileFlight#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#saveToFileAirport#0;class#Main#0" expanded="false" />
             <element signature="method#saveToFileAirport#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#saveToFileAirplane#0;class#Main#0" expanded="false" />
@@ -1147,8 +1050,6 @@
             <element signature="method#removeFlight#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#editAfterFlight#0;class#Main#0" expanded="false" />
             <element signature="method#editAfterFlight#0;class#Main#0" expanded="false" />
-            <element signature="docComment;method#fuelCost#0;class#Main#0" expanded="false" />
-            <element signature="method#fuelCost#0;class#Main#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1161,14 +1062,8 @@
         <state relative-caret-position="1216">
           <caret line="112" column="29" lean-forward="false" selection-start-line="112" selection-start-column="29" selection-end-line="112" selection-end-column="29" />
           <folding>
-            <element signature="e#1998#1999#0" expanded="true" />
-            <element signature="e#2026#2027#0" expanded="true" />
-            <element signature="e#2068#2069#0" expanded="true" />
-            <element signature="e#2102#2103#0" expanded="true" />
-            <element signature="e#2134#2135#0" expanded="true" />
-            <element signature="e#2162#2163#0" expanded="true" />
-            <element signature="e#2204#2205#0" expanded="true" />
-            <element signature="e#2238#2239#0" expanded="true" />
+            <element signature="method#Airport#0;class#Airport#0" expanded="false" />
+            <element signature="method#toString#0;class#Airport#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1186,10 +1081,7 @@
         <state relative-caret-position="1696">
           <caret line="148" column="24" lean-forward="false" selection-start-line="148" selection-start-column="24" selection-end-line="148" selection-end-column="24" />
           <folding>
-            <element signature="e#4006#4007#0" expanded="true" />
-            <element signature="e#4069#4070#0" expanded="true" />
-            <element signature="e#4110#4111#0" expanded="true" />
-            <element signature="e#4176#4177#0" expanded="true" />
+            <element signature="e#4112#4113#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1199,20 +1091,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="16">
           <caret line="10" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
-          <folding>
-            <element signature="e#444#445#0" expanded="true" />
-            <element signature="e#479#480#0" expanded="true" />
-            <element signature="e#534#535#0" expanded="true" />
-            <element signature="e#582#583#0" expanded="true" />
-            <element signature="e#617#618#0" expanded="true" />
-            <element signature="e#649#650#0" expanded="true" />
-            <element signature="e#698#699#0" expanded="true" />
-            <element signature="e#740#741#0" expanded="true" />
-            <element signature="e#787#788#0" expanded="true" />
-            <element signature="e#845#846#0" expanded="true" />
-            <element signature="e#888#889#0" expanded="true" />
-            <element signature="e#977#978#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1222,10 +1101,7 @@
         <state relative-caret-position="112">
           <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
           <folding>
-            <element signature="e#4006#4007#0" expanded="true" />
-            <element signature="e#4069#4070#0" expanded="true" />
-            <element signature="e#4110#4111#0" expanded="true" />
-            <element signature="e#4176#4177#0" expanded="true" />
+            <element signature="e#4112#4113#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1266,13 +1142,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/flights.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/airport/GUI.java" />
     <entry file="file://$PROJECT_DIR$/src/airport/FlightPath.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1282,80 +1151,154 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/airport/Connection.java">
+    <entry file="file://$PROJECT_DIR$/src/airport/Network.java" />
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#444#445#0" expanded="true" />
-            <element signature="e#479#480#0" expanded="true" />
-            <element signature="e#534#535#0" expanded="true" />
-            <element signature="e#582#583#0" expanded="true" />
-            <element signature="e#617#618#0" expanded="true" />
-            <element signature="e#649#650#0" expanded="true" />
-            <element signature="e#698#699#0" expanded="true" />
-            <element signature="e#740#741#0" expanded="true" />
-            <element signature="e#787#788#0" expanded="true" />
-            <element signature="e#845#846#0" expanded="true" />
-            <element signature="e#888#889#0" expanded="true" />
-            <element signature="e#977#978#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="224">
+          <caret line="14" column="10" lean-forward="false" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="10" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/airport/EdgeWeightedDigraph.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/lang/Float.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-288">
+        <state relative-caret-position="320">
+          <caret line="449" column="24" lean-forward="false" selection-start-line="449" selection-start-column="24" selection-end-line="449" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/airplanes.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/airport/Network.java" />
-    <entry file="file://$PROJECT_DIR$/src/airport/SymbolDigraph.java">
+    <entry file="file://$PROJECT_DIR$/data/flights.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1488">
-          <caret line="93" column="85" lean-forward="false" selection-start-line="93" selection-start-column="85" selection-end-line="93" selection-end-column="85" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/princeton/cs/algs4/DirectedEdge.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="24" column="13" lean-forward="false" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/airport/Airport.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="method#Airport#0;class#Airport#0" expanded="false" />
+            <element signature="method#toString#0;class#Airport#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/airport/Airplane.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1728">
-          <caret line="150" column="59" lean-forward="false" selection-start-line="150" selection-start-column="59" selection-end-line="150" selection-end-column="59" />
+        <state relative-caret-position="568">
+          <caret line="136" column="56" lean-forward="false" selection-start-line="136" selection-start-column="56" selection-end-line="136" selection-end-column="56" />
           <folding>
-            <element signature="e#4006#4007#0" expanded="true" />
-            <element signature="e#4069#4070#0" expanded="true" />
-            <element signature="e#4110#4111#0" expanded="true" />
-            <element signature="e#4176#4177#0" expanded="true" />
+            <element signature="method#setFlightsAirplane#0;class#Airplane#0" expanded="false" />
+            <element signature="method#toString#0;class#Airplane#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/airport/Airport.java">
+    <entry file="file://$PROJECT_DIR$/src/edu/princeton/cs/algs4/In.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1312">
-          <caret line="106" column="20" lean-forward="false" selection-start-line="106" selection-start-column="20" selection-end-line="106" selection-end-column="20" />
+        <state relative-caret-position="249">
+          <caret line="270" column="18" lean-forward="false" selection-start-line="270" selection-start-column="18" selection-end-line="270" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/airports.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/airport/Connection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="14" column="11" lean-forward="false" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
           <folding>
-            <element signature="e#1998#1999#0" expanded="true" />
-            <element signature="e#2026#2027#0" expanded="true" />
-            <element signature="e#2068#2069#0" expanded="true" />
-            <element signature="e#2102#2103#0" expanded="true" />
-            <element signature="e#2134#2135#0" expanded="true" />
-            <element signature="e#2162#2163#0" expanded="true" />
-            <element signature="e#2204#2205#0" expanded="true" />
-            <element signature="e#2238#2239#0" expanded="true" />
+            <element signature="e#858#859#0" expanded="true" />
+            <element signature="e#947#948#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/airport/EdgeWeightedDigraph.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1880">
+          <caret line="204" column="26" lean-forward="false" selection-start-line="204" selection-start-column="26" selection-end-line="204" selection-end-column="26" />
+          <folding>
+            <element signature="e#5025#5037#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/graph.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="6" column="43" lean-forward="false" selection-start-line="6" selection-start-column="43" selection-end-line="6" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/airport/JframeAuxFunctions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="614">
+          <caret line="116" column="0" lean-forward="false" selection-start-line="116" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#4412#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/airport/SymbolDigraph.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="656">
+          <caret line="42" column="27" lean-forward="false" selection-start-line="42" selection-start-column="27" selection-end-line="42" selection-end-column="27" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/airport/DijkstraSP.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-636">
+          <caret line="175" column="73" lean-forward="false" selection-start-line="175" selection-start-column="73" selection-end-line="175" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/princeton/cs/algs4/KosarajuSharirSCC.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1623">
+          <caret line="96" column="13" lean-forward="false" selection-start-line="96" selection-start-column="13" selection-end-line="96" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/airport/DesignMap.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="34" column="13" lean-forward="false" selection-start-line="34" selection-start-column="10" selection-end-line="34" selection-end-column="13" />
+        <state relative-caret-position="384">
+          <caret line="33" column="28" lean-forward="false" selection-start-line="33" selection-start-column="21" selection-end-line="33" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1364,15 +1307,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/airport/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1040">
-          <caret line="78" column="36" lean-forward="false" selection-start-line="78" selection-start-column="36" selection-end-line="78" selection-end-column="36" />
+        <state relative-caret-position="548">
+          <caret line="819" column="16" lean-forward="false" selection-start-line="819" selection-start-column="16" selection-end-line="819" selection-end-column="16" />
           <folding>
             <element signature="docComment;class#Main#0" expanded="false" />
             <element signature="docComment;method#loadFromFileAirport#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#loadFromFileAirplane#0;class#Main#0" expanded="false" />
             <element signature="method#loadFromFileAirplane#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#loadFromFileFlight#0;class#Main#0" expanded="false" />
-            <element signature="method#loadFromFileFlight#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#saveToFileAirport#0;class#Main#0" expanded="false" />
             <element signature="method#saveToFileAirport#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#saveToFileAirplane#0;class#Main#0" expanded="false" />
@@ -1416,75 +1358,56 @@
             <element signature="method#removeFlight#0;class#Main#0" expanded="false" />
             <element signature="docComment;method#editAfterFlight#0;class#Main#0" expanded="false" />
             <element signature="method#editAfterFlight#0;class#Main#0" expanded="false" />
-            <element signature="docComment;method#fuelCost#0;class#Main#0" expanded="false" />
-            <element signature="method#fuelCost#0;class#Main#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/airport/JframeAuxFunctions.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="553">
-          <caret line="199" column="44" lean-forward="false" selection-start-line="199" selection-start-column="44" selection-end-line="199" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/airport/DijkstraSP.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="553">
-          <caret line="198" column="13" lean-forward="false" selection-start-line="198" selection-start-column="13" selection-end-line="198" selection-end-column="13" />
-          <folding>
-            <element signature="e#6792#6804#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/airports.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="512">
-          <caret line="32" column="53" lean-forward="false" selection-start-line="32" selection-start-column="53" selection-end-line="32" selection-end-column="53" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/airport/App.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="613" column="85" lean-forward="true" selection-start-line="613" selection-start-column="0" selection-end-line="614" selection-end-column="0" />
+        <state relative-caret-position="496">
+          <caret line="46" column="22" lean-forward="false" selection-start-line="46" selection-start-column="22" selection-end-line="46" selection-end-column="22" />
           <folding>
-            <element signature="e#6169#6170#0" expanded="true" />
-            <element signature="e#6237#6238#0" expanded="true" />
-            <element signature="e#6658#6659#0" expanded="true" />
-            <element signature="e#6724#6725#0" expanded="true" />
-            <element signature="e#6895#6896#0" expanded="true" />
-            <element signature="e#6966#6967#0" expanded="true" />
-            <element signature="e#7272#7273#0" expanded="true" />
-            <element signature="e#7342#7343#0" expanded="true" />
-            <element signature="e#7626#7627#0" expanded="true" />
-            <element signature="e#7693#7694#0" expanded="true" />
-            <element signature="e#15790#15791#0" expanded="true" />
-            <element signature="e#15859#15860#0" expanded="true" />
-            <element signature="e#16665#16666#0" expanded="true" />
-            <element signature="e#16736#16737#0" expanded="true" />
-            <element signature="e#27237#27238#0" expanded="true" />
-            <element signature="e#27303#27304#0" expanded="true" />
-            <element signature="e#27471#27472#0" expanded="true" />
-            <element signature="e#27539#27540#0" expanded="true" />
-            <element signature="e#39919#40006#0" expanded="true" />
-            <element signature="e#41373#41374#0" expanded="true" />
-            <element signature="e#41431#41432#0" expanded="true" />
+            <element signature="docComment;method#App#0;class#App#0" expanded="false" />
+            <element signature="docComment;method#initComponents#0;class#App#0" expanded="false" />
+            <element signature="e#2176#2265#0" expanded="true" />
+            <element signature="e#7013#7014#0" expanded="true" />
+            <element signature="e#7081#7082#0" expanded="true" />
+            <element signature="e#7547#7548#0" expanded="true" />
+            <element signature="e#7616#7617#0" expanded="true" />
+            <element signature="e#7836#7837#0" expanded="true" />
+            <element signature="e#7908#7909#0" expanded="true" />
+            <element signature="e#8122#8123#0" expanded="true" />
+            <element signature="e#8192#8193#0" expanded="true" />
+            <element signature="e#17512#17513#0" expanded="true" />
+            <element signature="e#17581#17582#0" expanded="true" />
+            <element signature="e#18290#18291#0" expanded="true" />
+            <element signature="e#18360#18361#0" expanded="true" />
+            <element signature="e#18582#18583#0" expanded="true" />
+            <element signature="e#18655#18656#0" expanded="true" />
+            <element signature="e#18871#18872#0" expanded="true" />
+            <element signature="e#18942#18943#0" expanded="true" />
+            <element signature="e#30324#30325#0" expanded="true" />
+            <element signature="e#30391#30392#0" expanded="true" />
+            <element signature="e#30938#30939#0" expanded="true" />
+            <element signature="e#31006#31007#0" expanded="true" />
+            <element signature="e#31224#31225#0" expanded="true" />
+            <element signature="e#31295#31296#0" expanded="true" />
+            <element signature="e#31507#31508#0" expanded="true" />
+            <element signature="e#31576#31577#0" expanded="true" />
+            <element signature="e#39907#39908#0" expanded="true" />
+            <element signature="e#39979#39980#0" expanded="true" />
+            <element signature="e#40184#40185#0" expanded="true" />
+            <element signature="e#40245#40246#0" expanded="true" />
+            <element signature="e#40568#40569#0" expanded="true" />
+            <element signature="e#40629#40630#0" expanded="true" />
+            <element signature="e#40834#40835#0" expanded="true" />
+            <element signature="e#40895#40896#0" expanded="true" />
+            <element signature="e#41117#41118#0" expanded="true" />
+            <element signature="e#41187#41188#0" expanded="true" />
+            <element signature="e#72403#72490#0" expanded="true" />
+            <element signature="e#73857#73858#0" expanded="true" />
+            <element signature="e#73915#73916#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="14" column="10" lean-forward="true" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="10" />
-          <folding />
         </state>
       </provider>
     </entry>

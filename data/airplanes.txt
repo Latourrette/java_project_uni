@@ -1,4 +1,3 @@
-40;Toshiba;Grande Maquina;Toshiba Airlines;958;12000;15190;FCP;120;126206;
 37;Airbus A319;Eusebio;TAP Air Portugal;828;9000;6950;MVD;156;26750;
 33;Airbus A319;Sophia de Mello Breyner;TAP Air Portugal;828;9000;6950;MVD;156;26750;
 26;Boeing 787;pran Buri;Thai Airways;958;12000;15190;MXP;420;126206;

@@ -26,10 +26,10 @@ public class App extends javax.swing.JFrame {
      * Creates new form App
      */
     public App() {
+        initComponents();
         Main.loadFromFileAirport(Main.airportST, ".//data//airports.txt");
         Main.loadFromFileAirplane(Main.airportST, Main.airplaneST, ".//data//airplanes.txt");
         Main.loadFromFileFlight(Main.airportST, Main.airplaneST, Main.flightST, ".//data//flights.txt");
-        initComponents();
 
 
         for (String key : Main.airportST.keys()) {
@@ -50,6 +50,11 @@ public class App extends javax.swing.JFrame {
         jComboBoxAirplane.setModel(new DefaultComboBoxModel(airplane));
         jComboBoxAirplanePicker.setModel(new DefaultComboBoxModel(airplane));
         jComboBoxFlight.setModel(new DefaultComboBoxModel(flight));
+
+
+        Main.map.addGraphConnection(Main.airportST.get("OPO").getCode(), Main.airportST.get("LIS").getCode(), Main.airportST);
+        Main.map.resetMap();
+        //jLabelDraw=Main.map.view;
 
 
     }
@@ -140,6 +145,7 @@ public class App extends javax.swing.JFrame {
         jComboBoxAirplanePicker = new javax.swing.JComboBox<>();
         jButtonFP = new javax.swing.JButton();
         jButtonSP = new javax.swing.JButton();
+        jButtonIsConnected = new javax.swing.JButton();
         jPanelDraw = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -162,7 +168,6 @@ public class App extends javax.swing.JFrame {
         jLabelContinent.setText("Continent:");
 
         jLabelRating.setText("Rating:");
-
 
         jButtonAddAirport.setText("Add");
         jButtonAddAirport.addActionListener(new java.awt.event.ActionListener() {
@@ -188,7 +193,6 @@ public class App extends javax.swing.JFrame {
         jLabel1.setText("X Axis");
 
         jLabel2.setText("Y Axis");
-
 
         javax.swing.GroupLayout jPanelAiportLayout = new javax.swing.GroupLayout(jPanelAiport);
         jPanelAiport.setLayout(jPanelAiportLayout);
@@ -226,7 +230,7 @@ public class App extends javax.swing.JFrame {
                                                                         .addComponent(jTextFieldXAxis)
                                                                         .addComponent(jTextFieldYAxis)))
                                                         .addComponent(jLabel2))))
-                                .addContainerGap(187, Short.MAX_VALUE))
+                                .addContainerGap(214, Short.MAX_VALUE))
         );
         jPanelAiportLayout.setVerticalGroup(
                 jPanelAiportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -362,7 +366,7 @@ public class App extends javax.swing.JFrame {
                                                                 .addComponent(jTextFieldAirplaneName, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                 .addComponent(jTextFieldModel, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                 .addComponent(jTextFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                                .addContainerGap(181, Short.MAX_VALUE))
+                                .addContainerGap(208, Short.MAX_VALUE))
         );
         jPanelAirplaneLayout.setVerticalGroup(
                 jPanelAirplaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -439,15 +443,10 @@ public class App extends javax.swing.JFrame {
 
         jLabelFlightAltitude.setText("Flight Altitude:");
 
-
         jButtonAddFlight.setText("Add");
         jButtonAddFlight.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                try {
-                    jButtonAddFlightActionPerformed(evt);
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
+                jButtonAddFlightActionPerformed(evt);
             }
         });
 
@@ -499,7 +498,7 @@ public class App extends javax.swing.JFrame {
                                                 .addComponent(jButtonRemoveFlight, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addComponent(jButtonEditFlight, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addContainerGap(187, Short.MAX_VALUE))
+                                .addContainerGap(214, Short.MAX_VALUE))
         );
         jPanelFlightLayout.setVerticalGroup(
                 jPanelFlightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -543,7 +542,6 @@ public class App extends javax.swing.JFrame {
 
         jTabbedPaneMain.addTab("Flight", jPanelFlight);
 
-
         jButtonAddConnection.setText("Add Connection");
         jButtonAddConnection.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -564,7 +562,6 @@ public class App extends javax.swing.JFrame {
 
         jLabel18.setText("Airplane");
 
-
         jButtonFP.setText("Fastest Path");
         jButtonFP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -579,6 +576,13 @@ public class App extends javax.swing.JFrame {
             }
         });
 
+        jButtonIsConnected.setText("Is connected");
+        jButtonIsConnected.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonIsConnectedActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelConnectionsLayout = new javax.swing.GroupLayout(jPanelConnections);
         jPanelConnections.setLayout(jPanelConnectionsLayout);
         jPanelConnectionsLayout.setHorizontalGroup(
@@ -586,9 +590,6 @@ public class App extends javax.swing.JFrame {
                         .addGroup(jPanelConnectionsLayout.createSequentialGroup()
                                 .addContainerGap()
                                 .addGroup(jPanelConnectionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelConnectionsLayout.createSequentialGroup()
-                                                .addGap(0, 0, Short.MAX_VALUE)
-                                                .addComponent(jButtonAddConnection, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGroup(jPanelConnectionsLayout.createSequentialGroup()
                                                 .addGroup(jPanelConnectionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                         .addGroup(jPanelConnectionsLayout.createSequentialGroup()
@@ -606,7 +607,12 @@ public class App extends javax.swing.JFrame {
                                                         .addComponent(jButtonFP, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addComponent(jButtonEP, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addComponent(jButtonSP, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGap(0, 95, Short.MAX_VALUE)))
+                                                .addGap(0, 122, Short.MAX_VALUE))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelConnectionsLayout.createSequentialGroup()
+                                                .addGap(0, 0, Short.MAX_VALUE)
+                                                .addGroup(jPanelConnectionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                        .addComponent(jButtonAddConnection, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
+                                                        .addComponent(jButtonIsConnected, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                                 .addContainerGap())
         );
         jPanelConnectionsLayout.setVerticalGroup(
@@ -628,7 +634,9 @@ public class App extends javax.swing.JFrame {
                                 .addComponent(jButtonEP)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButtonSP)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 164, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 128, Short.MAX_VALUE)
+                                .addComponent(jButtonIsConnected)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jButtonAddConnection)
                                 .addContainerGap())
         );
@@ -639,7 +647,7 @@ public class App extends javax.swing.JFrame {
         jPanelDraw.setLayout(jPanelDrawLayout);
         jPanelDrawLayout.setHorizontalGroup(
                 jPanelDrawLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 509, Short.MAX_VALUE)
+                        .addGap(0, 536, Short.MAX_VALUE)
         );
         jPanelDrawLayout.setVerticalGroup(
                 jPanelDrawLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1034,6 +1042,12 @@ public class App extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, Main.shortestPath(Main.sd, a1, a2, Main.map), "Well done :)", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_jButtonSPActionPerformed
 
+    private void jButtonIsConnectedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIsConnectedActionPerformed
+
+        JOptionPane.showMessageDialog(rootPane, Main.isConnected(Main.sd.digraph()), "Well done :)", JOptionPane.INFORMATION_MESSAGE);
+
+    }//GEN-LAST:event_jButtonIsConnectedActionPerformed
+
 
     /**
      * @param args the command line arguments
@@ -1080,6 +1094,7 @@ public class App extends javax.swing.JFrame {
     private javax.swing.JButton jButtonEditAirport;
     private javax.swing.JButton jButtonEditFlight;
     private javax.swing.JButton jButtonFP;
+    private javax.swing.JButton jButtonIsConnected;
     private javax.swing.JButton jButtonRemoveAirplane;
     private javax.swing.JButton jButtonRemoveAirport;
     private javax.swing.JButton jButtonRemoveFlight;
