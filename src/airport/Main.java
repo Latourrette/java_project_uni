@@ -1,9 +1,7 @@
 package airport;
 
 
-import edu.princeton.cs.algs4.DirectedEdge;
-import edu.princeton.cs.algs4.In;
-import edu.princeton.cs.algs4.Out;
+import edu.princeton.cs.algs4.*;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -20,7 +18,8 @@ public class Main {
     public static SeparateChainingHashST<String, Airplane> airplaneST = new SeparateChainingHashST<>();
     public static RedBlackBST<Date, Flight> flightST = new RedBlackBST<>();
 
-    public static SymbolDigraph sd = new SymbolDigraph(".//data//graph.txt", ";");
+    public static WeightedSymbolDigraph sd = new WeightedSymbolDigraph(".//data//graph.txt", ";");
+    public static SymbolDigraph sdNoWeight = new SymbolDigraph(".//data//graph.txt", ";");
 
 
     public static void main(String[] args) throws ParseException {
@@ -81,6 +80,10 @@ public class Main {
         //fastestPath(sd, "OPO", "BOG", map, returnFlightAirplane("OPO", "BOG"));
 
         //boolean a = isConnected(sd.digraph());
+
+
+        System.out.println(directPath(sdNoWeight, airportST.get("OPO"), airportST.get("ALG")));
+
 
     }
 
@@ -741,7 +744,7 @@ public class Main {
      * @param a
      * @return
      */
-    public static String fastestPath(SymbolDigraph sd, Airport airportOrigin, Airport airportDestination, Airplane a) {
+    public static String fastestPath(WeightedSymbolDigraph sd, Airport airportOrigin, Airport airportDestination, Airplane a) {
 
         String result = "The fastest path is:\n";
         Double total = 0.0;
@@ -765,7 +768,7 @@ public class Main {
      * @param airportDestination
      * @return
      */
-    public static String shortestPath(SymbolDigraph sd, Airport airportOrigin, Airport airportDestination) {
+    public static String shortestPath(WeightedSymbolDigraph sd, Airport airportOrigin, Airport airportDestination) {
 
         String result = "The shortest path is:\n";
         Double total = 0.0;
@@ -793,7 +796,7 @@ public class Main {
      * @param a
      * @return
      */
-    public static String economicPath(SymbolDigraph sd, Airport airportOrigin, Airport airportDestination, Airplane a) {
+    public static String economicPath(WeightedSymbolDigraph sd, Airport airportOrigin, Airport airportDestination, Airplane a) {
 
         String result = "The most economic path is:\n";
         double total = 0;
@@ -818,7 +821,7 @@ public class Main {
      * @param airportDestination
      * @return
      */
-    public static String mostEconomicPath(SymbolDigraph sd, Airport airportOrigin, Airport airportDestination) {
+    public static String mostEconomicPath(WeightedSymbolDigraph sd, Airport airportOrigin, Airport airportDestination) {
 
         String result = "The most economic path is:\n";
         Integer origin = sd.indexOf(airportOrigin.getCode());
@@ -857,7 +860,7 @@ public class Main {
      * @param airportDestination
      * @return
      */
-    public static String fastAndFurious(SymbolDigraph sd, Airport airportOrigin, Airport airportDestination) {
+    public static String fastAndFurious(WeightedSymbolDigraph sd, Airport airportOrigin, Airport airportDestination) {
 
         String result = "The fastest is:\n";
         Integer origin = sd.indexOf(airportOrigin.getCode());
@@ -900,24 +903,39 @@ public class Main {
         return null;
     }
 
-    public static boolean isConnected(EdgeWeightedDigraph g) {
-        int s = 0;
-        boolean flag = true;
+    public static boolean isConnected() {
 
-        DijkstraSP sp = new DijkstraSP(g, s, null, 2);
+        KosarajuSharirSCC scc = new KosarajuSharirSCC(sdNoWeight.digraph());
+        System.out.println("The graph has " + scc.count() + " strongly connected components.");
 
-        for (int t = 0; t < g.V(); t++) {
-            if (!sp.hasPathTo(t)) {
-                flag = false;
+        if (scc.count() == 1) {
+            return true;
+        }
+        return false;
+
+    }
+
+    public static String directPath(SymbolDigraph sdDP, Airport airportOrigin, Airport airportDestination) {
+
+        String result = "The most direct path is:\n";
+        Integer origin = sdDP.indexOf(airportOrigin.getCode());
+        Integer destination = sdDP.indexOf(airportDestination.getCode());
+
+        BreadthFirstDirectedPaths bfd = new BreadthFirstDirectedPaths(sdDP.digraph(), origin);
+
+
+        for (int a : bfd.pathTo(destination)) {
+            //System.out.println(sd.nameOf(a));
+            if (a == destination) {
+                result = "\t" + result + sdDP.nameOf(a);
+            } else {
+                result = "\t" + result + sdDP.nameOf(a) + " -> ";
             }
         }
 
-        if (flag) {
-            System.out.printf("Graph is connected!");
-        } else {
-            System.out.println("Graph is not connected!");
-        }
-        return flag;
+        //System.out.println(bfd.distTo(destination));
+        result = result + "\nNumber of jumps: " + bfd.distTo(destination);
+        return result;
     }
 
 }

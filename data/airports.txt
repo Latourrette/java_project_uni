@@ -1,33 +1,33 @@
-Internacional de Dubai;DXB;Dubai;Dubai;Asia;9.4;25.252778;55.364444;
-Charles de Gaulle;CDG;Paris;France;Europe;8.1;28.9189;111.64;
-Amsterdam Schiphol;AMS;Amsterdão;Netherland;Europe;8.1;52.7873;4.90074;
-Houari Boumediene;ALG;Algiers;Algeria;Africa;7.6;36.691014;3.215408;
-Chhatrapati Shivaji;BOM;Mumbai;India;Asia;8.4;19.088686;72.867919;
-Internacional El Dorado;BOG;Bogotá;Colombia;South America;9.0;4.701594;-74.146947;
-Kastrup;CPH;Copenhaga;Denmark;Europe;8.7;55.617917;12.655972;
-International Soekarno-Hatta;CGK;Jakarta;Indonesia;Asia;7.8;-6.125567;106.655897;
-Moscou Domodedovo;DME;Moscow;Russia;Asia;7.8;55.408611;37.906111;
-Internacional John Kennedy;JFK;Nova York;US;North America;9.3;40.639751;-73.778925;
-Frankfurt;FRA;Frankfurt;Germany;Europe;9.6;50.0379326;8.5621518;
-Internacional Fiumicino-Leonardo da Vinci;FCO;Roma;Italy;Europe;8.3;41.804475;12.250797;
-Rio Galeão;GIG;Rio de Janeiro;Brazil;South America;5.3;-22.808903;-43.243647;
-Boryspil;KBP;Kiev;Ukraine;Europe;8.0;50.345;30.894722;
-Joanesburgo;JNB;Joanesburgo;South Africa;Africa;8.0;-25.938514;27.926133;
-Internacional Quatro de Fevereiro;LAD;Luanda;Angola;Africa;4.3;-8.858375;13.231178;
-Internacional de Los Angeles;LAX;Los Angeles;US;North America;8.6;33.942536;-118.408075;
-Beijing International;PEK;Beijing;China;Asia;9.8;40.080111;116.584556;
-Milão-Malpensa;MXP;Milão;Italy;Europe;8.4;45.630606;8.728111;
-Internacional Jorge Chávez;LIM;Lima;Peru;South America;8.9;-12.021889;-77.114319;
-Gatwick;LGW;Londres;UK;Europe;8.1;51.148056;-0.190278;
-Internacional Rafael Nuñez;MVD;Montevideu;Uruguai;South America;8.0;-34.838417;-56.030806;
-Humberto Delgado;LIS;Lisboa;Portugal;Europe;8.5;38.781311;-9.135919;
-Francisco Sá Carneiro;OPO;Porto;Portugal;Europe;9.8;41.248055;-8.681389;
-Narita;NRT;Tokyo;Japan;Asia;9.8;35.764722;140.386389;
-Henri Coanda de Bucareste;OTP;Bucharest;Romenia;Europe;7.8;44.571111;26.085;
-Kingsford Smith de Sydney;SYD;Sydney;Australia;Oceania;9.3;-33.946111;151.177222;
-Tito Minniti de Reggio di Calabria;REG;Reggio Calabria;Italy;Europe;8.4;38.071206;15.651556;
-Internacional do Recife/Guararapes Gilberto Freyre;REC;Recife;Brazil;South America;8.4;-8.126794;-34.923039;
-Internacional Comodoro Arturo Merino Benitez;SCL;Santiago de Chile;Chile;South America;8.6;-33.392975;-70.785803;
-Warsaw Chopin Airport;WAW;Warsaw;Poland;Europe;7.8;52.16575;20.967122;
-Ben Gurion;TLV;Tel Aviv;Israel;Asia;10.0;32.011389;34.886667;
-Pierre Elliott Trudeau;YUL;Montreal;Canada;North America;8.7;45.470556;-73.740833;
+Houari Boumediene;ALG;Algiers;Algeria;Africa;7.6;36.691014;3.215408
+Amsterdam Schiphol;AMS;Amsterdão;Netherland;Europe;8.1;52.7873;4.90074
+Internacional El Dorado;BOG;Bogotá;Colombia;South America;9.0;4.701594;-74.146947
+Chhatrapati Shivaji;BOM;Mumbai;India;Asia;8.4;19.088686;82.867919
+Charles de Gaulle;CDG;Paris;France;Europe;8.1;28.9189;111.64
+International Soekarno-Hatta;CGK;Jakarta;Indonesia;Asia;7.8;-3.125567;120.655897
+Kastrup;CPH;Copenhaga;Denmark;Europe;8.7;55.617917;12.655972
+Moscou Domodedovo;DME;Moscow;Russia;Asia;7.8;55.408611;37.906111
+Internacional de Dubai;DXB;Dubai;Dubai;Asia;9.4;25.252778;55.364444
+Internacional Fiumicino-Leonardo da Vinci;FCO;Roma;Italy;Europe;8.3;41.804475;12.250797
+Frankfurt;FRA;Frankfurt;Germany;Europe;9.6;50.0379326;8.5621518
+Rio Galeão;GIG;Rio de Janeiro;Brazil;South America;5.3;-22.808903;-53.243647
+Internacional John Kennedy;JFK;Nova York;US;North America;9.3;40.639751;-85.778925
+Joanesburgo;JNB;Joanesburgo;South Africa;Africa;8.0;-25.938514;27.926133
+Boryspil;KBP;Kiev;Ukraine;Europe;8.0;50.345;30.894722
+Internacional Quatro de Fevereiro;LAD;Luanda;Angola;Africa;4.3;-8.858375;13.231178
+Internacional de Los Angeles;LAX;Los Angeles;US;North America;8.6;33.942536;-118.408075
+Gatwick;LGW;Londres;UK;Europe;8.1;51.148056;-0.190278
+Internacional Jorge Chávez;LIM;Lima;Peru;South America;8.9;-12.021889;-77.114319
+Humberto Delgado;LIS;Lisboa;Portugal;Europe;8.5;38.781311;-9.135919
+Internacional Rafael Nuñez;MVD;Montevideu;Uruguai;South America;8.0;-34.838417;-68.030806
+Milão-Malpensa;MXP;Milão;Italy;Europe;8.4;45.630606;8.728111
+Narita;NRT;Tokyo;Japan;Asia;9.8;35.764722;140.386389
+Francisco Sá Carneiro;OPO;Porto;Portugal;Europe;9.8;41.248055;-8.681389
+Henri Coanda de Bucareste;OTP;Bucharest;Romenia;Europe;7.8;44.571111;26.085
+Beijing International;PEK;Beijing;China;Asia;9.8;40.080111;116.584556
+Internacional do Recife/Guararapes Gilberto Freyre;REC;Recife;Brazil;South America;8.4;-8.126794;-43.923039
+Tito Minniti de Reggio di Calabria;REG;Reggio Calabria;Italy;Europe;8.4;38.071206;15.651556
+Internacional Comodoro Arturo Merino Benitez;SCL;Santiago de Chile;Chile;South America;8.6;-33.392975;-70.785803
+Kingsford Smith de Sydney;SYD;Sydney;Australia;Oceania;9.3;-31.946111;160.177222
+Ben Gurion;TLV;Tel Aviv;Israel;Asia;10.0;32.011389;34.886667
+Warsaw Chopin Airport;WAW;Warsaw;Poland;Europe;7.8;52.16575;20.967122
+Pierre Elliott Trudeau;YUL;Montreal;Canada;North America;8.7;45.470556;-73.740833
