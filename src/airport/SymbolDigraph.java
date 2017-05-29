@@ -66,10 +66,12 @@ public class SymbolDigraph {
         while (in.hasNextLine()) {
 
             String[] a = in.readLine().split(delimiter);
-            //System.out.println(a);
+
+
             for (int i = 0; i < a.length; i++) {
-                if (!st.contains(a[i]))
+                if (!st.contains(a[i])) {
                     st.put(a[i], st.size());
+                }
             }
         }
 

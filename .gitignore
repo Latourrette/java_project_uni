@@ -234,3 +234,5 @@ src/airport/App.java
 /.idea/modules.xml
 /.idea/uiDesigner.xml
 /.idea/misc.xml
+/src/airport/Main.java
+!/src/airport/Main.java

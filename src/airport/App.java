@@ -51,12 +51,6 @@ public class App extends javax.swing.JFrame {
         jComboBoxAirplanePicker.setModel(new DefaultComboBoxModel(airplane));
         jComboBoxFlight.setModel(new DefaultComboBoxModel(flight));
 
-
-        Main.map.addGraphConnection(Main.airportST.get("OPO").getCode(), Main.airportST.get("LIS").getCode(), Main.airportST);
-        Main.map.resetMap();
-        //jLabelDraw=Main.map.view;
-
-
     }
 
     /**
@@ -146,6 +140,8 @@ public class App extends javax.swing.JFrame {
         jButtonFP = new javax.swing.JButton();
         jButtonSP = new javax.swing.JButton();
         jButtonIsConnected = new javax.swing.JButton();
+        jButtonFPmost = new javax.swing.JButton();
+        jButtonEPmost = new javax.swing.JButton();
         jPanelDraw = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -446,7 +442,11 @@ public class App extends javax.swing.JFrame {
         jButtonAddFlight.setText("Add");
         jButtonAddFlight.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAddFlightActionPerformed(evt);
+                try {
+                    jButtonAddFlightActionPerformed(evt);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -583,6 +583,20 @@ public class App extends javax.swing.JFrame {
             }
         });
 
+        jButtonFPmost.setText("Fastest Path (optimized by airplane)");
+        jButtonFPmost.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonFPmostActionPerformed(evt);
+            }
+        });
+
+        jButtonEPmost.setText("Economic Path (optimized by airplane)");
+        jButtonEPmost.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEPmostActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelConnectionsLayout = new javax.swing.GroupLayout(jPanelConnections);
         jPanelConnections.setLayout(jPanelConnectionsLayout);
         jPanelConnectionsLayout.setHorizontalGroup(
@@ -590,29 +604,37 @@ public class App extends javax.swing.JFrame {
                         .addGroup(jPanelConnectionsLayout.createSequentialGroup()
                                 .addContainerGap()
                                 .addGroup(jPanelConnectionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelConnectionsLayout.createSequentialGroup()
+                                                .addGap(0, 0, Short.MAX_VALUE)
+                                                .addGroup(jPanelConnectionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                        .addComponent(jButtonAddConnection, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
+                                                        .addComponent(jButtonIsConnected, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                         .addGroup(jPanelConnectionsLayout.createSequentialGroup()
-                                                .addGroup(jPanelConnectionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addGroup(jPanelConnectionsLayout.createSequentialGroup()
+                                                .addGroup(jPanelConnectionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                        .addComponent(jButtonSP, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(jButtonEP, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(jButtonFP, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelConnectionsLayout.createSequentialGroup()
                                                                 .addGroup(jPanelConnectionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                         .addComponent(jComboBoxAirportConnection1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                         .addComponent(jLabel15))
                                                                 .addGap(18, 18, 18)
                                                                 .addGroup(jPanelConnectionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                         .addComponent(jLabel17)
-                                                                        .addComponent(jComboBoxAirportConnection2, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                        .addComponent(jComboBoxAirportConnection2, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                                .addGroup(jPanelConnectionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addGroup(jPanelConnectionsLayout.createSequentialGroup()
                                                                 .addGap(22, 22, 22)
                                                                 .addGroup(jPanelConnectionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                         .addComponent(jLabel18)
-                                                                        .addComponent(jComboBoxAirplanePicker, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                                        .addComponent(jButtonFP, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(jButtonEP, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(jButtonSP, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGap(0, 122, Short.MAX_VALUE))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelConnectionsLayout.createSequentialGroup()
-                                                .addGap(0, 0, Short.MAX_VALUE)
-                                                .addGroup(jPanelConnectionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                        .addComponent(jButtonAddConnection, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
-                                                        .addComponent(jButtonIsConnected, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                                                        .addComponent(jComboBoxAirplanePicker, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                .addGap(0, 136, Short.MAX_VALUE))
+                                                        .addGroup(jPanelConnectionsLayout.createSequentialGroup()
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                .addComponent(jButtonFPmost, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                        .addGroup(jPanelConnectionsLayout.createSequentialGroup()
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                .addComponent(jButtonEPmost, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                                 .addContainerGap())
         );
         jPanelConnectionsLayout.setVerticalGroup(
@@ -628,13 +650,20 @@ public class App extends javax.swing.JFrame {
                                         .addComponent(jComboBoxAirportConnection1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jComboBoxAirportConnection2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jComboBoxAirplanePicker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(52, 52, 52)
-                                .addComponent(jButtonFP)
+                                .addGroup(jPanelConnectionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanelConnectionsLayout.createSequentialGroup()
+                                                .addGap(46, 46, 46)
+                                                .addComponent(jButtonFPmost))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelConnectionsLayout.createSequentialGroup()
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jButtonFP)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButtonEP)
+                                .addGroup(jPanelConnectionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jButtonEP)
+                                        .addComponent(jButtonEPmost))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButtonSP)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 128, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 141, Short.MAX_VALUE)
                                 .addComponent(jButtonIsConnected)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jButtonAddConnection)
@@ -691,6 +720,7 @@ public class App extends javax.swing.JFrame {
     private void jComboBoxAirplaneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxAirportActionPerformed
         JComboBox cb = (JComboBox) evt.getSource();
         String key = (String) cb.getSelectedItem();
+
         jTextFieldId.setText(Main.airplaneST.get(key).getId());
         jTextFieldModel.setText(Main.airplaneST.get(key).getModel());
         jTextFieldAirplaneName.setText(Main.airplaneST.get(key).getName());
@@ -888,7 +918,7 @@ public class App extends javax.swing.JFrame {
 
         if (!Main.flightST.contains(dateFormat.parse(jTextFieldDate.getText()))) {
             if (Main.airportST.contains(jTextFieldOrigin.getText()) && Main.airportST.contains(jTextFieldDestination.getText())
-                    && Main.airplaneST.contains(jTextFieldAirplaneID.getText())) {
+                    && Main.airportST.get(jTextFieldOrigin.getText()).getAirplaneST().contains(jTextFieldAirplaneID.getText())) {
 
                 Flight newF = new Flight(dateFormat.parse(jTextFieldDate.getText()),
                         jTextFieldAirplaneID.getText(), jTextFieldOrigin.getText(),
@@ -947,7 +977,7 @@ public class App extends javax.swing.JFrame {
 
         Date flightID = (Date) jComboBoxFlight.getSelectedItem();
 
-        if (Main.airportST.contains(jTextFieldOrigin.getText()) || Main.airportST.contains(jTextFieldDestination.getText())) {
+        if (Main.airportST.contains(jTextFieldOrigin.getText()) && Main.airportST.contains(jTextFieldDestination.getText())) {
             if (Main.airplaneST.contains(jTextFieldAirplaneID.getText())) {
 
                 Main.flightST.get(flightID).setAirplaneID(jTextFieldAirplaneID.getText());
@@ -1013,7 +1043,8 @@ public class App extends javax.swing.JFrame {
         if (a1.equals(a2)) {
             JOptionPane.showMessageDialog(null, "Can't do that with the same airport!" + jTextFieldCode.getText(), "Error :(", JOptionPane.ERROR_MESSAGE);
         } else {
-            JOptionPane.showMessageDialog(rootPane, Main.fastestPath(Main.sd, a1, a2, Main.map, ap), "Well done :)", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(rootPane, Main.fastestPath(Main.sd, a1, a2, ap), "Well done :)", JOptionPane.INFORMATION_MESSAGE);
+
         }
 
     }//GEN-LAST:event_jButtonFPActionPerformed
@@ -1027,7 +1058,7 @@ public class App extends javax.swing.JFrame {
         if (a1.equals(a2)) {
             JOptionPane.showMessageDialog(null, "Can't do that with the same airport!" + jTextFieldCode.getText(), "Error :(", JOptionPane.ERROR_MESSAGE);
         } else {
-            JOptionPane.showMessageDialog(rootPane, Main.economicPath(Main.sd, a1, a2, Main.map, ap), "Well done :)", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(rootPane, Main.economicPath(Main.sd, a1, a2, ap), "Well done :)", JOptionPane.INFORMATION_MESSAGE);
         }
 
     }//GEN-LAST:event_jButtonEPActionPerformed
@@ -1038,8 +1069,9 @@ public class App extends javax.swing.JFrame {
 
         if (a1.equals(a2)) {
             JOptionPane.showMessageDialog(null, "Can't do that with the same airport!" + jTextFieldCode.getText(), "Error :(", JOptionPane.ERROR_MESSAGE);
-        } else
-            JOptionPane.showMessageDialog(rootPane, Main.shortestPath(Main.sd, a1, a2, Main.map), "Well done :)", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(rootPane, Main.shortestPath(Main.sd, a1, a2), "Well done :)", JOptionPane.INFORMATION_MESSAGE);
+        }
     }//GEN-LAST:event_jButtonSPActionPerformed
 
     private void jButtonIsConnectedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIsConnectedActionPerformed
@@ -1047,6 +1079,29 @@ public class App extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(rootPane, Main.isConnected(Main.sd.digraph()), "Well done :)", JOptionPane.INFORMATION_MESSAGE);
 
     }//GEN-LAST:event_jButtonIsConnectedActionPerformed
+
+    private void jButtonFPmostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFPmostActionPerformed
+        Airport a1 = Main.airportST.get(jComboBoxAirportConnection1.getSelectedItem().toString());
+        Airport a2 = Main.airportST.get(jComboBoxAirportConnection2.getSelectedItem().toString());
+
+        if (a1.equals(a2)) {
+            JOptionPane.showMessageDialog(null, "Can't do that with the same airport!" + jTextFieldCode.getText(), "Error :(", JOptionPane.ERROR_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(rootPane, Main.fastAndFurious(Main.sd, a1, a2), "Well done :)", JOptionPane.INFORMATION_MESSAGE);
+
+        }
+    }//GEN-LAST:event_jButtonFPmostActionPerformed
+
+    private void jButtonEPmostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEPmostActionPerformed
+        Airport a1 = Main.airportST.get(jComboBoxAirportConnection1.getSelectedItem().toString());
+        Airport a2 = Main.airportST.get(jComboBoxAirportConnection2.getSelectedItem().toString());
+
+        if (a1.equals(a2)) {
+            JOptionPane.showMessageDialog(null, "Can't do that with the same airport!" + jTextFieldCode.getText(), "Error :(", JOptionPane.ERROR_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(rootPane, Main.mostEconomicPath(Main.sd, a1, a2), "Well done :)", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }//GEN-LAST:event_jButtonEPmostActionPerformed
 
 
     /**
@@ -1090,10 +1145,12 @@ public class App extends javax.swing.JFrame {
     private javax.swing.JButton jButtonAddConnection;
     private javax.swing.JButton jButtonAddFlight;
     private javax.swing.JButton jButtonEP;
+    private javax.swing.JButton jButtonEPmost;
     private javax.swing.JButton jButtonEditAirplane;
     private javax.swing.JButton jButtonEditAirport;
     private javax.swing.JButton jButtonEditFlight;
     private javax.swing.JButton jButtonFP;
+    private javax.swing.JButton jButtonFPmost;
     private javax.swing.JButton jButtonIsConnected;
     private javax.swing.JButton jButtonRemoveAirplane;
     private javax.swing.JButton jButtonRemoveAirport;

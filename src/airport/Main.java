@@ -22,8 +22,6 @@ public class Main {
 
     public static SymbolDigraph sd = new SymbolDigraph(".//data//graph.txt", ";");
 
-    public static DesignMap map = new DesignMap(100, 100);
-
 
     public static void main(String[] args) throws ParseException {
 
@@ -32,7 +30,7 @@ public class Main {
         loadFromFileAirport(airportST, "./data/airports.txt");
         loadFromFileAirplane(airportST, airplaneST, "./data/airplanes.txt");
         loadFromFileFlight(airportST, airplaneST, flightST, "./data/flights.txt");
-
+        ;
         /**
          * Parte 1
          */
@@ -82,7 +80,7 @@ public class Main {
         //economicPath(sd, "OPO", "LAD", map, returnFlightAirplane("OPO", "LAD"));
         //fastestPath(sd, "OPO", "BOG", map, returnFlightAirplane("OPO", "BOG"));
 
-        isConnected(sd.digraph());
+        //boolean a = isConnected(sd.digraph());
 
     }
 
@@ -734,7 +732,16 @@ public class Main {
     }
 
 
-    public static String fastestPath(SymbolDigraph sd, Airport airportOrigin, Airport airportDestination, DesignMap map, Airplane a) {
+    /**
+     * Computes the fastest path to a specific airplane
+     *
+     * @param sd
+     * @param airportOrigin
+     * @param airportDestination
+     * @param a
+     * @return
+     */
+    public static String fastestPath(SymbolDigraph sd, Airport airportOrigin, Airport airportDestination, Airplane a) {
 
         String result = "The fastest path is:\n";
         Double total = 0.0;
@@ -743,17 +750,22 @@ public class Main {
 
 
         DijkstraSP fastestPath = new DijkstraSP(sd.digraph(), origin, a, 1);
-        for (DirectedEdge g : fastestPath.pathTo(destination)) {
+        for (Connection c : fastestPath.pathTo(destination)) {
 
-            total = total + g.weight();
-            result = result + "\t" + sd.nameOf(g.from()) + " -> " + sd.nameOf(g.to()) + "\n";
-            map.addGraphConnection(sd.nameOf(g.from()), sd.nameOf(g.to()), airportST);
+            result = result + "\t" + sd.nameOf(c.from()) + " -> " + sd.nameOf(c.to()) + "\n";
         }
-        result = result + "The total distance, of the shortest path, from " + airportOrigin.getCode() + " to " + airportDestination.getCode() + " is " + total + " km.";
         return result;
     }
 
-    public static String shortestPath(SymbolDigraph sd, Airport airportOrigin, Airport airportDestination, DesignMap map) {
+    /**
+     * Computes the shortest path
+     *
+     * @param sd
+     * @param airportOrigin
+     * @param airportDestination
+     * @return
+     */
+    public static String shortestPath(SymbolDigraph sd, Airport airportOrigin, Airport airportDestination) {
 
         String result = "The shortest path is:\n";
         Double total = 0.0;
@@ -765,7 +777,6 @@ public class Main {
 
             total = total + g.weight();
             result = result + "\t" + sd.nameOf(g.from()) + " -> " + sd.nameOf(g.to()) + " : " + g.weight() + " km\n";
-            map.addGraphConnection(sd.nameOf(g.from()), sd.nameOf(g.to()), airportST);
 
         }
 
@@ -773,19 +784,108 @@ public class Main {
         return result;
     }
 
-    public static String economicPath(SymbolDigraph sd, Airport airportOrigin, Airport airportDestination, DesignMap map, Airplane a) {
+    /**
+     * Computes the most economic path to a specific airplane
+     *
+     * @param sd
+     * @param airportOrigin
+     * @param airportDestination
+     * @param a
+     * @return
+     */
+    public static String economicPath(SymbolDigraph sd, Airport airportOrigin, Airport airportDestination, Airplane a) {
 
         String result = "The most economic path is:\n";
+        double total = 0;
         Integer origin = sd.indexOf(airportOrigin.getCode());
         Integer destination = sd.indexOf(airportDestination.getCode());
 
         DijkstraSP economicPath = new DijkstraSP(sd.digraph(), origin, a, 3);
-        for (DirectedEdge g : economicPath.pathTo(destination)) {
+        for (Connection c : economicPath.pathTo(destination)) {
 
-            result = result + "\t" + sd.nameOf(g.from()) + " -> " + sd.nameOf(g.to()) + "\n";
-            map.addGraphConnection(sd.nameOf(g.from()), sd.nameOf(g.to()), airportST);
+            total = total + c.flightCost(a);
+
+            result = result + "\t" + sd.nameOf(c.from()) + " -> " + sd.nameOf(c.to()) + "\n";
         }
-        return result;
+        return result + " with a cost of " + total;
+    }
+
+    /**
+     * Computes the most economic path of all of the airplanes
+     *
+     * @param sd
+     * @param airportOrigin
+     * @param airportDestination
+     * @return
+     */
+    public static String mostEconomicPath(SymbolDigraph sd, Airport airportOrigin, Airport airportDestination) {
+
+        String result = "The most economic path is:\n";
+        Integer origin = sd.indexOf(airportOrigin.getCode());
+        Integer destination = sd.indexOf(airportDestination.getCode());
+        double aux;
+        double menor = 0;
+        Airplane planeAux = null;
+
+        for (String a : airplaneST.keys()) {
+            DijkstraSP economicPath = new DijkstraSP(sd.digraph(), origin, airplaneST.get(a), 3);
+            aux = 0;
+            for (Connection c : economicPath.pathTo(destination)) {
+                aux = aux + c.flightCost(airplaneST.get(a));
+            }
+            if (menor < aux) {
+                menor = aux;
+                planeAux = airplaneST.get(a);
+            } else if (menor > aux) {
+                menor = aux;
+                planeAux = airplaneST.get(a);
+            }
+        }
+        DijkstraSP economicPath = new DijkstraSP(sd.digraph(), origin, planeAux, 3);
+        for (Connection c : economicPath.pathTo(destination)) {
+
+            result = result + "\t" + sd.nameOf(c.from()) + " -> " + sd.nameOf(c.to()) + "\n";
+        }
+        return result + " with a cost of " + menor + " " + planeAux.getId();
+    }
+
+    /**
+     * Computes the fastest path of all of the airplanes
+     *
+     * @param sd
+     * @param airportOrigin
+     * @param airportDestination
+     * @return
+     */
+    public static String fastAndFurious(SymbolDigraph sd, Airport airportOrigin, Airport airportDestination) {
+
+        String result = "The fastest is:\n";
+        Integer origin = sd.indexOf(airportOrigin.getCode());
+        Integer destination = sd.indexOf(airportDestination.getCode());
+        double aux;
+        double menor = 0;
+        Airplane planeAux = null;
+
+        for (String a : airplaneST.keys()) {
+            DijkstraSP fastestPath = new DijkstraSP(sd.digraph(), origin, airplaneST.get(a), 1);
+            aux = 0;
+            for (Connection c : fastestPath.pathTo(destination)) {
+                aux = aux + c.flightDuration(airplaneST.get(a));
+            }
+            if (menor < aux) {
+                menor = aux;
+                planeAux = airplaneST.get(a);
+            } else if (menor > aux) {
+                menor = aux;
+                planeAux = airplaneST.get(a);
+            }
+        }
+        DijkstraSP fastestPath = new DijkstraSP(sd.digraph(), origin, planeAux, 1);
+        for (Connection c : fastestPath.pathTo(destination)) {
+
+            result = result + "\t" + sd.nameOf(c.from()) + " -> " + sd.nameOf(c.to()) + "\n";
+        }
+        return result + " with a duration of " + menor + " " + planeAux.getId();
     }
 
 
@@ -800,27 +900,24 @@ public class Main {
         return null;
     }
 
-    public static String isConnected(EdgeWeightedDigraph g) {
+    public static boolean isConnected(EdgeWeightedDigraph g) {
         int s = 0;
-        int flag = 0;
-        String result = "";
+        boolean flag = true;
 
-        System.out.println(g.V());
-
-        DijkstraSP sp = new DijkstraSP(g, s,null,2);
+        DijkstraSP sp = new DijkstraSP(g, s, null, 2);
 
         for (int t = 0; t < g.V(); t++) {
-           if (!sp.hasPathTo(t)) {
-                flag = 1;
+            if (!sp.hasPathTo(t)) {
+                flag = false;
             }
         }
 
-        if (flag == 0) {
-            result = "Graph is connected!";
+        if (flag) {
+            System.out.printf("Graph is connected!");
         } else {
-            result ="Graph is not connected!";
+            System.out.println("Graph is not connected!");
         }
-        return result;
+        return flag;
     }
 
 }
