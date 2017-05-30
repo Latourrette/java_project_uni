@@ -1,7 +1,8 @@
 package airport;
 
 
-import edu.princeton.cs.algs4.*;
+import edu.princeton.cs.algs4.In;
+import edu.princeton.cs.algs4.Out;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -19,7 +20,9 @@ public class Main {
     public static RedBlackBST<Date, Flight> flightST = new RedBlackBST<>();
 
     public static WeightedSymbolDigraph sd = new WeightedSymbolDigraph(".//data//graph.txt", ";");
-    public static SymbolDigraph sdNoWeight = new SymbolDigraph(".//data//graph.txt", ";");
+
+    public static SymbolDigraph sdNoWeight = new SymbolDigraph(".//data//graph.txt", ";",
+            false, null);
 
 
     public static void main(String[] args) throws ParseException {
@@ -79,11 +82,6 @@ public class Main {
         //economicPath(sd, "OPO", "LAD", map, returnFlightAirplane("OPO", "LAD"));
         //fastestPath(sd, "OPO", "BOG", map, returnFlightAirplane("OPO", "BOG"));
 
-        //boolean a = isConnected(sd.digraph());
-
-
-        System.out.println(directPath(sdNoWeight, airportST.get("OPO"), airportST.get("ALG")));
-
 
     }
 
@@ -104,8 +102,8 @@ public class Main {
                 String country = text[3];
                 String continent = text[4];
                 Float classification = Float.parseFloat(text[5]);
-                Double xAxis = Double.parseDouble(text[6]);
-                Double yAxis = Double.parseDouble(text[7]);
+                Double xAxis = Double.parseDouble(text[7]);
+                Double yAxis = Double.parseDouble(text[6]);
 
 
                 Airport a = new Airport(code, name, city, country, continent, classification, xAxis, yAxis);
@@ -744,10 +742,10 @@ public class Main {
      * @param a
      * @return
      */
-    public static String fastestPath(WeightedSymbolDigraph sd, Airport airportOrigin, Airport airportDestination, Airplane a) {
+    public static String fastestPath(WeightedSymbolDigraph sd, Airport airportOrigin, Airport airportDestination,
+                                     Airplane a, DesignMap map) {
 
         String result = "The fastest path is:\n";
-        Double total = 0.0;
         Integer origin = sd.indexOf(airportOrigin.getCode());
         Integer destination = sd.indexOf(airportDestination.getCode());
 
@@ -755,7 +753,16 @@ public class Main {
         DijkstraSP fastestPath = new DijkstraSP(sd.digraph(), origin, a, 1);
         for (Connection c : fastestPath.pathTo(destination)) {
 
-            result = result + "\t" + sd.nameOf(c.from()) + " -> " + sd.nameOf(c.to()) + "\n";
+            if (c.to() == destination) {
+                result = result + "\t" + sd.nameOf(c.from()) + " -> " + sd.nameOf(c.to()) + "\n";
+                map.addGraphConnectionB(sd.nameOf(c.from()), sd.nameOf(c.to()), airportST);
+                map.addNewAirport(airportST.get(sd.nameOf(c.to())).getxAxis(),
+                        airportST.get(sd.nameOf(c.to())).getyAxis(), sd.nameOf(c.to()));
+            } else {
+
+                result = result + "\t" + sd.nameOf(c.from()) + " -> " + sd.nameOf(c.to()) + "\n";
+                map.addGraphConnectionB(sd.nameOf(c.from()), sd.nameOf(c.to()), airportST);
+            }
         }
         return result;
     }
@@ -768,7 +775,8 @@ public class Main {
      * @param airportDestination
      * @return
      */
-    public static String shortestPath(WeightedSymbolDigraph sd, Airport airportOrigin, Airport airportDestination) {
+    public static String shortestPath(WeightedSymbolDigraph sd, Airport airportOrigin, Airport airportDestination,
+                                      DesignMap map) {
 
         String result = "The shortest path is:\n";
         Double total = 0.0;
@@ -776,11 +784,21 @@ public class Main {
         Integer destination = sd.indexOf(airportDestination.getCode());
 
         DijkstraSP shortestPath = new DijkstraSP(sd.digraph(), origin, null, 2);
-        for (DirectedEdge g : shortestPath.pathTo(destination)) {
+        for (Connection c : shortestPath.pathTo(destination)) {
 
-            total = total + g.weight();
-            result = result + "\t" + sd.nameOf(g.from()) + " -> " + sd.nameOf(g.to()) + " : " + g.weight() + " km\n";
+            if (c.to() == destination) {
+                total = total + c.weight();
+                result = result + "\t" + sd.nameOf(c.from()) + " -> " + sd.nameOf(c.to()) + " : " + c.weight() + " km\n";
+                map.addGraphConnectionB(sd.nameOf(c.from()), sd.nameOf(c.to()), airportST);
+                map.addNewAirport(airportST.get(sd.nameOf(c.to())).getxAxis(),
+                        airportST.get(sd.nameOf(c.to())).getyAxis(), sd.nameOf(c.to()));
+            } else {
 
+                total = total + c.weight();
+                result = result + "\t" + sd.nameOf(c.from()) + " -> " + sd.nameOf(c.to()) + " : " + c.weight() + " km\n";
+                map.addGraphConnectionB(sd.nameOf(c.from()), sd.nameOf(c.to()), airportST);
+
+            }
         }
 
         result = result + "The total distance, of the shortest path, from " + airportOrigin.getCode() + " to " + airportDestination.getCode() + " is " + total + " km.";
@@ -796,7 +814,8 @@ public class Main {
      * @param a
      * @return
      */
-    public static String economicPath(WeightedSymbolDigraph sd, Airport airportOrigin, Airport airportDestination, Airplane a) {
+    public static String economicPath(WeightedSymbolDigraph sd, Airport airportOrigin, Airport airportDestination,
+                                      Airplane a, DesignMap map) {
 
         String result = "The most economic path is:\n";
         double total = 0;
@@ -806,9 +825,19 @@ public class Main {
         DijkstraSP economicPath = new DijkstraSP(sd.digraph(), origin, a, 3);
         for (Connection c : economicPath.pathTo(destination)) {
 
-            total = total + c.flightCost(a);
+            if (c.to() == destination) {
+                result = result + "\t" + sd.nameOf(c.from()) + " -> " + sd.nameOf(c.to()) + "\n";
+                map.addGraphConnectionB(sd.nameOf(c.from()), sd.nameOf(c.to()), airportST);
+                map.addNewAirport(airportST.get(sd.nameOf(c.to())).getxAxis(),
+                        airportST.get(sd.nameOf(c.to())).getyAxis(), sd.nameOf(c.to()));
+            } else {
 
-            result = result + "\t" + sd.nameOf(c.from()) + " -> " + sd.nameOf(c.to()) + "\n";
+                total = total + c.flightCost(a);
+                result = result + "\t" + sd.nameOf(c.from()) + " -> " + sd.nameOf(c.to()) + "\n";
+                map.addGraphConnectionB(sd.nameOf(c.from()), sd.nameOf(c.to()), airportST);
+            }
+
+
         }
         return result + " with a cost of " + total;
     }
@@ -903,9 +932,9 @@ public class Main {
         return null;
     }
 
-    public static boolean isConnected() {
+    public static boolean isConnected(SymbolDigraph graph) {
 
-        KosarajuSharirSCC scc = new KosarajuSharirSCC(sdNoWeight.digraph());
+        KosarajuSharirSCC scc = new KosarajuSharirSCC(graph.digraph());
         System.out.println("The graph has " + scc.count() + " strongly connected components.");
 
         if (scc.count() == 1) {
@@ -915,27 +944,48 @@ public class Main {
 
     }
 
-    public static String directPath(SymbolDigraph sdDP, Airport airportOrigin, Airport airportDestination) {
+    public static String directPath(SymbolDigraph sdDP, Airport airportOrigin, Airport airportDestination, DesignMap map) {
 
         String result = "The most direct path is:\n";
         Integer origin = sdDP.indexOf(airportOrigin.getCode());
         Integer destination = sdDP.indexOf(airportDestination.getCode());
+        Integer flag = 0;
+        Integer aux = 0;
 
-        BreadthFirstDirectedPaths bfd = new BreadthFirstDirectedPaths(sdDP.digraph(), origin);
 
+        BreadthFirstDirectedPaths bfdp = new BreadthFirstDirectedPaths(sdDP.digraph(), origin);
 
-        for (int a : bfd.pathTo(destination)) {
-            //System.out.println(sd.nameOf(a));
-            if (a == destination) {
-                result = "\t" + result + sdDP.nameOf(a);
-            } else {
+        for (int a : bfdp.pathTo(destination)) {
+            if (flag == 0) {
                 result = "\t" + result + sdDP.nameOf(a) + " -> ";
+                map.addGraphConnection(airportOrigin.getCode(), sdNoWeight.nameOf(a), airportST);
+                flag = 1;
+
+            } else {
+                if (a == destination) {
+                    result = "\t" + result + sdDP.nameOf(a);
+                    map.addGraphConnectionB(sdNoWeight.nameOf(aux), sdNoWeight.nameOf(a), airportST);
+                    map.addNewAirport(airportST.get(sdNoWeight.nameOf(a)).getxAxis(),
+                            airportST.get(sdNoWeight.nameOf(a)).getyAxis(), sdNoWeight.nameOf(a));
+                } else {
+                    result = "\t" + result + sdDP.nameOf(a) + " -> ";
+                    map.addGraphConnectionB(sdNoWeight.nameOf(aux), sdNoWeight.nameOf(a), airportST);
+                }
+
             }
+
+            aux = a;
         }
 
         //System.out.println(bfd.distTo(destination));
-        result = result + "\nNumber of jumps: " + bfd.distTo(destination);
+        result = result + "\nNumber of jumps: " + bfdp.distTo(destination);
         return result;
+    }
+
+    public static SymbolDigraph createSubGraph(String continent) {
+
+        SymbolDigraph sdSub = new SymbolDigraph(".//data//graph.txt", ";", true, continent);
+        return sdSub;
     }
 
 }

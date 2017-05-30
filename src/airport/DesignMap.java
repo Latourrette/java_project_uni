@@ -45,11 +45,21 @@ public class DesignMap extends JPanel {
         g.dispose();
         view.repaint();
     }
+    public void addNewAirportB(Double x, Double y, String name) {
+
+        Graphics g = surface.getGraphics();
+        g.setColor(Color.GREEN);
+        System.out.println(longitudeToX(x) + "  " + latitudeToY(y));
+        g.fillOval(longitudeToX(x+5), latitudeToY(y-1), 4, 4);
+        g.drawOval(longitudeToX(x+5), latitudeToY(y-1), 4, 4);
+        g.dispose();
+        view.repaint();
+    }
 
     public void addNewConnection(Double x1, Double y1, Double x2, Double y2) {
         Graphics g = surface.getGraphics();
-        g.setColor(Color.ORANGE);
-        g.drawLine(longitudeToX(x1), latitudeToY(y1), longitudeToX(x2), latitudeToY(y2));
+        g.setColor(Color.RED);
+        g.drawLine(longitudeToX(x1+5), latitudeToY(y1-1), longitudeToX(x2+5), latitudeToY(y2-1));
         g.dispose();
         view.repaint();
     }
@@ -72,6 +82,13 @@ public class DesignMap extends JPanel {
     public void addGraphConnection(String airport1, String airport2, RedBlackBST<String, Airport> airportST) {
         addNewAirport(airportST.get(airport1).getxAxis(), airportST.get(airport1).getyAxis(), airportST.get(airport1).getCode());
         addNewAirport(airportST.get(airport2).getxAxis(), airportST.get(airport2).getyAxis(), airportST.get(airport1).getCode());
+        addNewConnection(airportST.get(airport1).getxAxis(), airportST.get(airport1).getyAxis(), airportST.get(airport2).getxAxis(),
+                airportST.get(airport2).getyAxis());
+    }
+
+    public void addGraphConnectionB(String airport1, String airport2, RedBlackBST<String, Airport> airportST) {
+        addNewAirport(airportST.get(airport1).getxAxis(), airportST.get(airport1).getyAxis(), airportST.get(airport1).getCode());
+        addNewAirportB(airportST.get(airport2).getxAxis(), airportST.get(airport2).getyAxis(), airportST.get(airport1).getCode());
         addNewConnection(airportST.get(airport1).getxAxis(), airportST.get(airport1).getyAxis(), airportST.get(airport2).getxAxis(),
                 airportST.get(airport2).getyAxis());
     }

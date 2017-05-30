@@ -2,7 +2,7 @@ Houari Boumediene;ALG;Algiers;Algeria;Africa;7.6;36.691014;3.215408
 Amsterdam Schiphol;AMS;Amsterdão;Netherland;Europe;8.1;52.7873;4.90074
 Internacional El Dorado;BOG;Bogotá;Colombia;South America;9.0;4.701594;-74.146947
 Chhatrapati Shivaji;BOM;Mumbai;India;Asia;8.4;19.088686;82.867919
-Charles de Gaulle;CDG;Paris;France;Europe;8.1;28.9189;111.64
+Charles de Gaulle;CDG;Paris;France;Europe;8.1;49.0097;2.5479
 International Soekarno-Hatta;CGK;Jakarta;Indonesia;Asia;7.8;-3.125567;120.655897
 Kastrup;CPH;Copenhaga;Denmark;Europe;8.7;55.617917;12.655972
 Moscou Domodedovo;DME;Moscow;Russia;Asia;7.8;55.408611;37.906111
